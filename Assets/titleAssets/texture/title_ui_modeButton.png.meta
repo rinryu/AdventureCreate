@@ -1,0 +1,170 @@
+fileFormatVersion: 2
+guid: b9dab42df0b906f44b944839b04d4974
+timeCreated: 1462204072
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: title_ui_modeButton_0
+    21300002: title_ui_modeButton_1
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: title_ui_modeButton_0
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 706
+        width: 972
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 470, y: -136}
+        - {x: 471, y: -136}
+        - {x: 475, y: -132}
+        - {x: 475, y: -131}
+        - {x: 479, y: -128}
+        - {x: 482, y: -122}
+        - {x: 484, y: -119}
+        - {x: 484, y: -117}
+        - {x: 486, y: -113}
+        - {x: 486, y: 114}
+        - {x: 484, y: 117}
+        - {x: 484, y: 119}
+        - {x: 482, y: 124}
+        - {x: 477, y: 129}
+        - {x: 477, y: 130}
+        - {x: 469, y: 138}
+        - {x: 468, y: 138}
+        - {x: 463, y: 143}
+        - {x: 456, y: 146}
+        - {x: 451, y: 147}
+        - {x: -451, y: 147}
+        - {x: -456, y: 146}
+        - {x: -461, y: 144}
+        - {x: -463, y: 142}
+        - {x: -466, y: 141}
+        - {x: -468, y: 138}
+        - {x: -469, y: 138}
+        - {x: -477, y: 130}
+        - {x: -477, y: 129}
+        - {x: -480, y: 127}
+        - {x: -482, y: 122}
+        - {x: -484, y: 119}
+        - {x: -484, y: 117}
+        - {x: -486, y: 113}
+        - {x: -486, y: -111}
+        - {x: -485, y: -116}
+        - {x: -481, y: -125}
+        - {x: -479, y: -126}
+        - {x: -479, y: -127}
+        - {x: -466, y: -140}
+        - {x: -465, y: -140}
+        - {x: -464, y: -142}
+        - {x: -455, y: -146}
+        - {x: -449, y: -147}
+        - {x: 449, y: -147}
+        - {x: 455, y: -146}
+        - {x: 464, y: -142}
+    - name: title_ui_modeButton_1
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 400
+        width: 972
+        height: 296
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 457, y: -146}
+        - {x: 464, y: -143}
+        - {x: 466, y: -141}
+        - {x: 479, y: -129}
+        - {x: 486, y: -114}
+        - {x: 486, y: 111}
+        - {x: 485, y: 116}
+        - {x: 482, y: 123}
+        - {x: 480, y: 125}
+        - {x: 478, y: 129}
+        - {x: 468, y: 138}
+        - {x: 467, y: 138}
+        - {x: 465, y: 141}
+        - {x: 454, y: 146}
+        - {x: 451, y: 146}
+        - {x: 447, y: 148}
+        - {x: -447, y: 148}
+        - {x: -451, y: 146}
+        - {x: -454, y: 146}
+        - {x: -463, y: 142}
+        - {x: -465, y: 140}
+        - {x: -469, y: 138}
+        - {x: -478, y: 128}
+        - {x: -478, y: 127}
+        - {x: -482, y: 123}
+        - {x: -484, y: 118}
+        - {x: -484, y: 116}
+        - {x: -486, y: 113}
+        - {x: -486, y: -112}
+        - {x: -485, y: -117}
+        - {x: -482, y: -124}
+        - {x: -480, y: -126}
+        - {x: -479, y: -129}
+        - {x: -467, y: -140}
+        - {x: -466, y: -140}
+        - {x: -464, y: -142}
+        - {x: -463, y: -142}
+        - {x: -459, y: -145}
+        - {x: -457, y: -145}
+        - {x: -452, y: -148}
+        - {x: 452, y: -148}
+        - {x: 455, y: -146}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

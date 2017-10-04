@@ -1,0 +1,330 @@
+fileFormatVersion: 2
+guid: 58c80bc7f232c634da240c9b83d09404
+timeCreated: 1461909177
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: editor_stageTag_1Top
+    21300002: editor_stageTag_1Under
+    21300004: editor_stageTag_2Top
+    21300006: editor_stageTag_2Under
+    21300008: editor_stageTag_3Top
+    21300010: editor_stageTag_3Under
+    21300012: editor_stageTag_4Top
+    21300014: editor_stageTag_4Under
+    21300016: editor_stageTag_5Top
+    21300018: editor_stageTag_5Under
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: editor_stageTag_1Top
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 819.2
+        width: 449
+        height: 204.79999
+      alignment: 0
+      pivot: {x: 0.5, y: 0.49999985}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 195.5, y: -55.299988}
+        - {x: 192.5, y: -44.299988}
+        - {x: 190.5, y: -35.299988}
+        - {x: 188.5, y: -27.299988}
+        - {x: 175.5, y: 23.700012}
+        - {x: 173.5, y: 32.700012}
+        - {x: 171.5, y: 40.700012}
+        - {x: 163.5, y: 71.70001}
+        - {x: 160.5, y: 74.70001}
+        - {x: -160.5, y: 74.70001}
+        - {x: -162.5, y: 73.70001}
+        - {x: -167.5, y: 58.700012}
+        - {x: -195.5, y: -58.299988}
+        - {x: -198.5, y: -70.29999}
+        - {x: -198.5, y: -74.29999}
+        - {x: -196.5, y: -75.29999}
+        - {x: 196.5, y: -75.29999}
+        - {x: 198.5, y: -73.29999}
+        - {x: 198.5, y: -68.29999}
+        - {x: 197.5, y: -63.299988}
+    - name: editor_stageTag_1Under
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 819.2
+        width: 449
+        height: 204.79999
+      alignment: 0
+      pivot: {x: 0.5, y: 0.49999985}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 175.5, y: -26.299988}
+        - {x: 163.5, y: 20.700012}
+        - {x: 161.5, y: 25.700012}
+        - {x: -160.5, y: 25.700012}
+        - {x: -162.5, y: 24.700012}
+        - {x: -165.5, y: 17.700012}
+        - {x: -180.5, y: -41.299988}
+        - {x: -186.5, y: -69.29999}
+        - {x: -186.5, y: -72.29999}
+        - {x: -184.5, y: -73.29999}
+        - {x: 183.5, y: -73.29999}
+        - {x: 185.5, y: -72.29999}
+        - {x: 185.5, y: -62.299988}
+    - name: editor_stageTag_2Top
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 615.2
+        width: 449
+        height: 204.79999
+      alignment: 0
+      pivot: {x: 0.5, y: 0.49999985}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 193.5, y: -48.299988}
+        - {x: 188.5, y: -28.299988}
+        - {x: 175.5, y: 22.700012}
+        - {x: 173.5, y: 31.700012}
+        - {x: 171.5, y: 39.700012}
+        - {x: 163.5, y: 70.70001}
+        - {x: 160.5, y: 74.70001}
+        - {x: -160.5, y: 74.70001}
+        - {x: -162.5, y: 72.70001}
+        - {x: -172.5, y: 32.700012}
+        - {x: -177.5, y: 16.700012}
+        - {x: -194.5, y: -55.299988}
+        - {x: -198.5, y: -71.29999}
+        - {x: -198.5, y: -74.29999}
+        - {x: -196.5, y: -75.29999}
+        - {x: 196.5, y: -75.29999}
+        - {x: 198.5, y: -74.29999}
+        - {x: 198.5, y: -64.29999}
+    - name: editor_stageTag_2Under
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 615.2
+        width: 449
+        height: 204.79999
+      alignment: 0
+      pivot: {x: 0.5, y: 0.49999985}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 175.5, y: -27.299988}
+        - {x: 163.5, y: 19.700012}
+        - {x: 161.5, y: 24.700012}
+        - {x: -160.5, y: 24.700012}
+        - {x: -163.5, y: 21.700012}
+        - {x: -168.5, y: 1.7000122}
+        - {x: -179.5, y: -38.299988}
+        - {x: -186.5, y: -71.29999}
+        - {x: -186.5, y: -73.29999}
+        - {x: -184.5, y: -74.29999}
+        - {x: 183.5, y: -74.29999}
+        - {x: 185.5, y: -73.29999}
+        - {x: 185.5, y: -63.299988}
+    - name: editor_stageTag_3Top
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 411.2
+        width: 449
+        height: 204.79999
+      alignment: 0
+      pivot: {x: 0.5, y: 0.49999985}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 188.5, y: -29.299988}
+        - {x: 175.5, y: 21.700012}
+        - {x: 172.5, y: 38.700012}
+        - {x: 163.5, y: 69.70001}
+        - {x: 160.5, y: 73.70001}
+        - {x: -160.5, y: 73.70001}
+        - {x: -162.5, y: 72.70001}
+        - {x: -166.5, y: 60.700012}
+        - {x: -173.5, y: 28.700012}
+        - {x: -197.5, y: -67.29999}
+        - {x: -198.5, y: -72.29999}
+        - {x: -198.5, y: -75.29999}
+        - {x: -196.5, y: -76.29999}
+        - {x: 196.5, y: -76.29999}
+        - {x: 198.5, y: -75.29999}
+        - {x: 198.5, y: -65.29999}
+    - name: editor_stageTag_3Under
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 411.2
+        width: 449
+        height: 204.79999
+      alignment: 0
+      pivot: {x: 0.5, y: 0.49999985}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 175.5, y: -28.299988}
+        - {x: 163.5, y: 18.700012}
+        - {x: 161.5, y: 23.700012}
+        - {x: -160.5, y: 23.700012}
+        - {x: -163.5, y: 20.700012}
+        - {x: -164.5, y: 16.700012}
+        - {x: -167.5, y: 9.700012}
+        - {x: -186.5, y: -68.29999}
+        - {x: -186.5, y: -74.29999}
+        - {x: -184.5, y: -75.29999}
+        - {x: 183.5, y: -75.29999}
+        - {x: 185.5, y: -74.29999}
+        - {x: 185.5, y: -64.29999}
+    - name: editor_stageTag_4Top
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 207.2
+        width: 449
+        height: 204.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.50000006}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 193.5, y: -50.300003}
+        - {x: 190.5, y: -34.300003}
+        - {x: 186.5, y: -22.300003}
+        - {x: 163.5, y: 69.7}
+        - {x: 160.5, y: 72.7}
+        - {x: -160.5, y: 72.7}
+        - {x: -162.5, y: 71.7}
+        - {x: -167.5, y: 56.699997}
+        - {x: -173.5, y: 27.699997}
+        - {x: -178.5, y: 11.699997}
+        - {x: -186.5, y: -24.300003}
+        - {x: -191.5, y: -40.300003}
+        - {x: -197.5, y: -68.3}
+        - {x: -198.5, y: -72.3}
+        - {x: -198.5, y: -76.3}
+        - {x: -196.5, y: -77.3}
+        - {x: 196.5, y: -77.3}
+        - {x: 198.5, y: -76.3}
+        - {x: 198.5, y: -66.3}
+    - name: editor_stageTag_4Under
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 207.2
+        width: 449
+        height: 204.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.50000006}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 163.5, y: 16.699997}
+        - {x: 161.5, y: 21.699997}
+        - {x: -160.5, y: 21.699997}
+        - {x: -162.5, y: 20.699997}
+        - {x: -165.5, y: 13.699997}
+        - {x: -179.5, y: -42.300003}
+        - {x: -185.5, y: -70.3}
+        - {x: -185.5, y: -74.3}
+        - {x: -183.5, y: -76.3}
+        - {x: 183.5, y: -76.3}
+        - {x: 185.5, y: -75.3}
+        - {x: 185.5, y: -66.3}
+    - name: editor_stageTag_5Top
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3.199997
+        width: 449
+        height: 204.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 186.5, y: -23.300003}
+        - {x: 163.5, y: 68.7}
+        - {x: 160.5, y: 71.7}
+        - {x: -160.5, y: 71.7}
+        - {x: -162.5, y: 69.7}
+        - {x: -164.5, y: 62.699997}
+        - {x: -186.5, y: -25.300003}
+        - {x: -191.5, y: -41.300003}
+        - {x: -195.5, y: -61.300003}
+        - {x: -198.5, y: -73.3}
+        - {x: -198.5, y: -77.3}
+        - {x: -196.5, y: -78.3}
+        - {x: 196.5, y: -78.3}
+        - {x: 198.5, y: -77.3}
+        - {x: 198.5, y: -71.3}
+        - {x: 197.5, y: -62.300003}
+    - name: editor_stageTag_5Under
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 3.199997
+        width: 449
+        height: 204.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 183.5, y: -57.300003}
+        - {x: 179.5, y: -46.300003}
+        - {x: 177.5, y: -37.300003}
+        - {x: 175.5, y: -29.300003}
+        - {x: 163.5, y: 17.699997}
+        - {x: 161.5, y: 22.699997}
+        - {x: -160.5, y: 22.699997}
+        - {x: -162.5, y: 20.699997}
+        - {x: -186.5, y: -75.3}
+        - {x: -184.5, y: -77.3}
+        - {x: 183.5, y: -77.3}
+        - {x: 185.5, y: -75.3}
+        - {x: 185.5, y: -68.3}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

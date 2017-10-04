@@ -1,0 +1,115 @@
+fileFormatVersion: 2
+guid: a75b59d356a5f4a4ebf48acd2c4ecb22
+timeCreated: 1461027501
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: editor_practicePlayButton_0
+    21300002: editor_practicePlayButton_1
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: editor_practicePlayButton_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 117
+        width: 388
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 194, y: 43.5}
+        - {x: 191, y: 50.5}
+        - {x: 186, y: 55.5}
+        - {x: 179, y: 58.5}
+        - {x: -179, y: 58.5}
+        - {x: -186, y: 55.5}
+        - {x: -191, y: 50.5}
+        - {x: -193, y: 45.5}
+        - {x: -194, y: 42.5}
+        - {x: -194, y: -43.5}
+        - {x: -191, y: -50.5}
+        - {x: -186, y: -55.5}
+        - {x: -179, y: -58.5}
+        - {x: 179, y: -58.5}
+        - {x: 186, y: -55.5}
+        - {x: 191, y: -50.5}
+        - {x: 194, y: -43.5}
+    - name: editor_practicePlayButton_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 388
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 193, y: -43.5}
+        - {x: 193, y: 43.5}
+        - {x: 192, y: 44.5}
+        - {x: 191, y: 48.5}
+        - {x: 185, y: 55.5}
+        - {x: 178, y: 58.5}
+        - {x: -179, y: 58.5}
+        - {x: -186, y: 55.5}
+        - {x: -191, y: 50.5}
+        - {x: -194, y: 43.5}
+        - {x: -194, y: -42.5}
+        - {x: -192, y: -47.5}
+        - {x: -184, y: -55.5}
+        - {x: -179, y: -57.5}
+        - {x: 179, y: -57.5}
+        - {x: 184, y: -55.5}
+        - {x: 191, y: -48.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,311 @@
+fileFormatVersion: 2
+guid: a3e590a71693838409e9a463deaa27da
+timeCreated: 1461057464
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: editor_numFont_0
+    21300002: editor_numFont_1
+    21300004: editor_numFont_2
+    21300006: editor_numFont_3
+    21300008: editor_numFont_4
+    21300010: editor_numFont_5
+    21300012: editor_numFont_6
+    21300014: editor_numFont_7
+    21300016: editor_numFont_8
+    21300018: editor_numFont_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: editor_numFont_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 103, y: 18}
+        - {x: 81, y: 73}
+        - {x: 78, y: 79}
+        - {x: 19, y: 107}
+        - {x: 3, y: 107}
+        - {x: -83, y: 73}
+        - {x: -88, y: 65}
+        - {x: -100, y: -45}
+        - {x: -100, y: -61}
+        - {x: -92, y: -70}
+        - {x: -40, y: -122}
+        - {x: -30, y: -124}
+        - {x: 20, y: -124}
+        - {x: 83, y: -93}
+        - {x: 99, y: -84}
+        - {x: 103, y: -13}
+    - name: editor_numFont_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 105}
+        - {x: -68, y: 72}
+        - {x: -68, y: 49}
+        - {x: -42, y: -5}
+        - {x: -50, y: -106}
+        - {x: -44, y: -115}
+        - {x: 57, y: -115}
+        - {x: 57, y: 100}
+        - {x: 27, y: 105}
+    - name: editor_numFont_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 101, y: 42}
+        - {x: 40, y: 102}
+        - {x: 12, y: 102}
+        - {x: -46, y: 97}
+        - {x: -99, y: 34}
+        - {x: -99, y: 19}
+        - {x: -96, y: 12}
+        - {x: -54, y: -15}
+        - {x: -89, y: -37}
+        - {x: -92, y: -43}
+        - {x: -78, y: -113}
+        - {x: 65, y: -113}
+        - {x: 95, y: -109}
+        - {x: 101, y: -106}
+    - name: editor_numFont_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 98, y: 59}
+        - {x: 50, y: 105}
+        - {x: -34, y: 105}
+        - {x: -89, y: 58}
+        - {x: -89, y: 51}
+        - {x: -88, y: 45}
+        - {x: -50, y: -7}
+        - {x: -89, y: -57}
+        - {x: -89, y: -71}
+        - {x: -88, y: -78}
+        - {x: -19, y: -120}
+        - {x: 14, y: -120}
+        - {x: 85, y: -105}
+        - {x: 99, y: -42}
+        - {x: 99, y: 51}
+    - name: editor_numFont_4
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 54, y: 56}
+        - {x: 46, y: 85}
+        - {x: -21, y: 111}
+        - {x: -39, y: 111}
+        - {x: -99, y: -12}
+        - {x: -99, y: -54}
+        - {x: -70, y: -96}
+        - {x: -29, y: -117}
+        - {x: 68, y: -117}
+        - {x: 96, y: -89}
+        - {x: 96, y: 3}
+        - {x: 61, y: 10}
+    - name: editor_numFont_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 88, y: 70}
+        - {x: 85, y: 101}
+        - {x: 80, y: 107}
+        - {x: 43, y: 107}
+        - {x: -71, y: 102}
+        - {x: -75, y: 89}
+        - {x: -83, y: -30}
+        - {x: -93, y: -57}
+        - {x: -93, y: -88}
+        - {x: -89, y: -95}
+        - {x: -2, y: -120}
+        - {x: 15, y: -120}
+        - {x: 83, y: -80}
+        - {x: 87, y: -75}
+        - {x: 88, y: -11}
+    - name: editor_numFont_6
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 62, y: 29}
+        - {x: 55, y: 66}
+        - {x: 58, y: 82}
+        - {x: -10, y: 109}
+        - {x: -30, y: 109}
+        - {x: -81, y: 15}
+        - {x: -82, y: 8}
+        - {x: -82, y: -58}
+        - {x: -81, y: -89}
+        - {x: 7, y: -122}
+        - {x: 25, y: -122}
+        - {x: 96, y: -74}
+        - {x: 96, y: -48}
+        - {x: 73, y: 24}
+    - name: editor_numFont_7
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 83, y: 103}
+        - {x: 34, y: 103}
+        - {x: -76, y: 91}
+        - {x: -77, y: 90}
+        - {x: -77, y: -8}
+        - {x: -43, y: -15}
+        - {x: -43, y: -109}
+        - {x: 22, y: -122}
+        - {x: 56, y: -122}
+        - {x: 58, y: -115}
+        - {x: 101, y: 25}
+        - {x: 101, y: 62}
+    - name: editor_numFont_8
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 86, y: 7}
+        - {x: 89, y: 56}
+        - {x: 37, y: 109}
+        - {x: 28, y: 109}
+        - {x: -38, y: 99}
+        - {x: -55, y: 94}
+        - {x: -82, y: 27}
+        - {x: -82, y: -84}
+        - {x: -27, y: -122}
+        - {x: -8, y: -122}
+        - {x: 3, y: -120}
+        - {x: 74, y: -107}
+        - {x: 99, y: -46}
+        - {x: 99, y: -28}
+    - name: editor_numFont_9
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 104}
+        - {x: -12, y: 105}
+        - {x: -25, y: 105}
+        - {x: -90, y: 59}
+        - {x: -90, y: 26}
+        - {x: -85, y: -41}
+        - {x: -54, y: -100}
+        - {x: 7, y: -124}
+        - {x: 19, y: -124}
+        - {x: 25, y: -122}
+        - {x: 83, y: -29}
+        - {x: 83, y: 52}
+        - {x: 79, y: 76}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

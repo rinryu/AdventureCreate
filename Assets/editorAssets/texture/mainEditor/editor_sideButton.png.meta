@@ -1,0 +1,180 @@
+fileFormatVersion: 2
+guid: 0445fefec7ee5b54781e36547b83f56d
+timeCreated: 1465379818
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: editor_sideButton_sound
+    21300002: editor_sideButton_parameter
+    21300004: editor_sideButton_effect
+    21300006: editor_sideButton_exit
+    21300008: editor_sideButton_play
+    21300010: editor_sideButton_5
+    21300012: editor_sideButton_push
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: editor_sideButton_sound
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 392
+        width: 115
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -57.5, y: 59}
+        - {x: -57.5, y: -59}
+        - {x: 57.5, y: -59}
+        - {x: 57.5, y: 59}
+    - name: editor_sideButton_parameter
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 392
+        width: 115
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -57.5, y: 59}
+        - {x: -57.5, y: -59}
+        - {x: 57.5, y: -59}
+        - {x: 57.5, y: 59}
+    - name: editor_sideButton_effect
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 395
+        width: 115
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -56.5, y: 58.5}
+        - {x: -57.5, y: 52.5}
+        - {x: -57.5, y: -58.5}
+        - {x: 55.5, y: -58.5}
+        - {x: 57.5, y: -55.5}
+        - {x: 57.5, y: 58.5}
+    - name: editor_sideButton_exit
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 264
+        width: 115
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -57.5, y: 57.5}
+        - {x: -57.5, y: -57.5}
+        - {x: 56.5, y: -57.5}
+        - {x: 57.5, y: -55.5}
+        - {x: 57.5, y: 53.5}
+        - {x: 53.5, y: 57.5}
+    - name: editor_sideButton_play
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 264
+        width: 115
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -57.5, y: 58.5}
+        - {x: -57.5, y: -58.5}
+        - {x: 54.5, y: -58.5}
+        - {x: 57.5, y: -52.5}
+        - {x: 57.5, y: 55.5}
+        - {x: 56.5, y: 58.5}
+    - name: editor_sideButton_5
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 267
+        width: 117
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 46.5, y: 57.5}
+        - {x: -48.5, y: 57.5}
+        - {x: -51.5, y: 55.5}
+        - {x: -58.5, y: 52.5}
+        - {x: -58.5, y: -57.5}
+        - {x: 51.5, y: -57.5}
+        - {x: 58.5, y: -47.5}
+        - {x: 58.5, y: 52.5}
+    - name: editor_sideButton_push
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 148
+        width: 116
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -58, y: 57}
+        - {x: -58, y: -57}
+        - {x: 58, y: -57}
+        - {x: 58, y: 52}
+        - {x: 53, y: 57}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

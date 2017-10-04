@@ -1,0 +1,200 @@
+fileFormatVersion: 2
+guid: 70fec675bbe48894d85dc1c5151ec3c7
+timeCreated: 1461132049
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: editor_sideCloseButton_OK
+    21300002: editor_sideCloseButton_reset
+    21300004: editor_sideCloseButton_OK_push
+    21300006: editor_sideCloseButton_resetPush
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: editor_sideCloseButton_OK
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 356
+        width: 439
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 216.5, y: -64}
+        - {x: 218.5, y: -61}
+        - {x: 219.5, y: -59}
+        - {x: 219.5, y: 58}
+        - {x: 216.5, y: 65}
+        - {x: 206.5, y: 75}
+        - {x: 199.5, y: 78}
+        - {x: -200.5, y: 78}
+        - {x: -205.5, y: 76}
+        - {x: -217.5, y: 64}
+        - {x: -219.5, y: 59}
+        - {x: -219.5, y: -59}
+        - {x: -218.5, y: -61}
+        - {x: -216.5, y: -64}
+        - {x: -214.5, y: -68}
+        - {x: -209.5, y: -72}
+        - {x: -208.5, y: -72}
+        - {x: -202.5, y: -77}
+        - {x: -200.5, y: -78}
+        - {x: 199.5, y: -78}
+        - {x: 206.5, y: -75}
+        - {x: 212.5, y: -69}
+        - {x: 212.5, y: -68}
+    - name: editor_sideCloseButton_reset
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 356
+        width: 580
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 280, y: -73}
+        - {x: 285, y: -67}
+        - {x: 285, y: -66}
+        - {x: 288, y: -64}
+        - {x: 290, y: -59}
+        - {x: 290, y: 59}
+        - {x: 288, y: 64}
+        - {x: 279, y: 73}
+        - {x: 278, y: 73}
+        - {x: 276, y: 76}
+        - {x: 271, y: 78}
+        - {x: -270, y: 78}
+        - {x: -277, y: 75}
+        - {x: -281, y: 71}
+        - {x: -283, y: 70}
+        - {x: -283, y: 68}
+        - {x: -287, y: 65}
+        - {x: -290, y: 58}
+        - {x: -290, y: -58}
+        - {x: -287, y: -65}
+        - {x: -277, y: -75}
+        - {x: -270, y: -78}
+        - {x: 269, y: -78}
+        - {x: 273, y: -77}
+        - {x: 276, y: -75}
+    - name: editor_sideCloseButton_OK_push
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 440
+        height: 157
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 213, y: -67.5}
+        - {x: 216, y: -65.5}
+        - {x: 217, y: -62.5}
+        - {x: 219, y: -59.5}
+        - {x: 219, y: -57.5}
+        - {x: 220, y: -55.5}
+        - {x: 220, y: 56.5}
+        - {x: 217, y: 63.5}
+        - {x: 214, y: 65.5}
+        - {x: 214, y: 66.5}
+        - {x: 205, y: 75.5}
+        - {x: 198, y: 78.5}
+        - {x: -199, y: 78.5}
+        - {x: -208, y: 74.5}
+        - {x: -217, y: 65.5}
+        - {x: -220, y: 58.5}
+        - {x: -220, y: -58.5}
+        - {x: -216, y: -67.5}
+        - {x: -208, y: -74.5}
+        - {x: -206, y: -76.5}
+        - {x: -201, y: -78.5}
+        - {x: 200, y: -78.5}
+        - {x: 205, y: -76.5}
+        - {x: 213, y: -68.5}
+    - name: editor_sideCloseButton_resetPush
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 192
+        width: 580
+        height: 157
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 290, y: -59.5}
+        - {x: 290, y: 58.5}
+        - {x: 287, y: 65.5}
+        - {x: 278, y: 74.5}
+        - {x: 269, y: 78.5}
+        - {x: -269, y: 78.5}
+        - {x: -276, y: 75.5}
+        - {x: -278, y: 72.5}
+        - {x: -279, y: 72.5}
+        - {x: -285, y: 66.5}
+        - {x: -285, y: 65.5}
+        - {x: -289, y: 60.5}
+        - {x: -290, y: 56.5}
+        - {x: -290, y: -58.5}
+        - {x: -287, y: -65.5}
+        - {x: -280, y: -72.5}
+        - {x: -279, y: -72.5}
+        - {x: -276, y: -76.5}
+        - {x: -271, y: -78.5}
+        - {x: 271, y: -78.5}
+        - {x: 276, y: -76.5}
+        - {x: 278, y: -74.5}
+        - {x: 287, y: -66.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

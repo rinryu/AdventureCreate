@@ -1,0 +1,244 @@
+fileFormatVersion: 2
+guid: 8eabd2b95bc22de46bf3084858eb2d39
+timeCreated: 1461146131
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: editor_itemBGM_0
+    21300002: editor_itemBGM_1
+    21300004: editor_itemBGM_2
+    21300006: editor_itemBGM_3
+    21300008: editor_itemBGM_4
+    21300010: editor_itemBGM_5
+    21300012: editor_itemBGM_6
+    21300014: editor_itemBGM_7
+    21300016: editor_itemBGM_8
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: editor_itemBGM_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 340
+        width: 157
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -65.5, y: 78}
+        - {x: -78.5, y: 68}
+        - {x: -78.5, y: -65}
+        - {x: -65.5, y: -75}
+        - {x: -61.5, y: -78}
+        - {x: 70.5, y: -78}
+        - {x: 78.5, y: -62}
+        - {x: 78.5, y: 61}
+        - {x: 69.5, y: 78}
+    - name: editor_itemBGM_1
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 340
+        width: 154
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -60, y: 78}
+        - {x: -74, y: 66}
+        - {x: -77, y: 59}
+        - {x: -77, y: -62}
+        - {x: -68, y: -78}
+        - {x: 77, y: -78}
+        - {x: 77, y: 68}
+        - {x: 61, y: 78}
+    - name: editor_itemBGM_2
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 341
+        width: 157
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -65.5, y: 77.5}
+        - {x: -78.5, y: 71.5}
+        - {x: -78.5, y: -72.5}
+        - {x: -66.5, y: -77.5}
+        - {x: 65.5, y: -77.5}
+        - {x: 77.5, y: -61.5}
+        - {x: 77.5, y: 60.5}
+        - {x: 65.5, y: 77.5}
+    - name: editor_itemBGM_3
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 179
+        width: 157
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 62.5, y: 77}
+        - {x: -62.5, y: 77}
+        - {x: -78.5, y: 62}
+        - {x: -78.5, y: -62}
+        - {x: -77.5, y: -73}
+        - {x: -64.5, y: -77}
+        - {x: 63.5, y: -77}
+        - {x: 78.5, y: -68}
+        - {x: 78.5, y: 63}
+        - {x: 75.5, y: 68}
+    - name: editor_itemBGM_4
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 179
+        width: 154
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 68, y: 77}
+        - {x: -63, y: 77}
+        - {x: -77, y: 68}
+        - {x: -77, y: -70}
+        - {x: -74, y: -77}
+        - {x: 63, y: -77}
+        - {x: 77, y: -66}
+        - {x: 77, y: 62}
+    - name: editor_itemBGM_5
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 179
+        width: 154
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -64, y: 77}
+        - {x: -77, y: 63}
+        - {x: -77, y: -60}
+        - {x: -65, y: -76}
+        - {x: -64, y: -77}
+        - {x: 69, y: -77}
+        - {x: 77, y: -62}
+        - {x: 77, y: 62}
+        - {x: 69, y: 77}
+    - name: editor_itemBGM_6
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 17
+        width: 157
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 61.5, y: 77.5}
+        - {x: -65.5, y: 77.5}
+        - {x: -78.5, y: 63.5}
+        - {x: -78.5, y: -62.5}
+        - {x: -62.5, y: -77.5}
+        - {x: 70.5, y: -77.5}
+        - {x: 78.5, y: -61.5}
+        - {x: 78.5, y: 60.5}
+        - {x: 67.5, y: 75.5}
+    - name: editor_itemBGM_7
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 18
+        width: 154
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 57, y: 77}
+        - {x: -64, y: 77}
+        - {x: -77, y: 64}
+        - {x: -77, y: -69}
+        - {x: -62, y: -77}
+        - {x: 64, y: -77}
+        - {x: 77, y: -68}
+        - {x: 77, y: 63}
+        - {x: 68, y: 73}
+    - name: editor_itemBGM_8
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 18
+        width: 154
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 63, y: 77}
+        - {x: -62, y: 77}
+        - {x: -77, y: 69}
+        - {x: -77, y: -64}
+        - {x: -64, y: -77}
+        - {x: 60, y: -77}
+        - {x: 75, y: -68}
+        - {x: 77, y: -64}
+        - {x: 77, y: 70}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
