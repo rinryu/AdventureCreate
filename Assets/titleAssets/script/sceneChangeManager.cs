@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class sceneChangeManager : MonoBehaviour {
     Animator aniCon;
     bool isRunning;
+	public static sceneChangeManager _Instance;
 	// Use this for initialization
 	void Start () {
         isRunning = false;
