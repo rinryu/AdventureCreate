@@ -37,16 +37,20 @@ public class AC_Common : MonoBehaviour {
         return bgm;
     }
 
-    public IEnumerator LoadAssetBundle(string url,string type,string name, System.Action<GameObject> callback = null)
+    public IEnumerator LoadAssetBundle(string url,Action<AssetBundle> callback)
     {
-        string path = url + "/" + type;
-        WWW www = WWW.LoadFromCacheOrDownload(path, 1);
+        //        WWW www = WWW.LoadFromCacheOrDownload(url, 1);
+        WWW www = new WWW(url);
         yield return www;
 
-        AssetBundle bundle = www.assetBundle;
-
-        callback(bundle.LoadAsset(name) as GameObject);
-
+        if (www.error != null)
+        {
+            Debug.LogError(www.error);
+        }
+        else
+        {
+            callback(www.assetBundle);
+        }
 
     }
 

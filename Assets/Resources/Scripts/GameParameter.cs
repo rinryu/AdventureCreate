@@ -90,9 +90,7 @@ public class GameParameter : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        Debug.LogError(gameScene_set);
 
-        Debug.LogError(Application.loadedLevelName);
         if(Application.loadedLevelName == "selectScene")
         {
             GameParameter.isEdit = false;
@@ -115,7 +113,6 @@ public class GameParameter : MonoBehaviour {
             SetGravity();
             SetLife();
             SetSound();
-            PrintParam();
 
         }
         else if (Application.loadedLevelName == "gameScene" || Application.loadedLevelName == "gameGlobalScene")
