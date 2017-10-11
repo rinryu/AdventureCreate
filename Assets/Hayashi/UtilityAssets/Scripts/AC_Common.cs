@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class AC_Common : MonoBehaviour {
@@ -64,4 +65,16 @@ public class AC_Common : MonoBehaviour {
         yield return new WaitForSeconds(second);
         callback();
     }
+
+	public void TakeScreenShot(int magnification,float delaySeconds){
+		StartCoroutine(CoroutineTakeScreenShot(magnification,delaySeconds));
+	}
+
+	private IEnumerator CoroutineTakeScreenShot(int magnification,float delaySeconds){
+		yield return new WaitForSeconds (delaySeconds);
+		Application.CaptureScreenshot(Application.dataPath + "/Utility/ScreenShot/" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".png", magnification);
+	}
+
+
+
 }
