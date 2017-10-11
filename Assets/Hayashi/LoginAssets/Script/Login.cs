@@ -46,6 +46,11 @@ public class Login : MonoBehaviour {
             //SE_ID[i, stageID] = -1;
         }
 
+#if UNITY_EDITOR && DEVELOP
+        StartCoroutine(LoginConnect("tester1", "tester1"));
+#endif
+
+
     }
 
     // Update is called once per frame
@@ -100,6 +105,50 @@ public class Login : MonoBehaviour {
 
         }
     }
+
+    IEnumerator LoginConnect(string in_username,string in_password)
+    {
+        string username = in_username;
+        string password = in_password;
+        WWWForm form = new WWWForm();
+        form.AddField("username", username);
+        form.AddField("password", password);
+        Dictionary<string, string> headers = form.headers;
+        byte[] data = form.data;
+        headers["Authorization"] = "Basic " + System.Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes("adventurecreate:actest"));
+
+        //      Dictionary<string, string> headers = form.headers;
+        //        headers.Add("Authorization", "Basic " + System.Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes("adventurecreate:actest")));
+#if DEVELOP
+        WWW result = new WWW(ServerSetting.DEVURL + "Login.php", data, headers);
+#else
+        WWW result = new WWW(ServerSetting.MASTERURL + "Login.php", form);
+#endif
+        yield return result;
+        if (result.error == null)
+        {
+            text.GetComponent<Text>().text = result.text;
+            if (result.text == "incorrect")
+            {
+                text.GetComponent<Text>().text = "Failue";
+            }
+            else
+            {
+                Debug.Log(result.text);
+                text.GetComponent<Text>().text = "Clear";
+                UtilityBox.username = username;
+                UtilityBox.userID = int.Parse(result.text);
+                SceneManager.LoadSceneAsync("titleScene");
+                //SceneManager.LoadScene("UserInfo",LoadSceneMode.Additive);
+            }
+        }
+        else
+        {
+            text.GetComponent<Text>().text = result.error;
+
+        }
+    }
+
 
     public void ChangeSignUp()
     {
