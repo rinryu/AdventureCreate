@@ -85,10 +85,20 @@ public class GameParameter : MonoBehaviour {
     // Use this for initialization
     void Start() {
         DontDestroyOnLoad(gameObject);
+        if (GameObject.Find("BGM"))
+        {
+            GameObject.Find("BGM").GetComponent<AudioSource>().clip = BGM;
+            GameObject.Find("BGM").GetComponent<AudioSource>().Play();
+
+        }
+
     }
 
     // Update is called once per frame
     void Update() {
+        Debug.LogError(gameScene_set);
+
+        Debug.LogError(Application.loadedLevelName);
         if(Application.loadedLevelName == "selectScene")
         {
             GameParameter.isEdit = false;
@@ -111,11 +121,11 @@ public class GameParameter : MonoBehaviour {
             SetGravity();
             SetLife();
             SetSound();
+            PrintParam();
 
         }
-        else
+        else if (Application.loadedLevelName == "gameScene" || Application.loadedLevelName == "gameGlobalScene")
         {
-            Debug.Log("aaa");
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 Chara_Move cm = GameObject.Find("player(Clone)").GetComponent<Chara_Move>();
@@ -123,14 +133,6 @@ public class GameParameter : MonoBehaviour {
                 if (!isMenu) isMenu = true;
                 else isMenu = false;
             }
-
-            if (!gameScene_set)
-            {
-                GameObject.Find("BGM").GetComponent<AudioSource>().clip = BGM;
-                GameObject.Find("BGM").GetComponent<AudioSource>().Play();
-
-            }
-            gameScene_set = true;
         }
 
         
@@ -267,7 +269,7 @@ public class GameParameter : MonoBehaviour {
     void SetSound()
     {
         //Debug.Log(editor_editManager.stageID);
-        //Debug.Log(editor_editManager.BGM_ID[0,editor_editManager.stageID]);
+        Debug.Log(editor_editManager.BGM_ID[0,editor_editManager.stageID]);
         BGM = Resources.Load<AudioClip>("Sound/BGM_" + editor_editManager.BGM_ID[0,editor_editManager.stageID].ToString());
         JumpSE = Resources.Load<AudioClip>("Sound/SE_"+ editor_editManager.SE_ID[0, editor_editManager.stageID].ToString());
         StepSE = Resources.Load<AudioClip>("Sound/SE_" + editor_editManager.SE_ID[1, editor_editManager.stageID].ToString());
@@ -409,6 +411,7 @@ public class GameParameter : MonoBehaviour {
     {
         //Debug.Log(editor_editManager.stageID);
         //Debug.Log(editor_editManager.BGM_ID[0,editor_editManager.stageID]);
+
         BGM = Resources.Load<AudioClip>("Sound/BGM_" +in_BGM.ToString());
         JumpSE = Resources.Load<AudioClip>("Sound/SE_" + in_SE[0].ToString());
         StepSE = Resources.Load<AudioClip>("Sound/SE_" + in_SE[1].ToString());
@@ -428,7 +431,7 @@ public class GameParameter : MonoBehaviour {
     public void SetParam(ParameterData in_param)
     {
         Debug.Log("SetParam");
-
+        Debug.Log(in_param.BGMID);
         SetSpeed(in_param.value[0]);
         SetJump(in_param.value[1]);
         SetLife(in_param.value[2]);

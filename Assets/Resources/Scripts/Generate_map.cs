@@ -64,6 +64,11 @@ public class Generate_map : MonoBehaviour
                     {
                         if (Map[x, y + 1, StageID] == 1 || Map[x, y + 1, StageID] == 2 || Map[x, y + 1, StageID] == 3)
                         {
+#if STANDALONE
+                            WWW www = WWW.LoadFromCacheOrDownload(Application.streamingAssetsPath + "/AssetBundle", 1);
+
+#else
+#endif
                             GameObject Chip = Instantiate(Resources.Load<GameObject>("Prefabs/Tile"), new Vector2(x * TileSize, y * TileSize), Quaternion.identity) as GameObject;
                             Chip.transform.parent = GameObject.Find("_Object").transform;
                         }
@@ -147,6 +152,13 @@ public class Generate_map : MonoBehaviour
         }
         GameParameter.DamageEffectID = editor_editManager.effectID[1, StageID];
         GameParameter.AttackEffectID = editor_editManager.effectID[2, StageID];
+        if (GameObject.Find("BGM"))
+        {
+            GameObject.Find("BGM").GetComponent<AudioSource>().clip = GameParameter.BGM;
+            GameObject.Find("BGM").GetComponent<AudioSource>().Play();
+
+        }
+
     }
 
     // Update is called once per frame
@@ -169,5 +181,6 @@ public class Generate_map : MonoBehaviour
 
 
     }
+
 
 }
