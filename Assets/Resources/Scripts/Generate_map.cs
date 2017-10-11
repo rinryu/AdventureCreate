@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Generate_map : MonoBehaviour
+public class Generate_map : AC_Common
 { 
     /*
     public int[,] Map = new int[,] {
@@ -65,12 +65,15 @@ public class Generate_map : MonoBehaviour
                         if (Map[x, y + 1, StageID] == 1 || Map[x, y + 1, StageID] == 2 || Map[x, y + 1, StageID] == 3)
                         {
 #if STANDALONE
-                            WWW www = WWW.LoadFromCacheOrDownload(Application.streamingAssetsPath + "/AssetBundle", 1);
-
+                            StartCoroutine(LoadAssetBundle(Application.streamingAssetsPath + "/AssetBundle", "gameobject", "Tile", (s) =>
+                               {
+                                   GameObject Chip = Instantiate(s, new Vector2(x * TileSize, y * TileSize), Quaternion.identity) as GameObject;
+                                   Chip.transform.parent = GameObject.Find("_Object").transform;
+                               }));
 #else
-#endif
                             GameObject Chip = Instantiate(Resources.Load<GameObject>("Prefabs/Tile"), new Vector2(x * TileSize, y * TileSize), Quaternion.identity) as GameObject;
                             Chip.transform.parent = GameObject.Find("_Object").transform;
+#endif
                         }
                         else
                         {

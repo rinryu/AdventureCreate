@@ -85,12 +85,6 @@ public class GameParameter : MonoBehaviour {
     // Use this for initialization
     void Start() {
         DontDestroyOnLoad(gameObject);
-        if (GameObject.Find("BGM"))
-        {
-            GameObject.Find("BGM").GetComponent<AudioSource>().clip = BGM;
-            GameObject.Find("BGM").GetComponent<AudioSource>().Play();
-
-        }
 
     }
 

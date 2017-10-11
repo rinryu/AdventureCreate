@@ -36,6 +36,19 @@ public class AC_Common : MonoBehaviour {
         return bgm;
     }
 
+    public IEnumerator LoadAssetBundle(string url,string type,string name, System.Action<GameObject> callback = null)
+    {
+        string path = url + "/" + type;
+        WWW www = WWW.LoadFromCacheOrDownload(path, 1);
+        yield return www;
+
+        AssetBundle bundle = www.assetBundle;
+
+        callback(bundle.LoadAsset(name) as GameObject);
+
+
+    }
+
     public IEnumerator DelayforFrame(int frame, System.Action callback)
     {
         for(int i = 0; i < frame; i++)
