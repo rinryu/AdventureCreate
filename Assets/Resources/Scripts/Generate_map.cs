@@ -60,10 +60,6 @@ public class Generate_map : AC_Common
             SetMap(s);
         }));
 
-        /*
-        Map[0, 3] = 2;
-        Map[1, 4] = 2;
-    */    
 
         GameParameter.DamageEffectID = editor_editManager.effectID[1, StageID];
         GameParameter.AttackEffectID = editor_editManager.effectID[2, StageID];
