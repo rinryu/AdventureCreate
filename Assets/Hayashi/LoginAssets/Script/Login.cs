@@ -11,8 +11,11 @@ public class Login : MonoBehaviour {
     private GameObject inputPassword;
     [SerializeField]
     private GameObject text;
+    [SerializeField]
+    private sceneChangeManager sceneManager;
 	// Use this for initialization
 	void Start () {
+        sceneManager.LoadScene();
         for (int id = 0; id < editor_editManager.editMapData.GetLength(2); id++)
         {
             for (int iy = 0; iy < editor_editManager.editMapData.GetLength(1); iy++)
@@ -95,7 +98,7 @@ public class Login : MonoBehaviour {
                 text.GetComponent<Text>().text = "Clear";
                 UtilityBox.username = username;
                 UtilityBox.userID = int.Parse(result.text);
-                SceneManager.LoadSceneAsync("titleScene");
+                sceneManager.ChangeScene("titleScene");
                 //SceneManager.LoadScene("UserInfo",LoadSceneMode.Additive);
             }
         }
@@ -138,7 +141,7 @@ public class Login : MonoBehaviour {
                 text.GetComponent<Text>().text = "Clear";
                 UtilityBox.username = username;
                 UtilityBox.userID = int.Parse(result.text);
-                SceneManager.LoadSceneAsync("titleScene");
+                sceneManager.ChangeScene("titleScene");
                 //SceneManager.LoadScene("UserInfo",LoadSceneMode.Additive);
             }
         }
@@ -152,6 +155,6 @@ public class Login : MonoBehaviour {
 
     public void ChangeSignUp()
     {
-        SceneManager.LoadScene("SignUpScene");
+        sceneManager.ChangeScene("SignUpScene");
     }
 }

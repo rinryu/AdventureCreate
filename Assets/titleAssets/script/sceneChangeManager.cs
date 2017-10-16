@@ -6,17 +6,13 @@ public class sceneChangeManager : MonoBehaviour {
     Animator aniCon;
     bool isRunning;
 	public static sceneChangeManager _Instance;
-	// Use this for initialization
-	void Start () {
+
+    public void LoadScene()
+    {
         isRunning = false;
         aniCon = GetComponent<Animator>();
         aniCon.Play("sceneGate_open");
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    }
 
     public void ChangeScene(string sceneName)
     {

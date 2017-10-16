@@ -16,13 +16,18 @@ public class SignUp : MonoBehaviour {
 
     [SerializeField]
     private GameObject message;
+
+    [SerializeField]
+    private sceneChangeManager sceneManager;
     // Use this for initialization
     void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        sceneManager = GameObject.Find("sceneChangeManager").GetComponent<sceneChangeManager>();
+        sceneManager.LoadScene();
+
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
@@ -54,7 +59,7 @@ public class SignUp : MonoBehaviour {
             message.GetComponent<Text>().text = www.text;
             if (www.text == "success")
             {
-                GameObject.Find("sceneChangeManager").GetComponent<sceneChangeManager>().ChangeScene("LoginScene");
+                sceneManager.ChangeScene("LoginScene");
             }
         }
         else

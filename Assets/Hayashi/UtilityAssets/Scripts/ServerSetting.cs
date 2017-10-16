@@ -7,4 +7,6 @@ public class ServerSetting{
     public const string BASEURL = "http://kishimotolab.org/WebGL/";
     public const string DEVURL = BASEURL + "DevDataBase/";
     public const string MASTERURL = BASEURL + "DataBase/";
+    public const string ASSETBUNDLEURL = BASEURL + "AssetBundle/";
+    
 }
