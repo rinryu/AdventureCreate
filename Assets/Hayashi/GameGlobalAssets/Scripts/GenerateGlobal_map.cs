@@ -66,10 +66,17 @@ public class GenerateGlobal_map : AC_Common
         MapSizeX = Map.GetLength(0);
         MapSizeY = Map.GetLength(1);
 
-        LoadAssetBundle("file://" + Application.streamingAssetsPath + "AssetBundle/gameobject", (s) =>
+#if STANDALONE
+        string path = "file://" + Application.streamingAssetsPath + "/AssetBundle/gameobject";
+#else
+        string path = ServerSetting.ASSETBUNDLEURL + "gameobject";
+#endif
+
+        LoadAssetBundle(path, (s) =>
          {
              SetMap(s);
          });
+        changeManager.LoadScene();
     }
 
     /// <summary>
