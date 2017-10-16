@@ -46,6 +46,8 @@ public class Generate_map : AC_Common
     bool startFlag = false;
 
     AssetBundle chipBundle;
+
+    [SerializeField] sceneChangeManager changeManager;
     // Use this for initialization
     void Start()
     {
@@ -69,6 +71,8 @@ public class Generate_map : AC_Common
             GameObject.Find("BGM").GetComponent<AudioSource>().Play();
 
         }
+
+        changeManager.LoadScene();
 
     }
 

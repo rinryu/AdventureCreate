@@ -13,10 +13,12 @@ public class StageButton_Controller : MonoBehaviour {
     public bool      isSelect    = false;
     public int       SelectID;
     [SerializeField] GameObject scrollbar;
+    [SerializeField] private sceneChangeManager changeManager;
     
     // Use this for initialization
     void Start()
     {
+        changeManager.LoadScene();
         int count = 0;
         while (true)
         {

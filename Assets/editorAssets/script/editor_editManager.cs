@@ -38,6 +38,8 @@ public class editor_editManager : MonoBehaviour {
     [SerializeField]
     public bool isDrag;
 
+    [SerializeField] sceneChangeManager changeManager;
+
     private void Awake()
     {
         //for (int id = 0; id < editMapData.GetLength(2); id++)
@@ -76,7 +78,9 @@ public class editor_editManager : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
+
         setMapChipID = 1;
+        changeManager.LoadScene();
         
             
 	}

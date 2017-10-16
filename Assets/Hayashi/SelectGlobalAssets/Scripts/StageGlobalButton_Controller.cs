@@ -15,7 +15,7 @@ public class StageGlobalButton_Controller : AC_Common {
     public bool      isSelect    = false;
     public int       SelectID;
     [SerializeField] GameObject scrollbar;
-    
+    [SerializeField] private sceneChangeManager changeManager;
     // Use this for initialization
     void Start()
     {
@@ -56,6 +56,7 @@ public class StageGlobalButton_Controller : AC_Common {
             firstScale.Add(obj.transform.localScale);
         }
         button.SetActive(false);
+        changeManager.LoadScene();
     }
 
 

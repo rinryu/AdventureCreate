@@ -46,6 +46,8 @@ public class GenerateGlobal_map : AC_Common
     /// </summary>
     bool startFlag = false;
 
+    [SerializeField] private sceneChangeManager changeManager;
+
     // Use this for initialization
     void Start()
     {
