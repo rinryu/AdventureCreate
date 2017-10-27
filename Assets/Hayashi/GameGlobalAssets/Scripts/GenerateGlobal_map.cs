@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class GenerateGlobal_map : AC_Common
-{ 
+{
     /*
     public int[,] Map = new int[,] {
                                  //    0,1,2,3,4,5,6,7,8,9,10,                                                                        48,49
@@ -33,7 +33,7 @@ public class GenerateGlobal_map : AC_Common
     /// <summary>
     /// Resource_Set
     /// </summary>
-    /// 
+    ///
 
     public AudioSource BGM;
     public AudioSource JumpSE;
@@ -72,15 +72,15 @@ public class GenerateGlobal_map : AC_Common
         string path = ServerSetting.ASSETBUNDLEURL + "gameobject";
 #endif
 
-        LoadAssetBundle(path, (s) =>
+        StartCoroutine(LoadAssetBundle(path, (s) =>
          {
              SetMap(s);
-         });
+         }));
         changeManager.LoadScene();
     }
 
     /// <summary>
-    /// マップ生成 
+    /// マップ生成
     /// </summary>
     private void SetMap(AssetBundle in_chipBundle)
     {
