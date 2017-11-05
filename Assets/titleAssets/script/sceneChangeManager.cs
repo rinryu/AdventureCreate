@@ -7,6 +7,7 @@ public class sceneChangeManager : MonoBehaviour {
     bool isRunning;
 	public static sceneChangeManager _Instance;
 
+
     public void LoadScene()
     {
         isRunning = false;
@@ -32,7 +33,14 @@ public class sceneChangeManager : MonoBehaviour {
         yield return new WaitForSeconds(0.8f);
         isRunning = false;
 
-        SceneManager.LoadSceneAsync(_sceneName);
+        AsyncOperation async = SceneManager.LoadSceneAsync(_sceneName);
+        async.allowSceneActivation = false;
+
+        while(async.progress < 0.9f)
+        {
+            Debug.Log("Scene Loading...");
+
+        }
 
 
 
