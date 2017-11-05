@@ -260,7 +260,6 @@ public class GameParameter : MonoBehaviour {
     void SetSound()
     {
         //Debug.Log(editor_editManager.stageID);
-        Debug.Log(editor_editManager.BGM_ID[0,editor_editManager.stageID]);
         BGM = Resources.Load<AudioClip>("Sound/BGM_" + editor_editManager.BGM_ID[0,editor_editManager.stageID].ToString());
         JumpSE = Resources.Load<AudioClip>("Sound/SE_"+ editor_editManager.SE_ID[0, editor_editManager.stageID].ToString());
         StepSE = Resources.Load<AudioClip>("Sound/SE_" + editor_editManager.SE_ID[1, editor_editManager.stageID].ToString());

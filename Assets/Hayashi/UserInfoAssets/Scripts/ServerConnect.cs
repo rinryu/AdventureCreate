@@ -10,9 +10,7 @@ public class ServerConnect : MonoBehaviour {
     Text username;
     // Use this for initialization
     void Start () {
-        Debug.Log(UtilityBox.username);
-
-        username.text = UtilityBox.username;
+        username.text = UserData.Instanse.username;
         
 	}
 	

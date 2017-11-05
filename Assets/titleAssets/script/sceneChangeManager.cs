@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class sceneChangeManager : MonoBehaviour {
     Animator aniCon;
     bool isRunning;
-	public static sceneChangeManager _Instance;
-
+    public Image gage;
+	
 
     public void LoadScene()
     {
@@ -38,10 +39,13 @@ public class sceneChangeManager : MonoBehaviour {
 
         while(async.progress < 0.9f)
         {
-            Debug.Log("Scene Loading...");
+            gage.fillAmount = async.progress;
+            Debug.Log("Scene Loading..." + async.progress + "%");
+            yield return new WaitForEndOfFrame();
+ 
 
         }
-
+        async.allowSceneActivation = true;
 
 
         yield return null;

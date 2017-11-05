@@ -70,43 +70,8 @@ public class Login : MonoBehaviour {
     {
         string username = inputUsername.GetComponent<InputField>().text;
         string password = inputPassword.GetComponent<InputField>().text;
-        WWWForm form = new WWWForm();
-        form.AddField("username", username);
-        form.AddField("password", password);
-        Dictionary<string, string> headers = form.headers;
-        byte[] data = form.data;
-        headers["Authorization"] = "Basic " + System.Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes("adventurecreate:actest"));
-
-        //      Dictionary<string, string> headers = form.headers;
-        //        headers.Add("Authorization", "Basic " + System.Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes("adventurecreate:actest")));
-#if DEVELOP
-        WWW result = new WWW(ServerSetting.DEVURL + "Login.php", data,headers);
-#else
-        WWW result = new WWW(ServerSetting.MASTERURL + "Login.php", form);
-#endif
-        yield return result;
-        if (result.error == null)
-        {
-            text.GetComponent<Text>().text = result.text;
-            if (result.text == "incorrect")
-            {
-                text.GetComponent<Text>().text = "Failue";
-            }
-            else 
-            {
-                Debug.Log(result.text);
-                text.GetComponent<Text>().text = "Clear";
-                UtilityBox.username = username;
-                UtilityBox.userID = int.Parse(result.text);
-                sceneManager.ChangeScene("titleScene");
-                //SceneManager.LoadScene("UserInfo",LoadSceneMode.Additive);
-            }
-        }
-        else
-        {
-            text.GetComponent<Text>().text = result.error;
-
-        }
+        StartCoroutine(LoginConnect(username, password));
+        yield return null;
     }
 
     IEnumerator LoginConnect(string in_username,string in_password)
@@ -139,8 +104,7 @@ public class Login : MonoBehaviour {
             {
                 Debug.Log(result.text);
                 text.GetComponent<Text>().text = "Clear";
-                UtilityBox.username = username;
-                UtilityBox.userID = int.Parse(result.text);
+                UserData.Instanse.SetInstanse(JsonUtility.FromJson<UserData>(result.text));
                 sceneManager.ChangeScene("titleScene");
                 //SceneManager.LoadScene("UserInfo",LoadSceneMode.Additive);
             }

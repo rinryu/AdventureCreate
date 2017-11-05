@@ -19,14 +19,15 @@ public class UserData {
 	}
 
 	public string username;
+    public int ID;
+    public string createTime;
+    public int playTime;
+    public string tag;
+
+    public void SetInstanse(UserData in_data)
+    {
+        _Instanse = in_data;
+    }
 
 
-	// Use this for initialization
-	void Start () {
-	}
-
-	// Update is called once per frame
-	void Update () {
-
-	}
 }

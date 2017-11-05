@@ -195,8 +195,8 @@ public class SaveStageData : MonoBehaviour {
         Debug.Log(editor_editManager.stageID);
         WWWForm form = new WWWForm();
         StageDataClass stage = new StageDataClass();
-        stage.user_ID = UtilityBox.userID;
-        stage.StageName = UtilityBox.username +"-"+ editor_editManager.Stagename;
+        stage.user_ID = UserData.Instanse.ID;
+        stage.StageName = UserData.Instanse.username +"-"+ editor_editManager.Stagename;
         stage.StageData = WriteStageData(editor_editManager.stageID);
         stage.Parameter = ParameterSave();       
         stage.CreateDate = DateTime.Now.ToString();
@@ -274,7 +274,7 @@ public class SaveStageData : MonoBehaviour {
     {
         Debug.Log("downloadbegin");
         WWWForm form = new WWWForm();
-        form.AddField("userID", UtilityBox.userID);
+        form.AddField("userID", UserData.Instanse.ID);
         Dictionary<string, string> headers = form.headers;
         byte[] data = form.data;
         headers["Authorization"] = "Basic " + System.Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes("adventurecreate:actest"));
