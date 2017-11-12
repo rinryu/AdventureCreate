@@ -12,6 +12,10 @@ public class StageDataClass{
     public string StageData;
     public string Parameter;
     public string CreateDate;
+    public string UpdateDate;
+    public int playCount;
+    public int clearCount;
+    public int missCount;
 
 	// Use this for initialization
 	void Start () {
