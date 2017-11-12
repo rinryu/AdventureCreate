@@ -4,7 +4,27 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using System; //Exception
+
 public class SaveStageData : MonoBehaviour {
+
+    private SaveStageData mInstance;
+    private SaveStageData()
+    {
+        Debug.Log("Create Instance");
+    }
+    public SaveStageData Instance
+    {
+        get
+        {
+            if (mInstance == null)
+            {
+                GameObject obj = new GameObject("SaveStageData");
+                mInstance = obj.AddComponent<SaveStageData>();
+            }
+            return mInstance;
+        }
+
+    }
 
     string Readdata;
     bool Load = false;
@@ -186,8 +206,8 @@ public class SaveStageData : MonoBehaviour {
 
     public void Save(string nextStage)
     {
+        Debug.Log("Save Start");
         StartCoroutine(SaveData(nextStage));
-
     }
 
     IEnumerator SaveData(string next)
