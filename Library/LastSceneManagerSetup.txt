@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Hayashi/LoginAssets/LoginScene.unity
-  isLoaded: 1
-  isActive: 1
