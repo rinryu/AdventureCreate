@@ -27,7 +27,7 @@ public class StageDataClass{
 		
 	}
 
-    public int[,] CovnertStageData()
+    public int[,] ConvnertStageData()
     {
         int[,] stagedata = new int[50, 10];
         int count = 0;
@@ -165,3 +165,11 @@ public class ParameterData
 
 
 }
+
+[Serializable]
+public class StageState
+{
+    public int playCount;
+    public int clearCount;
+    public int missCOunt;
+} 

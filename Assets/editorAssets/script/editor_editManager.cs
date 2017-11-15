@@ -106,4 +106,10 @@ public class editor_editManager : MonoBehaviour {
             isDrag = false;
         }
     }
+
+    public void OnPushPlayButton(string nextSceneName)
+    {
+        SaveStageData.Instance.Save();
+        changeManager.ChangeScene(nextSceneName);
+    }
 }

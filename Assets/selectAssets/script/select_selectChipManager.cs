@@ -17,6 +17,7 @@ public class select_selectChipManager : MonoBehaviour {
 
     void CreateMap()
     {
+        int[,] map = SaveStageData.Instance.GetStageDataFromNumber().ConvnertStageData();
         for (int y = 0; y < 10; y++)
         {
             for (int x = 0; x < 28; x++)
@@ -24,7 +25,7 @@ public class select_selectChipManager : MonoBehaviour {
                 GameObject mapChip = Instantiate(select_mapChip) as GameObject;
                 mapChip.transform.parent = this.transform;
                 mapChip.transform.localScale = Vector3.one;
-                switch (editor_editManager.editMapData[x, 9 - y, stageID])
+                switch (map[x, 9 - y])
                 {
                     case 0:
                         mapChip.GetComponent<select_chip>().SetSprite("null");
@@ -32,7 +33,7 @@ public class select_selectChipManager : MonoBehaviour {
                     case 1:
                         if (8 > y)
                         {
-                            if (editor_editManager.editMapData[x, (8 - y) + 1, stageID] != 1)
+                            if (map[x, (8 - y) + 1] != 1)
                             {
                                 mapChip.GetComponent<select_chip>().SetSprite("stageA");
                             }
@@ -81,6 +82,7 @@ public class select_selectChipManager : MonoBehaviour {
 
     IEnumerator streamingCreateMap()
     {
+        int[,] map = SaveStageData.Instance.Stage[stageID].ConvnertStageData();
         for (int y = 9; y > -1; y--)
         {
             for (int x = 0; x < 28; x++)
@@ -88,7 +90,7 @@ public class select_selectChipManager : MonoBehaviour {
                 GameObject mapChip = Instantiate(select_mapChip) as GameObject;
                 mapChip.transform.parent = this.transform;
                 mapChip.transform.localScale = Vector3.one;
-                switch (editor_editManager.editMapData[x, 9 - y, stageID])
+                switch (map[x,9-y])
                 {
                     case 0:
                         mapChip.GetComponent<select_chip>().SetSprite("null");
@@ -96,7 +98,7 @@ public class select_selectChipManager : MonoBehaviour {
                     case 1:
                         if (8 > y)
                         {
-                            if (editor_editManager.editMapData[x, (8 - y) + 1, stageID] != 1)
+                            if (map[x, (8 - y) + 1] != 1)
                             {
                                 mapChip.GetComponent<select_chip>().SetSprite("stageA");
                             }
