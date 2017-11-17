@@ -18,7 +18,7 @@ public class selectGlobal_selectChipManager : MonoBehaviour {
 
     public IEnumerator streamingCreateMap(int[,] stagedata)
     {
-        int[,] map = SaveStageData.Instance.GetStageDataFromNumber().ConvnertStageData();
+        int[,] map = SaveStageData.Instance.GetSelectStageData.ConvertStageData();
 
         for (int y = 9; y > -1; y--)
         {

@@ -26,6 +26,13 @@ public class SaveStageData : MonoBehaviour {
 
     }
 
+	public StageDataClass GetSelectStageData {
+		get {
+			return Stage [stageID];
+		}
+	}
+
+
     string Readdata;
     bool Load = false;
     [SerializeField]
@@ -132,7 +139,7 @@ public class SaveStageData : MonoBehaviour {
     {
         Debug.Log(editor_editManager.stageID);
         WWWForm form = new WWWForm();
-        string json = JsonUtility.ToJson(GetStageDataFromNumber());
+        string json = JsonUtility.ToJson(GetSelectStageData);
         Debug.Log(json);
         form.AddField("Stage", json);
         Dictionary<string, string> headers = form.headers;
@@ -193,9 +200,5 @@ public class SaveStageData : MonoBehaviour {
         //AutoLoad();
     }
 
-    public StageDataClass GetStageDataFromNumber()
-    {
-        return Stage[stageID];
-    }
 
 }

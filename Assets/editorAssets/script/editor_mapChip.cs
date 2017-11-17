@@ -15,7 +15,7 @@ public class editor_mapChip : MonoBehaviour {
         selectChipFrame = GameObject.Find("selectChipFrame");
         aniCon = GetComponent<Animator>();
         manager = GameObject.Find("EditManager").GetComponent<editor_editManager>();
-        map = SaveStageData.Instance.GetStageDataFromNumber().ConvnertStageData();
+        map = SaveStageData.Instance.GetSelectStageData.ConvertStageData();
 	}
 	
 	// Update is called once per frame

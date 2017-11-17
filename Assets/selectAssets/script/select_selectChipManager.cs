@@ -17,7 +17,7 @@ public class select_selectChipManager : MonoBehaviour {
 
     void CreateMap()
     {
-        int[,] map = SaveStageData.Instance.GetStageDataFromNumber().ConvnertStageData();
+        int[,] map = SaveStageData.Instance.GetSelectStageData.ConvertStageData();
         for (int y = 0; y < 10; y++)
         {
             for (int x = 0; x < 28; x++)
@@ -82,7 +82,7 @@ public class select_selectChipManager : MonoBehaviour {
 
     IEnumerator streamingCreateMap()
     {
-        int[,] map = SaveStageData.Instance.Stage[stageID].ConvnertStageData();
+        int[,] map = SaveStageData.Instance.Stage[stageID].ConvertStageData();
         for (int y = 9; y > -1; y--)
         {
             for (int x = 0; x < 28; x++)

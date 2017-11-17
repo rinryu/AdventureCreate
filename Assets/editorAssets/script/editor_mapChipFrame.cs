@@ -51,7 +51,7 @@ public class editor_mapChipFrame : MonoBehaviour {
     //マップを書き替える
     void UpDateMap()
     {
-        int[,] map = SaveStageData.Instance.GetStageDataFromNumber().ConvnertStageData();
+        int[,] map = SaveStageData.Instance.GetSelectStageData.ConvertStageData();
         int mapSizeX = map.GetLength(0);
         int mapSizeY = map.GetLength(1);
 

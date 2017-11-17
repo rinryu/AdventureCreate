@@ -27,7 +27,7 @@ public class StageDataClass{
 		
 	}
 
-    public int[,] ConvnertStageData()
+    public int[,] ConvertStageData()
     {
         int[,] stagedata = new int[50, 10];
         int count = 0;

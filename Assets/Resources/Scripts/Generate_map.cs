@@ -52,9 +52,10 @@ public class Generate_map : AC_Common
     void Start()
     {
         StageID = SaveStageData.Instance.stageID;
-        Debug.LogError(StageID);
-        Map = SaveStageData.Instance.Stage[StageID].ConvnertStageData();
-
+		StageDataClass stage = SaveStageData.Instance.GetSelectStageData;
+        Map = stage.ConvertStageData();
+		ParameterData param = JsonUtility.FromJson<ParameterData>(stage.ConvertParameterData());
+		GameObject.Find("GameParamater").GetComponent<GameParameter>().SetParam(param);
         MapSizeX = Map.GetLength(0);
         MapSizeY = Map.GetLength(1);
 #if STANDALONE
@@ -69,9 +70,6 @@ public class Generate_map : AC_Common
 
         }));
 
-
-        GameParameter.DamageEffectID = editor_editManager.effectID[1, StageID];
-        GameParameter.AttackEffectID = editor_editManager.effectID[2, StageID];
         if (GameObject.Find("BGM"))
         {
             GameObject.Find("BGM").GetComponent<AudioSource>().clip = GameParameter.BGM;
