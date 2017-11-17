@@ -6,40 +6,25 @@ public class GameParameter : MonoBehaviour {
     public static bool isEdit = false;
     public static bool isGlobal = false;
 
-    enum Speed
+
+    enum Parameter
     {
-        Min,
-        ThreeQuarter,
-        Normal,
-        FiveQuarter,
-        Max
+        Min = -2,
+        ThreeQuarter = -1,
+        Normal = 0,
+        FiveQuarter = 1,
+        Max = 2
     }
     [SerializeField]
-    Speed spd;
+	Parameter spd;
     public static float _SPD;
 
-    enum Jump
-    {
-        Min,
-        ThreeQuarter,
-        Normal,
-        FiveQuarter,
-        Max
-    }
-    [SerializeField]
-    Jump jmp;
+	[SerializeField]
+	Parameter jmp;
     public static float _JMP;
 
-    enum Gravity
-    {
-        Min,
-        ThreeQuarter,
-        Normal,
-        FiveQuarter,
-        Max
-    }
     [SerializeField]
-    Gravity grv;
+	Parameter grv;
     public static float _GRV;
 
     enum Life
@@ -56,6 +41,9 @@ public class GameParameter : MonoBehaviour {
     [SerializeField]
     Life life;
     public static int _LIFE;
+
+	public int Bgm_ID;
+	public int[] Se_ID;
 
     [SerializeField]
     public static AudioClip BGM;
@@ -98,6 +86,7 @@ public class GameParameter : MonoBehaviour {
         }
         if (Application.loadedLevelName == "editorScene")
         {
+			SaveStageData.Instance.gameparameter = this;
             GameParameter.isEdit = true;
             GameParameter.isGlobal = false;
         }
@@ -135,23 +124,23 @@ public class GameParameter : MonoBehaviour {
         switch (editor_editManager.value[0, editor_editManager.stageID])
         {
             case -2:
-                spd = Speed.Min;
+                spd = Parameter.Min;
                 _SPD = 0.5f;
                 break;
             case -1:
-                spd = Speed.ThreeQuarter;
+                spd = Parameter.ThreeQuarter;
                 _SPD = 0.75f;
                 break;
             case 0:
-                spd = Speed.Normal;
+                spd = Parameter.Normal;
                 _SPD = 1f;
                 break;
             case 1:
-                spd = Speed.FiveQuarter;
+                spd = Parameter.FiveQuarter;
                 _SPD = 1.25f;
                 break;
             case 2:
-                spd = Speed.Max;
+                spd = Parameter.Max;
                 _SPD = 1.5f;
                 break;
         }
@@ -163,23 +152,23 @@ public class GameParameter : MonoBehaviour {
         switch (editor_editManager.value[1, editor_editManager.stageID])
         {
             case -2:
-                jmp = Jump.Min;
+                jmp = Parameter.Min;
                 _JMP = 0.5f;
                 break;
             case -1:
-                jmp = Jump.ThreeQuarter;
+                jmp = Parameter.ThreeQuarter;
                 _JMP = 0.75f;
                 break;
             case 0:
-                jmp = Jump.Normal;
+                jmp = Parameter.Normal;
                 _JMP = 1f;
                 break;
             case 1:
-                jmp = Jump.FiveQuarter;
+                jmp = Parameter.FiveQuarter;
                 _JMP = 1.25f;
                 break;
             case 2:
-                jmp = Jump.Max;
+                jmp = Parameter.Max;
                 _JMP = 1.5f;
                 break;
         }
@@ -191,23 +180,23 @@ public class GameParameter : MonoBehaviour {
         switch (editor_editManager.value[3, editor_editManager.stageID])
         {
             case -2:
-                grv = Gravity.Min;
+                grv = Parameter.Min;
                 _GRV = 0.5f;
                 break;
             case -1:
-                grv = Gravity.ThreeQuarter;
+                grv = Parameter.ThreeQuarter;
                 _GRV = 0.25f;
                 break;
             case 0:
-                grv = Gravity.Normal;
+                grv = Parameter.Normal;
                 _GRV = 1f;
                 break;
             case 1:
-                grv = Gravity.FiveQuarter;
+                grv = Parameter.FiveQuarter;
                 _GRV = 1.25f;
                 break;
             case 2:
-                grv = Gravity.Max;
+                grv = Parameter.Max;
                 _GRV = 1.5f;
                 break;
         }
@@ -258,7 +247,7 @@ public class GameParameter : MonoBehaviour {
     }
 
     void SetSound()
-    {
+    {		
         //Debug.Log(editor_editManager.stageID);
         BGM = Resources.Load<AudioClip>("Sound/BGM_" + editor_editManager.BGM_ID[0,editor_editManager.stageID].ToString());
         JumpSE = Resources.Load<AudioClip>("Sound/SE_"+ editor_editManager.SE_ID[0, editor_editManager.stageID].ToString());
@@ -275,23 +264,23 @@ public class GameParameter : MonoBehaviour {
         switch (in_speed)
         {
             case -2:
-                spd = Speed.Min;
+                spd = Parameter.Min;
                 _SPD = 0.5f;
                 break;
             case -1:
-                spd = Speed.ThreeQuarter;
+                spd = Parameter.ThreeQuarter;
                 _SPD = 0.75f;
                 break;
             case 0:
-                spd = Speed.Normal;
+                spd = Parameter.Normal;
                 _SPD = 1f;
                 break;
             case 1:
-                spd = Speed.FiveQuarter;
+                spd = Parameter.FiveQuarter;
                 _SPD = 1.25f;
                 break;
             case 2:
-                spd = Speed.Max;
+                spd = Parameter.Max;
                 _SPD = 1.5f;
                 break;
         }
@@ -303,23 +292,23 @@ public class GameParameter : MonoBehaviour {
         switch (in_jump)
         {
             case -2:
-                jmp = Jump.Min;
+                jmp = Parameter.Min;
                 _JMP = 0.5f;
                 break;
             case -1:
-                jmp = Jump.ThreeQuarter;
+                jmp = Parameter.ThreeQuarter;
                 _JMP = 0.75f;
                 break;
             case 0:
-                jmp = Jump.Normal;
+                jmp = Parameter.Normal;
                 _JMP = 1f;
                 break;
             case 1:
-                jmp = Jump.FiveQuarter;
+                jmp = Parameter.FiveQuarter;
                 _JMP = 1.25f;
                 break;
             case 2:
-                jmp = Jump.Max;
+                jmp = Parameter.Max;
                 _JMP = 1.5f;
                 break;
         }
@@ -331,23 +320,23 @@ public class GameParameter : MonoBehaviour {
         switch (in_gravity)
         {
             case -2:
-                grv = Gravity.Min;
+                grv = Parameter.Min;
                 _GRV = 0.5f;
                 break;
             case -1:
-                grv = Gravity.ThreeQuarter;
+                grv = Parameter.ThreeQuarter;
                 _GRV = 0.25f;
                 break;
             case 0:
-                grv = Gravity.Normal;
+                grv = Parameter.Normal;
                 _GRV = 1f;
                 break;
             case 1:
-                grv = Gravity.FiveQuarter;
+                grv = Parameter.FiveQuarter;
                 _GRV = 1.25f;
                 break;
             case 2:
-                grv = Gravity.Max;
+                grv = Parameter.Max;
                 _GRV = 1.5f;
                 break;
         }
@@ -401,7 +390,8 @@ public class GameParameter : MonoBehaviour {
     {
         //Debug.Log(editor_editManager.stageID);
         //Debug.Log(editor_editManager.BGM_ID[0,editor_editManager.stageID]);
-
+		Bgm_ID = in_BGM;
+		Se_ID = in_SE;
         BGM = Resources.Load<AudioClip>("Sound/BGM_" +in_BGM.ToString());
         JumpSE = Resources.Load<AudioClip>("Sound/SE_" + in_SE[0].ToString());
         StepSE = Resources.Load<AudioClip>("Sound/SE_" + in_SE[1].ToString());
@@ -429,6 +419,22 @@ public class GameParameter : MonoBehaviour {
         SetSound(in_param.BGMID, in_param.SEID);
         SetEffect(in_param.effectID);
     }
+
+	public ParameterData SaveParam(){
+		Debug.Log ("SaveParam");
+		ParameterData param = new ParameterData();
+		param.value [0] = (int)spd;
+		param.value [1] = (int)jmp;
+		param.value [2] = (int)life;
+		param.value [3] = (int)grv;
+		param.BGMID = Bgm_ID;
+		param.SEID = Se_ID;
+		param.effectID [0] = goalEffectID;
+		param.effectID [1] = DamageEffectID;
+		param.effectID [2] = AttackEffectID;
+		return param;
+	}
+
 
     public void setEdit(bool t)
     {

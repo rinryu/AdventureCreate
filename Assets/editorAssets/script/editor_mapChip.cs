@@ -8,14 +8,12 @@ public class editor_mapChip : MonoBehaviour {
     editor_editManager manager;
 
     GameObject selectChipFrame;
-    private int[,] map;
 
 	// Use this for initialization
 	void Start () {
         selectChipFrame = GameObject.Find("selectChipFrame");
         aniCon = GetComponent<Animator>();
         manager = GameObject.Find("EditManager").GetComponent<editor_editManager>();
-        map = SaveStageData.Instance.GetSelectStageData.ConvertStageData();
 	}
 	
 	// Update is called once per frame
@@ -43,7 +41,7 @@ public class editor_mapChip : MonoBehaviour {
 
     void PushPoint()
     {
-        
+		int[,] map = SaveStageData.Instance.GetSelectStageData.ConvertStageData();
         //プレイヤをふたつもおかせねーぜ！
         if (manager.setMapChipID == 5 && map[mapX, mapY] != 4)
         {
@@ -76,8 +74,8 @@ public class editor_mapChip : MonoBehaviour {
             map[mapX, mapY] != 4)
         {
             map[mapX, mapY] = manager.setMapChipID;
-            Debug.Log("updateMap:Stage"+editor_editManager.stageID);
         }
+		SaveStageData.Instance.GetSelectStageData.ConvertStageDatatoString (map);
             
     }
 }

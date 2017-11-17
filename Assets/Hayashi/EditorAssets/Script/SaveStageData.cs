@@ -32,6 +32,9 @@ public class SaveStageData : MonoBehaviour {
 		}
 	}
 
+	public void SetSelectData(StageDataClass in_stage){
+		Stage [stageID] = in_stage;
+	}
 
     string Readdata;
     bool Load = false;
@@ -43,6 +46,8 @@ public class SaveStageData : MonoBehaviour {
     public List<StageDataClass> Stage = new List<StageDataClass>();
     public int stageID;
     bool LoadisDone = false;
+
+	public GameParameter gameparameter;
 
     public void GetStageCoroutine()
     {
@@ -139,6 +144,9 @@ public class SaveStageData : MonoBehaviour {
     {
         Debug.Log(editor_editManager.stageID);
         WWWForm form = new WWWForm();
+		StageDataClass stage = GetSelectStageData;
+		ParameterData param = gameparameter.SaveParam ();
+		stage.Parameter = JsonUtility.ToJson (param);
         string json = JsonUtility.ToJson(GetSelectStageData);
         Debug.Log(json);
         form.AddField("Stage", json);

@@ -27,6 +27,17 @@ public class StageDataClass{
 		
 	}
 
+	public void ConvertStageDatatoString(int[,] map){
+		string data = string.Empty;
+		for (int x = 0; x < map.GetLength (0); x++) {
+			for (int y = 0; y < map.GetLength (1); y++) {				
+				data += map [x, y].ToString();
+			}
+		}
+		Debug.Log("StageData:" + data);
+		StageData = data;
+	}
+
     public int[,] ConvertStageData()
     {
         int[,] stagedata = new int[50, 10];
