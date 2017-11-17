@@ -231,7 +231,7 @@ public class SaveStageData : MonoBehaviour {
 #if DEVELOP
         WWW www = new WWW(ServerSetting.DEVURL + "SaveStage.php", data,headers);
 #else
-        WWW www = new WWW(ServerSetting.MASTER + "SaveStage.php", data,headers);
+        WWW www = new WWW(ServerSetting.MASTERURL + "SaveStage.php", data,headers);
 #endif
         yield return www;
         if (!string.IsNullOrEmpty(www.error))
@@ -301,7 +301,7 @@ public class SaveStageData : MonoBehaviour {
 #if DEVELOP
         WWW www = new WWW(ServerSetting.DEVURL + "GetStage.php", data,headers);
 #else
-        WWW www = new WWW(ServerSetting.MATERURL + "GetStage.php", form);
+        WWW www = new WWW(ServerSetting.MASTERURL + "GetStage.php", form);
 #endif
         while (!www.isDone)
         {

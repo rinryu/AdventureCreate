@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{5F9027D0-3F82-CD27-4639-A7DAEC11B22D}</ProjectGuid>
+    <ProjectGuid>{86489004-9A83-E913-A03D-5C927FDE3DFE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_2;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_2;UNITY_5_5;UNITY_5;UNITY_64;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_STANDALONE_OSX;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_GAMECENTER;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_VIDEO;ENABLE_VR;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;UNITY_TEAM_LICENSE;DEVELOP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -36,17 +36,41 @@
     <Reference Include="System" />
     <Reference Include="System.XML" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>/Applications/Unity/Unity5.5.2/Unity.app/Contents/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>/Applications/Unity/Unity5.5.2/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Hayashi\EditorAssets\Script\SaveStageData.cs" />
+     <Compile Include="Assets\Hayashi\GameGlobalAssets\Scripts\GenerateGlobal_map.cs" />
+     <Compile Include="Assets\Hayashi\LoginAssets\Script\Login.cs" />
+     <Compile Include="Assets\Hayashi\SelectAssets\Scripts\BackButtonCLick.cs" />
+     <Compile Include="Assets\Hayashi\SelectAssets\Scripts\StageButton_Controller.cs" />
+     <Compile Include="Assets\Hayashi\SelectGlobalAssets\Scripts\BackButtonCLickGlobal.cs" />
+     <Compile Include="Assets\Hayashi\SelectGlobalAssets\Scripts\GetAllStageData.cs" />
+     <Compile Include="Assets\Hayashi\SelectGlobalAssets\Scripts\StageGlobalButton_Controller.cs" />
+     <Compile Include="Assets\Hayashi\SelectGlobalAssets\Scripts\StageSelectButton.cs" />
+     <Compile Include="Assets\Hayashi\SelectGlobalAssets\Scripts\selectGlobal_selectChipManager.cs" />
+     <Compile Include="Assets\Hayashi\SignUPAssets\Scripts\SignUp.cs" />
+     <Compile Include="Assets\Hayashi\TitleAssets\Script\TitleManager.cs" />
+     <Compile Include="Assets\Hayashi\UserInfoAssets\Scripts\ServerConnect.cs" />
+     <Compile Include="Assets\Hayashi\UtilityAssets\Scripts\AC_Common.cs" />
+     <Compile Include="Assets\Hayashi\UtilityAssets\Scripts\GameSetting.cs" />
+     <Compile Include="Assets\Hayashi\UtilityAssets\Scripts\LoadScene.cs" />
+     <Compile Include="Assets\Hayashi\UtilityAssets\Scripts\ServerSetting.cs" />
+     <Compile Include="Assets\Hayashi\UtilityAssets\Scripts\StageDataClass.cs" />
+     <Compile Include="Assets\Hayashi\UtilityAssets\Scripts\UserData.cs" />
+     <Compile Include="Assets\Hayashi\UtilityAssets\Scripts\UtilityBox.cs" />
      <Compile Include="Assets\Model\spring\springAssets\springManager.cs" />
+     <Compile Include="Assets\NewBehaviourScript.cs" />
      <Compile Include="Assets\Resources\Scripts\Chara_Move.cs" />
+     <Compile Include="Assets\Resources\Scripts\Credits.cs" />
+     <Compile Include="Assets\Resources\Scripts\Cursor_on.cs" />
      <Compile Include="Assets\Resources\Scripts\FollowCamera.cs" />
      <Compile Include="Assets\Resources\Scripts\GameParamater_finder.cs" />
      <Compile Include="Assets\Resources\Scripts\GameParameter.cs" />
@@ -57,6 +81,10 @@
      <Compile Include="Assets\Resources\Scripts\Title_to_edit.cs" />
      <Compile Include="Assets\Resources\Scripts\enemy.cs" />
      <Compile Include="Assets\Resources\Scripts\enemy_attachment.cs" />
+     <Compile Include="Assets\Resources\Scripts\sc.cs" />
+     <Compile Include="Assets\Utility\Scripts\SceneChangeManager.cs" />
+     <Compile Include="Assets\Utility\Scripts\Screenshot.cs" />
+     <Compile Include="Assets\Utility\Scripts\delayExecute.cs" />
      <Compile Include="Assets\damageEffect\damageEffectAssets\damageEffect.cs" />
      <Compile Include="Assets\editorAssets\script\editor_chipButton.cs" />
      <Compile Include="Assets\editorAssets\script\editor_editManager.cs" />
@@ -76,12 +104,14 @@
      <Compile Include="Assets\editorAssets\script\editor_soundManager.cs" />
      <Compile Include="Assets\editorAssets\script\editor_stageTag.cs" />
      <Compile Include="Assets\editorAssets\script\editor_uGUIbutton.cs" />
+     <Compile Include="Assets\flower\flowerAssets\flower.cs" />
      <Compile Include="Assets\goalEffect\goalEffect_assets\goalEffect_fireWork.cs" />
      <Compile Include="Assets\goalEffect\goalEffect_assets\goalEffect_originLine.cs" />
      <Compile Include="Assets\goalEffect\goalEffect_assets\goalUI.cs" />
      <Compile Include="Assets\howTo\howToPlay_assets\howToPlay.cs" />
      <Compile Include="Assets\life\life_assets\lifeManager.cs" />
      <Compile Include="Assets\missEffect\missEffect_assets\missEffect.cs" />
+     <Compile Include="Assets\monsterB\assets\enemyB.cs" />
      <Compile Include="Assets\playerAsset\player_eyeManager.cs" />
      <Compile Include="Assets\selectAssets\script\selectBackButton.cs" />
      <Compile Include="Assets\selectAssets\script\select_chip.cs" />
@@ -91,22 +121,34 @@
      <Compile Include="Assets\titleAssets\script\audio_button.cs" />
      <Compile Include="Assets\titleAssets\script\sceneChangeManager.cs" />
      <Compile Include="Assets\titleAssets\titlePlayerAsset\player_eyeManager_title.cs" />
-     <None Include="Assets\ParameterData5.txt" />
-     <None Include="Assets\ParameterData1.txt" />
-     <None Include="Assets\StageData1.txt" />
-     <None Include="Assets\StageData2.txt" />
-     <None Include="Assets\Parameter.txt" />
-     <None Include="Assets\StageData3.txt" />
-     <None Include="Assets\StageData5.txt" />
-     <None Include="Assets\StageData4.txt" />
-     <None Include="Assets\ParameterData3.txt" />
-     <None Include="Assets\ParameterData4.txt" />
-     <None Include="Assets\ParameterData2.txt" />
- <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+     <None Include="Assets\StreamingAssets\ParameterData5.txt" />
+     <None Include="Assets\StreamingAssets\ParameterData1.txt" />
+     <None Include="Assets\StreamingAssets\StageData1.txt" />
+     <None Include="Assets\StreamingAssets\StageData2.txt" />
+     <None Include="Assets\StreamingAssets\Parameter.txt" />
+     <None Include="Assets\StreamingAssets\StageData3.txt" />
+     <None Include="Assets\StreamingAssets\StageData5.txt" />
+     <None Include="Assets\StreamingAssets\StageData4.txt" />
+     <None Include="Assets\StreamingAssets\ParameterData3.txt" />
+     <None Include="Assets\StreamingAssets\ParameterData4.txt" />
+     <None Include="Assets\StreamingAssets\ParameterData2.txt" />
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>/Applications/Unity/Unity5.5.2/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.PlaymodeTestsRunner">
+ <HintPath>/Applications/Unity/Unity5.5.2/Unity.app/Contents/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>/Applications/Unity/Unity5.5.2/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>/Applications/Unity/Unity5.5.2/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.HoloLens">
+ <HintPath>/Applications/Unity/Unity5.5.2/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.VR">
+ <HintPath>/Applications/Unity/Unity5.5.2/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
