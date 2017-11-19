@@ -3,35 +3,35 @@ using System.Collections;
 
 public class editor_editManager : MonoBehaviour {
 
-    public static int[,,] editMapData = new int[50, 10, 5];
+//    public static int[,,] editMapData = new int[50, 10, 5];
     public static int stageID = 0;
     public static string Stagename;
-    public static int[,] BGM_ID = new int[5, 5]
-    {
-        {-1,-1,-1,-1,-1},
-        {-1,-1,-1,-1,-1},
-        {-1,-1,-1,-1,-1},
-        {-1,-1,-1,-1,-1},
-        {-1,-1,-1,-1,-1}
-    };
-    public static int[,] SE_ID = new int[6, 5]
-    {
-        {-1,-1,-1,-1,-1},
-        {-1,-1,-1,-1,-1},
-        {-1,-1,-1,-1,-1},
-        {-1,-1,-1,-1,-1},
-        {-1,-1,-1,-1,-1},
-        {-1,-1,-1,-1,-1}
-    };
-    public static int[,] value = new int[10, 5];
-    public static int[,] effectID = new int[5, 5]
-    {
-        {-1,-1,-1,-1,-1},
-        {-1,-1,-1,-1,-1},
-        {-1,-1,-1,-1,-1},
-        {-1,-1,-1,-1,-1},
-        {-1,-1,-1,-1,-1}
-    };
+//    public static int[,] BGM_ID = new int[5, 5]
+//    {
+//        {-1,-1,-1,-1,-1},
+//        {-1,-1,-1,-1,-1},
+//        {-1,-1,-1,-1,-1},
+//        {-1,-1,-1,-1,-1},
+//        {-1,-1,-1,-1,-1}
+//    };
+//    public static int[,] SE_ID = new int[6, 5]
+//    {
+//        {-1,-1,-1,-1,-1},
+//        {-1,-1,-1,-1,-1},
+//        {-1,-1,-1,-1,-1},
+//        {-1,-1,-1,-1,-1},
+//        {-1,-1,-1,-1,-1},
+//        {-1,-1,-1,-1,-1}
+//    };
+//    public static int[,] value = new int[10, 5];
+//    public static int[,] effectID = new int[5, 5]
+//    {
+//        {-1,-1,-1,-1,-1},
+//        {-1,-1,-1,-1,-1},
+//        {-1,-1,-1,-1,-1},
+//        {-1,-1,-1,-1,-1},
+//        {-1,-1,-1,-1,-1}
+//    };
 
     [SerializeField]
     public int setMapChipID;

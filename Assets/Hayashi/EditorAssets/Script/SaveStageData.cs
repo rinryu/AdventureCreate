@@ -10,7 +10,7 @@ public class SaveStageData : MonoBehaviour {
     private static SaveStageData mInstance;
     private SaveStageData()
     {
-        Debug.Log("Create Instance");
+        Debug.Log("Create Instance SaveStageData");
     }
     public static SaveStageData Instance
     {
@@ -25,7 +25,7 @@ public class SaveStageData : MonoBehaviour {
         }
 
     }
-
+	[SerializeField]
 	public StageDataClass GetSelectStageData {
 		get {
 			return Stage [stageID];
@@ -52,7 +52,6 @@ public class SaveStageData : MonoBehaviour {
     public void GetStageCoroutine()
     {
         StartCoroutine(GetStage());
-        if (stagename != null) stagename.text = editor_editManager.Stagename;
     }
 
     public void Awake()
@@ -85,45 +84,45 @@ public class SaveStageData : MonoBehaviour {
         Readdata = Stage[stage].StageData;
     }
 
-    public void ParameterLoad()
-    {
-        Debug.Log("parameterLoad");
-        for (int p = 0; p < Stage.Count; p++) //p=stageの数
-        {
-            List<string> para = new List<string>();
-            para.AddRange(Stage[p].Parameter.Split('\n'));
-            para.RemoveAll(s => s == "");
-
-            int count = 0;
-
-
-            for (int i = 0; i < editor_editManager.value.GetLength(0); i++)
-            {
-                Debug.Log(Int32.Parse(para[count]));
-                editor_editManager.value[i, p] = Int32.Parse(para[count]);
-                count++;
-            }
-
-            editor_editManager.BGM_ID[0, p] = Int32.Parse(para[count]);
-            count++;
-
-            for (int i = 0; i < editor_editManager.SE_ID.GetLength(0); i++)
-            {
-                editor_editManager.SE_ID[i, p] = Int32.Parse(para[count]);
-                count++;
-            }
-
-            editor_editManager.effectID[0, p] = Int32.Parse(para[count]);
-            count++;
-
-            editor_editManager.effectID[1, p] = Int32.Parse(para[count]);
-            count++;
-
-            editor_editManager.effectID[2, p] = Int32.Parse(para[count]);
-            count++;
-
-        }
-    }
+//    public void ParameterLoad()
+//    {
+//        Debug.Log("parameterLoad");
+//        for (int p = 0; p < Stage.Count; p++) //p=stageの数
+//        {
+//            List<string> para = new List<string>();
+//            para.AddRange(Stage[p].Parameter.Split('\n'));
+//            para.RemoveAll(s => s == "");
+//
+//            int count = 0;
+//
+//
+//            for (int i = 0; i < editor_editManager.value.GetLength(0); i++)
+//            {
+//                Debug.Log(Int32.Parse(para[count]));
+//                editor_editManager.value[i, p] = Int32.Parse(para[count]);
+//                count++;
+//            }
+//
+//            editor_editManager.BGM_ID[0, p] = Int32.Parse(para[count]);
+//            count++;
+//
+//            for (int i = 0; i < editor_editManager.SE_ID.GetLength(0); i++)
+//            {
+//                editor_editManager.SE_ID[i, p] = Int32.Parse(para[count]);
+//                count++;
+//            }
+//
+//            editor_editManager.effectID[0, p] = Int32.Parse(para[count]);
+//            count++;
+//
+//            editor_editManager.effectID[1, p] = Int32.Parse(para[count]);
+//            count++;
+//
+//            editor_editManager.effectID[2, p] = Int32.Parse(para[count]);
+//            count++;
+//
+//        }
+//    }
 
 
     private string SplitString(string str, char ch)
@@ -142,12 +141,13 @@ public class SaveStageData : MonoBehaviour {
 
     IEnumerator SaveData()
     {
-        Debug.Log(editor_editManager.stageID);
+//        Debug.Log(editor_editManager.stageID);
         WWWForm form = new WWWForm();
 		StageDataClass stage = GetSelectStageData;
-		ParameterData param = gameparameter.SaveParam ();
-		stage.Parameter = JsonUtility.ToJson (param);
-        string json = JsonUtility.ToJson(GetSelectStageData);
+//		ParameterData param = gameparameter.SaveParam ();
+//		stage.Parameter = param;
+		stage.UpdateDate = DateTime.Now.ToString();
+        string json = JsonUtility.ToJson(stage);
         Debug.Log(json);
         form.AddField("Stage", json);
         Dictionary<string, string> headers = form.headers;

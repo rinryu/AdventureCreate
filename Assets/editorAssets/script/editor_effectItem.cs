@@ -46,7 +46,8 @@ public class editor_effectItem : MonoBehaviour {
                 _moedID = 2;
                 break;
         }
-        ID = editor_editManager.effectID[_moedID, editor_editManager.stageID];
+//        ID = editor_editManager.effectID[_moedID, editor_editManager.stageID];
+		ID = SaveStageData.Instance.GetSelectStageData.Parameter.effectID[_moedID];
     }
 	
 	// Update is called once per frame
@@ -106,7 +107,9 @@ public class editor_effectItem : MonoBehaviour {
                 _ID = 2;
                 break;
         }
-        editor_editManager.effectID[_ID, editor_editManager.stageID] = ID;
+//        editor_editManager.effectID[_ID, editor_editManager.stageID] = ID;
+		SaveStageData.Instance.GetSelectStageData.Parameter.effectID[_ID] = ID;
+
     }
 
     public void Reset()

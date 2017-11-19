@@ -54,8 +54,8 @@ public class Generate_map : AC_Common
         StageID = SaveStageData.Instance.stageID;
 		StageDataClass stage = SaveStageData.Instance.GetSelectStageData;
         Map = stage.ConvertStageData();
-		ParameterData param = JsonUtility.FromJson<ParameterData>(stage.ConvertParameterData());
-		GameObject.Find("GameParamater").GetComponent<GameParameter>().SetParam(param);
+		ParameterData param = SaveStageData.Instance.GetSelectStageData.Parameter;
+		GameParameter.instance.SetParam(param);
         MapSizeX = Map.GetLength(0);
         MapSizeY = Map.GetLength(1);
 #if STANDALONE
@@ -72,7 +72,7 @@ public class Generate_map : AC_Common
 
         if (GameObject.Find("BGM"))
         {
-            GameObject.Find("BGM").GetComponent<AudioSource>().clip = GameParameter.BGM;
+            GameObject.Find("BGM").GetComponent<AudioSource>().clip = GameParameter.instance.BGM;
             GameObject.Find("BGM").GetComponent<AudioSource>().Play();
 
         }
@@ -124,8 +124,6 @@ public class Generate_map : AC_Common
                 {
                     GameObject Chip = Instantiate(Resources.Load<GameObject>("Goal"), new Vector2(x * TileSize, y * TileSize), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Goal").transform;
-                    GameParameter.goalEffectID = editor_editManager.effectID[0, StageID];
-
                 }
                 if (Map[x, y] == 5)//chara
                 {
@@ -222,7 +220,6 @@ public class Generate_map : AC_Common
                 {
                     GameObject Chip = Instantiate(in_chipBundle.LoadAsset<GameObject>("Goal"), new Vector2(x * TileSize, y * TileSize), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Goal").transform;
-                    GameParameter.goalEffectID = editor_editManager.effectID[0, StageID];
 
                 }
                 if (Map[x, y] == 5)//chara

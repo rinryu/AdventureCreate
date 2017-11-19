@@ -10,7 +10,7 @@ public class StageDataClass{
     public int  user_ID;
     public string StageName;
     public string StageData;
-    public string Parameter;
+	public ParameterData Parameter;
     public string CreateDate;
     public string UpdateDate;
     public int playCount;
@@ -86,42 +86,42 @@ public class StageDataClass{
 
     }
 
-    public string ConvertParameterData()
-    {
-        Debug.Log(Parameter);
-        ParameterData param = new ParameterData();
-        List<string> para = new List<string>();
-        para.AddRange(Parameter.Split('\n'));
-        para.RemoveAll(s => s == "");
-
-        int count = 0;
-
-
-        for (int i = 0; i < editor_editManager.value.GetLength(0); i++)
-        {
-            Debug.Log(Int32.Parse(para[count]));
-            param.value[i] = Int32.Parse(para[count]);
-            count++;
-        }
-
-        param.BGMID = Int32.Parse(para[count]);
-        count++;
-
-        for (int i = 0; i < editor_editManager.SE_ID.GetLength(0); i++)
-        {
-            param.SEID[i] = Int32.Parse(para[count]);
-            count++;
-        }
-
-        param.effectID[0] = Int32.Parse(para[count]);
-        count++;
-
-        param.effectID[1] = Int32.Parse(para[count]);
-        count++;
-
-        param.effectID[2] = Int32.Parse(para[count]);
-        return JsonUtility.ToJson(param);
-    }
+//    public string ConvertParameterData()
+//    {
+//        Debug.Log(Parameter);
+//        ParameterData param = new ParameterData();
+//        List<string> para = new List<string>();
+//        para.AddRange(Parameter.Split('\n'));
+//        para.RemoveAll(s => s == "");
+//
+//        int count = 0;
+//
+//
+//        for (int i = 0; i < editor_editManager.value.GetLength(0); i++)
+//        {
+//            Debug.Log(Int32.Parse(para[count]));
+//            param.value[i] = Int32.Parse(para[count]);
+//            count++;
+//        }
+//
+//        param.BGMID = Int32.Parse(para[count]);
+//        count++;
+//
+//        for (int i = 0; i < editor_editManager.SE_ID.GetLength(0); i++)
+//        {
+//            param.SEID[i] = Int32.Parse(para[count]);
+//            count++;
+//        }
+//
+//        param.effectID[0] = Int32.Parse(para[count]);
+//        count++;
+//
+//        param.effectID[1] = Int32.Parse(para[count]);
+//        count++;
+//
+//        param.effectID[2] = Int32.Parse(para[count]);
+//        return JsonUtility.ToJson(param);
+//    }
 }
 
 [Serializable]
@@ -135,9 +135,18 @@ public class ParameterData
     public ParameterData()
     {
         value = new int[10];
-        BGMID = 0;
+		for(int i = 0; i<value.Length;i++){
+			value [i] = 1;
+		}
+		BGMID = -1;
         SEID = new int[6];
+		for (int i = 0; i < SEID.Length; i++) {
+			SEID[i] = -1;
+		}
         effectID = new int[5];
+		for (int i = 0; i < effectID.Length; i++) {
+			effectID[i] = 0;
+		}
     }
 
     public ParameterData(ParameterData argparam)

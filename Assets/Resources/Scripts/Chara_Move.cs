@@ -80,7 +80,7 @@ public class Chara_Move : MonoBehaviour
 
 
         range = 30f;
-        life = GameParameter._LIFE;
+        life = GameParameter.instance._LIFE;
 
         //animation ["RotateWait"].wrapMode = WrapMode.Once;
         _delEnum = null;
@@ -129,9 +129,9 @@ public class Chara_Move : MonoBehaviour
 
             if (!goaleffectflag)
             {
-                if (GameParameter.goalEffectID != -1)
+                if (GameParameter.instance.goalEffectID != -1)
                 {
-                    Instantiate(Resources.Load<GameObject>("Prefabs/goalEffect_" + GameParameter.goalEffectID.ToString()), transform.position, Quaternion.identity);
+                    Instantiate(Resources.Load<GameObject>("Prefabs/goalEffect_" + GameParameter.instance.goalEffectID.ToString()), transform.position, Quaternion.identity);
                 }
                     goaleffectflag = true;
             }
@@ -167,7 +167,7 @@ public class Chara_Move : MonoBehaviour
         
         float y = moveDirection.y;
         moveDirection = new Vector3(Input.GetAxis("Horizontal"),0, 0);
-        moveDirection *= speed * GameParameter._SPD;
+        moveDirection *= speed * GameParameter.instance._SPD;
         moveDirection.y += y;
 
         if (moveDirection.y <= 0)
@@ -204,8 +204,8 @@ public class Chara_Move : MonoBehaviour
                 isJumping = true;
                 anim.SetBool("isJumping", true);
                 //anim.Play("chara_jump");
-                moveDirection.y = JumpHeight * GameParameter._JMP;
-                GameObject.Find("SE").GetComponent<AudioSource>().PlayOneShot(GameParameter.JumpSE);
+                moveDirection.y = JumpHeight * GameParameter.instance._JMP;
+                GameObject.Find("SE").GetComponent<AudioSource>().PlayOneShot(GameParameter.instance.JumpSE);
             }
 
              anim.SetBool("isJumping", false);
@@ -219,7 +219,7 @@ public class Chara_Move : MonoBehaviour
             //anim.Play("chara_jump");
         }
 
-        moveDirection.y -= gravity * GameParameter._GRV * Time.deltaTime;
+        moveDirection.y -= gravity * GameParameter.instance._GRV * Time.deltaTime;
         _controller.Move(moveDirection * Time.deltaTime);
 
         if (knockbackTime > 0)
@@ -241,20 +241,20 @@ public class Chara_Move : MonoBehaviour
 
             if (hit.collider.tag == "enemy")
             {
-                if (GameParameter.AttackEffectID != -1)
+                if (GameParameter.instance.AttackEffectID != -1)
                 {
-                    Instantiate(Resources.Load<GameObject>("Prefabs/damageEffect_" + GameParameter.AttackEffectID), hit.point, Quaternion.identity);
+                    Instantiate(Resources.Load<GameObject>("Prefabs/damageEffect_" + GameParameter.instance.AttackEffectID), hit.point, Quaternion.identity);
                 }
                     Destroy(hit.collider.gameObject);
             }
 
             if (hit.collider.tag == "Spring")
             {
-                moveDirection.y = JumpHeight * GameParameter._JMP * 1.5f;
+                moveDirection.y = JumpHeight * GameParameter.instance._JMP * 1.5f;
                 isSpring = true;
                 isJumping = true;
                 hit.collider.gameObject.GetComponent<springManager>().PlayBoyon();
-                GameObject.Find("SE").GetComponent<AudioSource>().PlayOneShot(GameParameter.SpringSE);
+                GameObject.Find("SE").GetComponent<AudioSource>().PlayOneShot(GameParameter.instance.SpringSE);
             }
 
             if (hit.collider.tag == "Toge")
@@ -264,9 +264,9 @@ public class Chara_Move : MonoBehaviour
                 {
                     if (!isGameOver)
                     {
-                        if (GameParameter.DamageEffectID != -1)
+                        if (GameParameter.instance.DamageEffectID != -1)
                         {
-                            Instantiate(Resources.Load<GameObject>("Prefabs/damageEffect_" + GameParameter.DamageEffectID), hit.point, Quaternion.identity);
+                            Instantiate(Resources.Load<GameObject>("Prefabs/damageEffect_" + GameParameter.instance.DamageEffectID), hit.point, Quaternion.identity);
                         }
                         anim.SetBool("isDamage", true);
                         //anim.Play("chara_damage");
@@ -274,9 +274,9 @@ public class Chara_Move : MonoBehaviour
                         {
                             lifemanager.GetDamage();
                         }
-                        moveDirection.y = JumpHeight * GameParameter._JMP;
+                        moveDirection.y = JumpHeight * GameParameter.instance._JMP;
                         //istoge = false;
-                        GameObject.Find("SE").GetComponent<AudioSource>().PlayOneShot(GameParameter.DamageSE);
+                        GameObject.Find("SE").GetComponent<AudioSource>().PlayOneShot(GameParameter.instance.DamageSE);
                     }
                 }
             }
@@ -284,7 +284,7 @@ public class Chara_Move : MonoBehaviour
             {
                 before_isGrounded = isGrounded;
                 isGrounded = true;
-                if (before_isGrounded == false && isGrounded == true) GameObject.Find("SE").GetComponent<AudioSource>().PlayOneShot(GameParameter.StepSE);
+                if (before_isGrounded == false && isGrounded == true) GameObject.Find("SE").GetComponent<AudioSource>().PlayOneShot(GameParameter.instance.StepSE);
             }
         }
         else
@@ -300,9 +300,9 @@ public class Chara_Move : MonoBehaviour
             {
                 if (!isGameOver)
                 {
-                    if (GameParameter.DamageEffectID != -1)
+                    if (GameParameter.instance.DamageEffectID != -1)
                     {
-                        Instantiate(Resources.Load<GameObject>("Prefabs/damageEffect_" + GameParameter.DamageEffectID), hit.point, Quaternion.identity);
+                        Instantiate(Resources.Load<GameObject>("Prefabs/damageEffect_" + GameParameter.instance.DamageEffectID), hit.point, Quaternion.identity);
                     }
                     anim.SetBool("isDamage", true);
                     lifemanager.GetDamage();
@@ -311,7 +311,7 @@ public class Chara_Move : MonoBehaviour
                     knockbackDirection = (hit.collider.gameObject.transform.position - gameObject.transform.position).normalized;
                     knockbackDirection.y = 0;
                     knockbackSpeed = 250f;
-                    GameObject.Find("SE").GetComponent<AudioSource>().PlayOneShot(GameParameter.DamageSE);
+                    GameObject.Find("SE").GetComponent<AudioSource>().PlayOneShot(GameParameter.instance.DamageSE);
                 }
             }
         }
@@ -323,9 +323,9 @@ public class Chara_Move : MonoBehaviour
             {
                 if (!isGameOver)
                 {
-                    if (GameParameter.DamageEffectID != -1)
+                    if (GameParameter.instance.DamageEffectID != -1)
                     {
-                        Instantiate(Resources.Load<GameObject>("Prefabs/damageEffect_" + GameParameter.DamageEffectID), hit.point, Quaternion.identity);
+                        Instantiate(Resources.Load<GameObject>("Prefabs/damageEffect_" + GameParameter.instance.DamageEffectID), hit.point, Quaternion.identity);
                     }
 
                     anim.SetBool("isDamage", true);
@@ -335,7 +335,7 @@ public class Chara_Move : MonoBehaviour
                     knockbackDirection = (hit.collider.gameObject.transform.position - gameObject.transform.position).normalized;
                     knockbackDirection.y = 0;
                     knockbackSpeed = 250f;
-                    GameObject.Find("SE").GetComponent<AudioSource>().PlayOneShot(GameParameter.DamageSE);
+                    GameObject.Find("SE").GetComponent<AudioSource>().PlayOneShot(GameParameter.instance.DamageSE);
                 }
             }
         }
@@ -347,9 +347,9 @@ public class Chara_Move : MonoBehaviour
             {
                 if (!isGameOver)
                 {
-                    if (GameParameter.DamageEffectID != -1)
+                    if (GameParameter.instance.DamageEffectID != -1)
                     {
-                        Instantiate(Resources.Load<GameObject>("Prefabs/damageEffect_" + GameParameter.DamageEffectID), hit.point, Quaternion.identity);
+                        Instantiate(Resources.Load<GameObject>("Prefabs/damageEffect_" + GameParameter.instance.DamageEffectID), hit.point, Quaternion.identity);
                     }
 
                     anim.SetBool("isDamage", true);
@@ -359,7 +359,7 @@ public class Chara_Move : MonoBehaviour
                     knockbackDirection = -transform.forward;
                     knockbackDirection.y = 0;
                     knockbackSpeed = 250f;
-                    GameObject.Find("SE").GetComponent<AudioSource>().PlayOneShot(GameParameter.DamageSE);
+                    GameObject.Find("SE").GetComponent<AudioSource>().PlayOneShot(GameParameter.instance.DamageSE);
                 }
             }
         }

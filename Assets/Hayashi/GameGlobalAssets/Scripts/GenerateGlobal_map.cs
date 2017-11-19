@@ -54,11 +54,11 @@ public class GenerateGlobal_map : AC_Common
         StageID = SaveStageData.Instance.stageID;
         stage = GetAllStageData.Stage[StageID];
         Map =stage.ConvertStageData();
-        ParameterData param = JsonUtility.FromJson<ParameterData>(stage.ConvertParameterData());
+		ParameterData param = stage.Parameter;
         GameObject.Find("GameParamater").GetComponent<GameParameter>().SetParam(param);
         if (GameObject.Find("BGM"))
         {
-            GameObject.Find("BGM").GetComponent<AudioSource>().clip = GameParameter.BGM;
+            GameObject.Find("BGM").GetComponent<AudioSource>().clip = GameParameter.instance.BGM;
             GameObject.Find("BGM").GetComponent<AudioSource>().Play();
 
         }

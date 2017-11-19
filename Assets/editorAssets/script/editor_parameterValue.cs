@@ -8,10 +8,12 @@ public class editor_parameterValue : MonoBehaviour {
     Slider slider;
     bool load = false;
 	// Use this for initialization
+	private ParameterData param;
 	void Start () {
+		param = SaveStageData.Instance.GetSelectStageData.Parameter;
         slider = GetComponent<Slider>();
         //editManager = GameObject.Find("EditManager").GetComponent<editor_editManager>();
-        slider.value = editor_editManager.value[parameterID,editor_editManager.stageID];
+		slider.value = param.value[parameterID];
 	}
 	
 	// Update is called once per frame
@@ -19,10 +21,11 @@ public class editor_parameterValue : MonoBehaviour {
         if (!load)
         {
             slider = GetComponent<Slider>();
-            slider.value = editor_editManager.value[parameterID, editor_editManager.stageID];
+			slider.value = param.value[parameterID];
             load = true;
         }
-        editor_editManager.value[parameterID, editor_editManager.stageID] = (int)slider.value;
+		param.value[parameterID] = (int)slider.value;
+		SaveStageData.Instance.GetSelectStageData.Parameter = param;
     }
 
     public void SendValue()
