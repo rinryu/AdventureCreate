@@ -19,7 +19,7 @@ public class lifeManager : MonoBehaviour {
     
 	// Use this for initialization
 	void Start () {
-		maxLife = SaveStageData.Instance.GetSelectStageData.Parameter.value [2];
+		maxLife = SaveStageData.Instance.GetSelectStageData.Life;
         if(maxLife == 0)
         {
             maxLife = 1;

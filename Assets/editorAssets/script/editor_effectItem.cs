@@ -38,16 +38,18 @@ public class editor_effectItem : MonoBehaviour {
         {
             case effectMode.goal:
                 _moedID = 0;
+			ID = SaveStageData.Instance.GetSelectStageData.GoalEffect;
                 break;
             case effectMode.damage:
                 _moedID = 1;
+			ID = SaveStageData.Instance.GetSelectStageData.DamageEffect;
                 break;
             case effectMode.attack:
                 _moedID = 2;
+			ID = SaveStageData.Instance.GetSelectStageData.AttackEffect;
                 break;
         }
-//        ID = editor_editManager.effectID[_moedID, editor_editManager.stageID];
-		ID = SaveStageData.Instance.GetSelectStageData.Parameter.effectID[_moedID];
+//		ID = SaveStageData.Instance.GetSelectStageData.parameterData.effectID[_moedID];
     }
 	
 	// Update is called once per frame
@@ -99,16 +101,18 @@ public class editor_effectItem : MonoBehaviour {
         {
             case effectMode.goal:
                 _ID = 0;
-                break;
+			SaveStageData.Instance.GetSelectStageData.GoalEffect = ID;
+			break;
             case effectMode.damage:
                 _ID = 1;
-                break;
+			SaveStageData.Instance.GetSelectStageData.DamageEffect = ID;
+			break;
             case effectMode.attack:
                 _ID = 2;
-                break;
+			SaveStageData.Instance.GetSelectStageData.AttackEffect = ID;
+			break;
         }
-//        editor_editManager.effectID[_ID, editor_editManager.stageID] = ID;
-		SaveStageData.Instance.GetSelectStageData.Parameter.effectID[_ID] = ID;
+//		SaveStageData.Instance.GetSelectStageData.Parameter.effectID[_ID] = ID;
 
     }
 

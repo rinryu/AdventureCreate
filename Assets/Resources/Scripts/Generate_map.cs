@@ -54,7 +54,8 @@ public class Generate_map : AC_Common
         StageID = SaveStageData.Instance.stageID;
 		StageDataClass stage = SaveStageData.Instance.GetSelectStageData;
         Map = stage.ConvertStageData();
-		ParameterData param = SaveStageData.Instance.GetSelectStageData.Parameter;
+		stage.SetParam ();
+		ParameterData param = stage.parameterData;
 		GameParameter.instance.SetParam(param);
         MapSizeX = Map.GetLength(0);
         MapSizeY = Map.GetLength(1);
@@ -285,13 +286,13 @@ public class Generate_map : AC_Common
             startFlag = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            Chara_Move cm = GameObject.Find("player(Clone)").GetComponent<Chara_Move>();
-            if (cm.GetisClear() || cm.GetisGameOver()) return;
-            if (!GameParameter.isMenu) GameParameter.isMenu = true;
-            else GameParameter.isMenu = false;
-        }
+//        if (Input.GetKeyDown(KeyCode.Return))
+//        {
+//            Chara_Move cm = GameObject.Find("player(Clone)").GetComponent<Chara_Move>();
+//            if (cm.GetisClear() || cm.GetisGameOver()) return;
+//            if (!GameParameter.isMenu) GameParameter.isMenu = true;
+//            else GameParameter.isMenu = false;
+//        }
 
 
     }

@@ -10,22 +10,40 @@ public class StageDataClass{
     public int  user_ID;
     public string StageName;
     public string StageData;
-	public ParameterData Parameter;
+	public int Speed;
+	public int Jump;
+	public int Life;
+	public int Gravity;
+	public int BGMID;
+	public int JumpSE;
+	public int StepSE;
+	public int SpringSE;
+	public int DamageSE;
+	public int GoalEffect;
+	public int DamageEffect;
+	public int AttackEffect;
     public string CreateDate;
     public string UpdateDate;
-    public int playCount;
-    public int clearCount;
-    public int missCount;
+    public int playCount  = 0;
+    public int clearCount = 0;
+    public int missCount  = 0;
+	[NonSerialized]
+	public ParameterData parameterData = new ParameterData();
+	public void SetParam(){
+		parameterData.Speed = Speed;
+		parameterData.Jump = Jump;
+		parameterData.Life = Life;
+		parameterData.Gravity = Gravity;
+		parameterData.BGMID = BGMID;
+		parameterData.JumpSE = JumpSE;
+		parameterData.StepSE = StepSE;
+		parameterData.SpringSE = SpringSE;
+		parameterData.DamageSE = DamageSE;
+		parameterData.GoalEffect = GoalEffect;
+		parameterData.AttackEffect = AttackEffect;
+		parameterData.DamageEffect = DamageEffect;
+	}
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	public void ConvertStageDatatoString(int[,] map){
 		string data = string.Empty;
@@ -34,7 +52,6 @@ public class StageDataClass{
 				data += map [x, y].ToString();
 			}
 		}
-		Debug.Log("StageData:" + data);
 		StageData = data;
 	}
 
@@ -86,103 +103,70 @@ public class StageDataClass{
 
     }
 
-//    public string ConvertParameterData()
-//    {
-//        Debug.Log(Parameter);
-//        ParameterData param = new ParameterData();
-//        List<string> para = new List<string>();
-//        para.AddRange(Parameter.Split('\n'));
-//        para.RemoveAll(s => s == "");
-//
-//        int count = 0;
-//
-//
-//        for (int i = 0; i < editor_editManager.value.GetLength(0); i++)
-//        {
-//            Debug.Log(Int32.Parse(para[count]));
-//            param.value[i] = Int32.Parse(para[count]);
-//            count++;
-//        }
-//
-//        param.BGMID = Int32.Parse(para[count]);
-//        count++;
-//
-//        for (int i = 0; i < editor_editManager.SE_ID.GetLength(0); i++)
-//        {
-//            param.SEID[i] = Int32.Parse(para[count]);
-//            count++;
-//        }
-//
-//        param.effectID[0] = Int32.Parse(para[count]);
-//        count++;
-//
-//        param.effectID[1] = Int32.Parse(para[count]);
-//        count++;
-//
-//        param.effectID[2] = Int32.Parse(para[count]);
-//        return JsonUtility.ToJson(param);
-//    }
 }
 
 [Serializable]
 public class ParameterData
 {
-    public int[] value = new int[10];
-    public int BGMID;
-    public int[] SEID = new int[6];
-    public int[] effectID = new int[5];
+	public int Speed;
+	public int Jump;
+	public int Life;
+	public int Gravity;
+	public int BGMID;
+	public int JumpSE;
+	public int StepSE;
+	public int SpringSE;
+	public int DamageSE;
+	public int GoalEffect;
+	public int DamageEffect;
+	public int AttackEffect;
 
-    public ParameterData()
+
+	public ParameterData(int in_speed,int in_jump,int in_life,int in_gravity,int bgm,int jumpse,int stepse,int springse,int damagese,int goalef,int damageef,int attackef)
     {
-        value = new int[10];
-		for(int i = 0; i<value.Length;i++){
-			value [i] = 1;
-		}
+		Speed = in_speed;
+		Jump = in_jump;
+		Life = in_life;
+		Gravity = in_gravity;
+		BGMID = bgm;
+		JumpSE = jumpse;
+		StepSE = stepse;
+		SpringSE = springse;
+		DamageSE = damagese;
+		GoalEffect = goalef;
+		DamageEffect = damageef;
+		AttackEffect = attackef;
+    }
+	public ParameterData(){
+		Speed = 0;
+		Jump = 0;
+		Life = 1;
+		Gravity = 0;
 		BGMID = -1;
-        SEID = new int[6];
-		for (int i = 0; i < SEID.Length; i++) {
-			SEID[i] = -1;
-		}
-        effectID = new int[5];
-		for (int i = 0; i < effectID.Length; i++) {
-			effectID[i] = 0;
-		}
-    }
+		JumpSE = -1;
+		StepSE = -1;
+		SpringSE = -1;
+		DamageSE = -1;
+		GoalEffect = 0;
+		DamageEffect = 0;
+		AttackEffect = 0;
+	}
 
-    public ParameterData(ParameterData argparam)
-    {
-        value = argparam.value;
-        BGMID = argparam.BGMID;
-        SEID = argparam.SEID;
-        effectID = argparam.effectID;
-    }
-
-    ParameterData(int[] argvalue,int argBGMID,int[] argSEID,int[] argeffectID)
-    {
-        value = argvalue;
-        BGMID = argBGMID;
-        SEID = argSEID;
-        effectID = argeffectID;
-    }
-
-    public void PrintParam()
-    {
-        string message = string.Empty;
-        message += "Speed:" + value[0].ToString() + ":";
-        message += "Jump:" + value[1].ToString() + ":";
-        message += "Life:" + value[2].ToString() + ":";
-        message += "Gravity:" + value[3].ToString() + "\n";
-        message += "BGM" + BGMID + ":";
-        message += "JumpSE" + SEID[0] + ":";
-        message += "StepSE" + SEID[1] + ":";
-        message += "DamageSE" + SEID[2] + ":";
-        message += "SpringSE" + SEID[3] + ":";
-        Debug.LogError(message);
-
-
-
-    }
-
+	public void SetParam(int in_speed,int in_jump,int in_life,int in_gravity,int bgm,int jumpse,int stepse,int springse,int damagese,int goalef,int damageef,int attackef)
+	{
+		Speed = in_speed;
+		Jump = in_jump;
+		Life = in_life;
+		Gravity = in_gravity;
+		BGMID = bgm;
+		JumpSE = jumpse;
+		StepSE = stepse;
+		SpringSE = springse;
+		DamageSE = damagese;
+		GoalEffect = goalef;
+		DamageEffect = damageef;
+		AttackEffect = attackef;
+	}
 
 }
 

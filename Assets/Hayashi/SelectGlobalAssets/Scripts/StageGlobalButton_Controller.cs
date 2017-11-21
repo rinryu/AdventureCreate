@@ -22,7 +22,7 @@ public class StageGlobalButton_Controller : AC_Common {
         stageButton.Add(scrollbar);
         firstPos.Add(scrollbar.transform.position);
         firstScale.Add(scrollbar.transform.localScale);
-        GetComponent<GetAllStageData>().GetAllStage(Callback);
+        GetAllStageData.Instance.GetAllStage(Callback);
 
         int count = 0;
         //while (true)
@@ -71,9 +71,8 @@ public class StageGlobalButton_Controller : AC_Common {
         int ID = in_obj.GetComponent<StageSelectButton>().StageID;
         Debug.Log(ID);
         stageButton[ID].GetComponent<LayoutElement>().ignoreLayout = true;
-        editor_editManager.stageID = ID-1;
-        editor_editManager.Stagename = "Stage" + (ID + 1);
-        Debug.Log("Select " + editor_editManager.Stagename);
+		Debug.LogError (ID - 1);
+        GetAllStageData.Instance.stageID = ID-1;
         SelectID = ID;
         isSelect = true;
         for (int i = 0; i < stageButton.Count; i++)

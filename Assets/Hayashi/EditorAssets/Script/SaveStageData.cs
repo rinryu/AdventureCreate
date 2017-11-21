@@ -59,79 +59,6 @@ public class SaveStageData : MonoBehaviour {
         DontDestroyOnLoad(this);
     }
 
-    //void Start()
-    //{
-    //    if (stagename == null) Load = false;
-    //    else Load = true;
-    //}
-
-    //void Update()
-    //{
-    //    if (LoadisDone)
-    //    {
-    //        if (!Load)
-    //        {
-
-    //            AutoLoad();
-    //            Load = true;
-    //            Debug.Log("Load");
-    //        }
-    //    }
-    //}
-
-    public void textLoad(int stage)
-    {
-        Readdata = Stage[stage].StageData;
-    }
-
-//    public void ParameterLoad()
-//    {
-//        Debug.Log("parameterLoad");
-//        for (int p = 0; p < Stage.Count; p++) //p=stageの数
-//        {
-//            List<string> para = new List<string>();
-//            para.AddRange(Stage[p].Parameter.Split('\n'));
-//            para.RemoveAll(s => s == "");
-//
-//            int count = 0;
-//
-//
-//            for (int i = 0; i < editor_editManager.value.GetLength(0); i++)
-//            {
-//                Debug.Log(Int32.Parse(para[count]));
-//                editor_editManager.value[i, p] = Int32.Parse(para[count]);
-//                count++;
-//            }
-//
-//            editor_editManager.BGM_ID[0, p] = Int32.Parse(para[count]);
-//            count++;
-//
-//            for (int i = 0; i < editor_editManager.SE_ID.GetLength(0); i++)
-//            {
-//                editor_editManager.SE_ID[i, p] = Int32.Parse(para[count]);
-//                count++;
-//            }
-//
-//            editor_editManager.effectID[0, p] = Int32.Parse(para[count]);
-//            count++;
-//
-//            editor_editManager.effectID[1, p] = Int32.Parse(para[count]);
-//            count++;
-//
-//            editor_editManager.effectID[2, p] = Int32.Parse(para[count]);
-//            count++;
-//
-//        }
-//    }
-
-
-    private string SplitString(string str, char ch)
-    {
-        string[] SplitAfter = str.Split(ch);
-        string result = string.Empty;
-        foreach (string s in SplitAfter) result += s;
-        return result;
-    }
 
     public void Save()
     {
@@ -188,23 +115,26 @@ public class SaveStageData : MonoBehaviour {
             yield return null;
         }
         yield return www;
-        string[] result = www.text.Split(';');
-        foreach (string str in result)
-        {
-#if DEBUG_MODE
-            Debug.Log(str);
+		if (www.error != null) {
+			Debug.LogError (www.error);
+		}
+		Debug.Log (www.text);
+		if (www.text != string.Empty) {
+			string[] result = www.text.Split (';');
+			foreach (string str in result) {
+#if DEVELOP
+				Debug.Log (str);
 #endif
-            Stage.Add(JsonUtility.FromJson<StageDataClass>(str));
+				Stage.Add (JsonUtility.FromJson<StageDataClass> (str));
+			}
+			Stage.Remove (Stage [Stage.Count - 1]);
 
-        }
-        Stage.Remove(Stage[Stage.Count - 1]);
-#if DEBUG_MODE
-        foreach(StageDataClass s in Stage)
-        {
-            Debug.Log(s.StageName);
-        }
-#endif
+		}
         Debug.Log("downloadEnd");
+
+		foreach (StageDataClass s in Stage) {
+			s.SetParam ();
+		}
         //AutoLoad();
     }
 
