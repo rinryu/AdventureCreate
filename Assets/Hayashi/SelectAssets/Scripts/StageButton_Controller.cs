@@ -49,9 +49,8 @@ public class StageButton_Controller : MonoBehaviour {
     public void OpenStageButton(int ID)
     {
         GameObject.Find("select_stageButton_" + ID).GetComponent<LayoutElement>().ignoreLayout = true;
-        editor_editManager.stageID = ID;
-        editor_editManager.Stagename = "Stage" + (ID+1);
-        Debug.Log("Select " + editor_editManager.Stagename);
+        SaveStageData.Instance.stageID = ID;
+        Debug.Log("Select " + SaveStageData.Instance.GetSelectStageData.StageName);
         SelectID = ID;
         isSelect = true;
         for (int i = 0; i < stageButton.Count; i++)

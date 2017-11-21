@@ -3,84 +3,174 @@ using System.Collections;
 
 public class GameParameter : MonoBehaviour {
 
+	private static GameParameter _instance;
+	private GameParameter(){
+		Debug.Log ("Create instance GameParameter");
+	}
+	public static GameParameter instance{
+		get{
+			if (_instance == null) {
+				GameObject obj = new GameObject ("GameParater");
+				_instance = obj.AddComponent<GameParameter> ();
+			}
+			return _instance;
+		}
+	}
+
     public static bool isEdit = false;
     public static bool isGlobal = false;
 
-    enum Speed
+
+    enum Parameter
     {
-        Min,
-        ThreeQuarter,
-        Normal,
-        FiveQuarter,
-        Max
+        Min = -2,
+        ThreeQuarter = -1,
+        Normal = 0,
+        FiveQuarter = 1,
+        Max = 2
     }
     [SerializeField]
-    Speed spd;
-    public static float _SPD;
+	Parameter spd = Parameter.Normal;
+	public float _SPD{
+		get{
+			switch (spd)
+			{
+			case Parameter.Min:
+				return 0.5f;
+			case Parameter.ThreeQuarter:
+				return 0.75f;
+			case Parameter.Normal:
+				return 1f;
+			case Parameter.FiveQuarter:
+				return 1.25f;
+			case Parameter.Max:
+				return 1.5f;
+			default :
+				return 1f;
+			}
+		}
+	}
 
-    enum Jump
+	[SerializeField]
+	Parameter jmp;
+	public float _JMP{
+		get{
+			switch (jmp)
+			{
+			case Parameter.Min:
+				return 0.5f;
+			case Parameter.ThreeQuarter:
+				return 0.75f;
+			case Parameter.Normal:
+				return 1f;
+			case Parameter.FiveQuarter:
+				return 1.25f;
+			case Parameter.Max:
+				return 1.5f;
+			default:
+				return 1f;
+			}
+		}
+	}
+
+
+    [SerializeField]
+	Parameter grv;
+	public float _GRV{
+		get{
+			switch (spd)
+			{
+			case Parameter.Min:
+				return 0.5f;
+			case Parameter.ThreeQuarter:
+				return 0.75f;
+			case Parameter.Normal:
+				return 1f;
+			case Parameter.FiveQuarter:
+				return 1.25f;
+			case Parameter.Max:
+				return 1.5f;
+			default :
+				return 1f;
+			}
+		}
+	}
+
+
+    enum Life : int
     {
-        Min,
-        ThreeQuarter,
-        Normal,
-        FiveQuarter,
-        Max
+        One		= 1,
+        Two		= 2,
+        Three	= 3,
+        Four	= 4,
+        Five	= 5,
+        Six		= 6,
+        Seven	= 7,
+        Eight	= 8
     }
     [SerializeField]
-    Jump jmp;
-    public static float _JMP;
+	Life life = Life.One;
+	public int _LIFE {
+		get {
+			switch (life)
+			{
+			case Life.One:
+				return 1;
+			case Life.Two:
+				return 2;
+			case Life.Three:
+				return 3;
+			case Life.Four:
+				return 4;
+			case Life.Five:
+				return 5;
+			case Life.Six:
+				return 6;
+			case Life.Seven:
+				return 7;
+			case Life.Eight:
+				return 8;
+			default:
+				return 1;
+			}
 
-    enum Gravity
-    {
-        Min,
-        ThreeQuarter,
-        Normal,
-        FiveQuarter,
-        Max
-    }
-    [SerializeField]
-    Gravity grv;
-    public static float _GRV;
-
-    enum Life
-    {
-        One,
-        Two,
-        Three,
-        Four,
-        Five,
-        Six,
-        Seven,
-        Eight
-    }
-    [SerializeField]
-    Life life;
-    public static int _LIFE;
+		}
+	}
+	public int Bgm_ID;
+	public int[] Se_ID;
 
     [SerializeField]
-    public static AudioClip BGM;
+    public AudioClip BGM;
     [SerializeField]
-    public static AudioClip JumpSE;
+    public AudioClip JumpSE;
     [SerializeField]
-    public static AudioClip StepSE;
+    public AudioClip StepSE;
     [SerializeField]
-    public static AudioClip SpringSE;
+    public AudioClip SpringSE;
     [SerializeField]
-    public static AudioClip DamageSE;
+    public AudioClip DamageSE;
     [SerializeField]
-    public static AudioClip aSE;
+    public AudioClip aSE;
     [SerializeField]
-    public static AudioClip bSE;
+    public AudioClip bSE;
 
-    public static int goalEffectID;
-
-    public static int DamageEffectID;
-
-    public static int AttackEffectID;
+    public int goalEffectID;
+    public int DamageEffectID;
+    public int AttackEffectID;
 
     bool gameScene_set = false;
 
-    public static bool isMenu = false;
+	private static bool _isMenu;
+	public static bool isMenu{
+		set{
+			Debug.LogError ("SET");
+			_isMenu = value;
+		}
+		get{
+			Debug.LogError ("GET");
+			return _isMenu;
+		}
+	}
 
     // Use this for initialization
     void Start() {
@@ -95,340 +185,45 @@ public class GameParameter : MonoBehaviour {
         {
             GameParameter.isEdit = false;
             GameParameter.isGlobal = false;
-        }
-        if (Application.loadedLevelName == "editorScene")
+        }else if (Application.loadedLevelName == "editorScene")
         {
             GameParameter.isEdit = true;
             GameParameter.isGlobal = false;
-        }
-        if (Application.loadedLevelName == "selectGlobalScene")
+        }else if (Application.loadedLevelName == "selectGlobalScene")
         {
             GameParameter.isGlobal = true;
-        }
-
-        if (Application.loadedLevelName != "gameScene" || Application.loadedLevelName != "gameGlobalScene")
-        {
-            SetSpeed();
-            SetJump();
-            SetGravity();
-            SetLife();
-            SetSound();
-
-        }
-        else if (Application.loadedLevelName == "gameScene" || Application.loadedLevelName == "gameGlobalScene")
+        }else if (Application.loadedLevelName == "gameScene" || Application.loadedLevelName == "gameGlobalScene")
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 Chara_Move cm = GameObject.Find("player(Clone)").GetComponent<Chara_Move>();
                 if (cm.GetisClear() || cm.GetisGameOver()) return;
-                if (!isMenu) isMenu = true;
-                else isMenu = false;
+				isMenu = !isMenu;
             }
-        }
-
-        
+        }      
     }
 
-    void SetSpeed()
-    {
-        //Speed
-        switch (editor_editManager.value[0, editor_editManager.stageID])
-        {
-            case -2:
-                spd = Speed.Min;
-                _SPD = 0.5f;
-                break;
-            case -1:
-                spd = Speed.ThreeQuarter;
-                _SPD = 0.75f;
-                break;
-            case 0:
-                spd = Speed.Normal;
-                _SPD = 1f;
-                break;
-            case 1:
-                spd = Speed.FiveQuarter;
-                _SPD = 1.25f;
-                break;
-            case 2:
-                spd = Speed.Max;
-                _SPD = 1.5f;
-                break;
-        }
-    }
-
-    void SetJump()
-    {
-        //Jump
-        switch (editor_editManager.value[1, editor_editManager.stageID])
-        {
-            case -2:
-                jmp = Jump.Min;
-                _JMP = 0.5f;
-                break;
-            case -1:
-                jmp = Jump.ThreeQuarter;
-                _JMP = 0.75f;
-                break;
-            case 0:
-                jmp = Jump.Normal;
-                _JMP = 1f;
-                break;
-            case 1:
-                jmp = Jump.FiveQuarter;
-                _JMP = 1.25f;
-                break;
-            case 2:
-                jmp = Jump.Max;
-                _JMP = 1.5f;
-                break;
-        }
-    }
-
-    void SetGravity()
-    {
-        //Gravity
-        switch (editor_editManager.value[3, editor_editManager.stageID])
-        {
-            case -2:
-                grv = Gravity.Min;
-                _GRV = 0.5f;
-                break;
-            case -1:
-                grv = Gravity.ThreeQuarter;
-                _GRV = 0.25f;
-                break;
-            case 0:
-                grv = Gravity.Normal;
-                _GRV = 1f;
-                break;
-            case 1:
-                grv = Gravity.FiveQuarter;
-                _GRV = 1.25f;
-                break;
-            case 2:
-                grv = Gravity.Max;
-                _GRV = 1.5f;
-                break;
-        }
-    }
-
-    void SetLife()
-    {
-        switch (editor_editManager.value[2, editor_editManager.stageID])
-        {
-            case 1:
-                life = Life.One;
-                _LIFE = 1;
-                break;
-            case 2:
-                life = Life.Two;
-                _LIFE = 2;
-                break;
-            case 3:
-                life = Life.Three;
-                _LIFE = 3;
-                break;
-            case 4:
-                life = Life.Four;
-                _LIFE = 4;
-                break;
-            case 5:
-                life = Life.Five;
-                _LIFE = 5;
-                break;
-            case 6:
-                life = Life.Six;
-                _LIFE = 6;
-                break;
-            case 7:
-                life = Life.Seven;
-                _LIFE = 7;
-                break;
-            case 8:
-                life = Life.Eight;
-                _LIFE = 8;
-                break;
-
-            default:
-                life = Life.One;
-                _LIFE = 1;
-                break;
-        }
-    }
-
-    void SetSound()
-    {
-        //Debug.Log(editor_editManager.stageID);
-        BGM = Resources.Load<AudioClip>("Sound/BGM_" + editor_editManager.BGM_ID[0,editor_editManager.stageID].ToString());
-        JumpSE = Resources.Load<AudioClip>("Sound/SE_"+ editor_editManager.SE_ID[0, editor_editManager.stageID].ToString());
-        StepSE = Resources.Load<AudioClip>("Sound/SE_" + editor_editManager.SE_ID[1, editor_editManager.stageID].ToString());
-        SpringSE = Resources.Load<AudioClip>("Sound/SE_" + editor_editManager.SE_ID[2, editor_editManager.stageID].ToString());
-        DamageSE = Resources.Load<AudioClip>("Sound/SE_" + editor_editManager.SE_ID[3, editor_editManager.stageID].ToString());
-        aSE = Resources.Load<AudioClip>("Sound/SE_" + editor_editManager.SE_ID[4,editor_editManager.stageID].ToString());
-        bSE = Resources.Load<AudioClip>("Sound/SE_" + editor_editManager.SE_ID[5, editor_editManager.stageID].ToString());
-    }
-
-    void SetSpeed(int in_speed)
-    {
-        //Speed
-        switch (in_speed)
-        {
-            case -2:
-                spd = Speed.Min;
-                _SPD = 0.5f;
-                break;
-            case -1:
-                spd = Speed.ThreeQuarter;
-                _SPD = 0.75f;
-                break;
-            case 0:
-                spd = Speed.Normal;
-                _SPD = 1f;
-                break;
-            case 1:
-                spd = Speed.FiveQuarter;
-                _SPD = 1.25f;
-                break;
-            case 2:
-                spd = Speed.Max;
-                _SPD = 1.5f;
-                break;
-        }
-    }
-
-    void SetJump(int in_jump)
-    {
-        //Jump
-        switch (in_jump)
-        {
-            case -2:
-                jmp = Jump.Min;
-                _JMP = 0.5f;
-                break;
-            case -1:
-                jmp = Jump.ThreeQuarter;
-                _JMP = 0.75f;
-                break;
-            case 0:
-                jmp = Jump.Normal;
-                _JMP = 1f;
-                break;
-            case 1:
-                jmp = Jump.FiveQuarter;
-                _JMP = 1.25f;
-                break;
-            case 2:
-                jmp = Jump.Max;
-                _JMP = 1.5f;
-                break;
-        }
-    }
-
-    void SetGravity(int in_gravity)
-    {
-        //Gravity
-        switch (in_gravity)
-        {
-            case -2:
-                grv = Gravity.Min;
-                _GRV = 0.5f;
-                break;
-            case -1:
-                grv = Gravity.ThreeQuarter;
-                _GRV = 0.25f;
-                break;
-            case 0:
-                grv = Gravity.Normal;
-                _GRV = 1f;
-                break;
-            case 1:
-                grv = Gravity.FiveQuarter;
-                _GRV = 1.25f;
-                break;
-            case 2:
-                grv = Gravity.Max;
-                _GRV = 1.5f;
-                break;
-        }
-    }
-
-    void SetLife(int in_life)
-    {
-        switch (in_life)
-        {
-            case 1:
-                life = Life.One;
-                _LIFE = 1;
-                break;
-            case 2:
-                life = Life.Two;
-                _LIFE = 2;
-                break;
-            case 3:
-                life = Life.Three;
-                _LIFE = 3;
-                break;
-            case 4:
-                life = Life.Four;
-                _LIFE = 4;
-                break;
-            case 5:
-                life = Life.Five;
-                _LIFE = 5;
-                break;
-            case 6:
-                life = Life.Six;
-                _LIFE = 6;
-                break;
-            case 7:
-                life = Life.Seven;
-                _LIFE = 7;
-                break;
-            case 8:
-                life = Life.Eight;
-                _LIFE = 8;
-                break;
-
-            default:
-                life = Life.One;
-                _LIFE = 1;
-                break;
-        }
-    }
-
-    void SetSound(int in_BGM,int[] in_SE)
-    {
-        //Debug.Log(editor_editManager.stageID);
-        //Debug.Log(editor_editManager.BGM_ID[0,editor_editManager.stageID]);
-
-        BGM = Resources.Load<AudioClip>("Sound/BGM_" +in_BGM.ToString());
-        JumpSE = Resources.Load<AudioClip>("Sound/SE_" + in_SE[0].ToString());
-        StepSE = Resources.Load<AudioClip>("Sound/SE_" + in_SE[1].ToString());
-        SpringSE = Resources.Load<AudioClip>("Sound/SE_" + in_SE[2].ToString());
-        DamageSE = Resources.Load<AudioClip>("Sound/SE_" + in_SE[3].ToString());
-        aSE = Resources.Load<AudioClip>("Sound/SE_" + in_SE[4].ToString());
-        bSE = Resources.Load<AudioClip>("Sound/SE_" + in_SE[5].ToString());
-    }
-
-    void SetEffect(int[] in_effets)
-    {
-        goalEffectID = in_effets[0];
-        DamageEffectID = in_effets[1];
-        AttackEffectID = in_effets[2];
-    }
 
     public void SetParam(ParameterData in_param)
     {
         Debug.Log("SetParam");
         Debug.Log(in_param.BGMID);
-        SetSpeed(in_param.value[0]);
-        SetJump(in_param.value[1]);
-        SetLife(in_param.value[2]);
-        SetGravity(in_param.value[3]);
-        SetSound(in_param.BGMID, in_param.SEID);
-        SetEffect(in_param.effectID);
+		spd = (Parameter)in_param.Speed;
+		jmp = (Parameter)in_param.Jump;
+		life = (Life)in_param.Life;
+		grv = (Parameter)in_param.Gravity;
+		BGM = Resources.Load<AudioClip>("Sound/BGM_" +in_param.BGMID.ToString());
+		JumpSE = Resources.Load<AudioClip>("Sound/SE_" + in_param.JumpSE.ToString());
+		StepSE = Resources.Load<AudioClip>("Sound/SE_" + in_param.StepSE.ToString());
+		SpringSE = Resources.Load<AudioClip>("Sound/SE_" + in_param.SpringSE.ToString());
+		DamageSE = Resources.Load<AudioClip>("Sound/SE_" + in_param.DamageSE.ToString());
+		goalEffectID = in_param.GoalEffect;
+		DamageEffectID = in_param.DamageEffect;
+		AttackEffectID = in_param.AttackEffect;
+
+
     }
+
 
     public void setEdit(bool t)
     {

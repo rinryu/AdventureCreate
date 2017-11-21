@@ -34,7 +34,7 @@ public class stageButtonSset : MonoBehaviour {
 
     public void OpenStageButton(int ID)
     {
-        editor_editManager.stageID = ID;
+        SaveStageData.Instance.stageID = ID;
         isSelect = true;
         for (int i = 0; i < 5; i++)
         {

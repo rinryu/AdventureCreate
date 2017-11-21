@@ -51,22 +51,23 @@ public class editor_mapChipFrame : MonoBehaviour {
     //マップを書き替える
     void UpDateMap()
     {
-        int mapSizeX = editor_editManager.editMapData.GetLength(0);
-        int mapSizeY = editor_editManager.editMapData.GetLength(1);
+        int[,] map = SaveStageData.Instance.GetSelectStageData.ConvertStageData();
+        int mapSizeX = map.GetLength(0);
+        int mapSizeY = map.GetLength(1);
 
         for (int iy = 0; iy < mapSizeY ; iy++)
         {
             for (int ix = 0; ix < mapSizeX; ix++)
             {
-                if (editor_editManager.editMapData[ix,iy,editor_editManager.stageID] == 0)
+                if (map[ix,iy] == 0)
                 {
                     mapChip_image[ix + iy * mapSizeX].sprite = P_null;
                 }
-                if (editor_editManager.editMapData[ix, iy, editor_editManager.stageID] == 1)
+                if (map[ix, iy] == 1)
                 {
                     if (iy < mapSizeY - 1)
                     {
-                        if (editor_editManager.editMapData[ix, iy + 1, editor_editManager.stageID] == 1)
+                        if (map[ix, iy + 1] == 1)
                         {
                             mapChip_image[ix + iy * mapSizeX].sprite = P_stageB;
                         }
@@ -81,35 +82,35 @@ public class editor_mapChipFrame : MonoBehaviour {
                     }
                     
                 }
-                if (editor_editManager.editMapData[ix, iy, editor_editManager.stageID] == 2)
+                if (map[ix, iy] == 2)
                 {
                     mapChip_image[ix + iy * mapSizeX].sprite = P_toge;
                 }
-                if (editor_editManager.editMapData[ix, iy, editor_editManager.stageID] == 3)
+                if (map[ix, iy] == 3)
                 {
                     mapChip_image[ix + iy * mapSizeX].sprite = P_spring;
                 }
-                if (editor_editManager.editMapData[ix, iy, editor_editManager.stageID] == 4)
+                if (map[ix, iy] == 4)
                 {
                     mapChip_image[ix + iy * mapSizeX].sprite = P_goalFlag;
                 }
-                if (editor_editManager.editMapData[ix, iy, editor_editManager.stageID] == 5)
+                if (map[ix, iy] == 5)
                 {
                     mapChip_image[ix + iy * mapSizeX].sprite = P_player;
                 }
-                if (editor_editManager.editMapData[ix, iy, editor_editManager.stageID] == 6)
+                if (map[ix, iy] == 6)
                 {
                     mapChip_image[ix + iy * mapSizeX].sprite = P_enemyA;
                 }
-                if (editor_editManager.editMapData[ix, iy, editor_editManager.stageID] == 7)
+                if (map[ix, iy] == 7)
                 {
                     mapChip_image[ix + iy * mapSizeX].sprite = P_enemyB_0;
                 }
-                if (editor_editManager.editMapData[ix, iy, editor_editManager.stageID] == 8)
+                if (map[ix, iy] == 8)
                 {
                     mapChip_image[ix + iy * mapSizeX].sprite = P_enemyB_1;
                 }
-                if (editor_editManager.editMapData[ix, iy, editor_editManager.stageID] == 9)
+                if (map[ix, iy] == 9)
                 {
                     mapChip_image[ix + iy * mapSizeX].sprite = P_flower;
                     /*

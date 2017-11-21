@@ -23,7 +23,7 @@ public class Generate_map : AC_Common
     /// Map
     /// </summary>
 
-    int[,,] Map;
+    int[,] Map;
     int StageID;
     public int MapSizeX;
     public int MapSizeY;
@@ -51,11 +51,14 @@ public class Generate_map : AC_Common
     // Use this for initialization
     void Start()
     {
-        Map = editor_editManager.editMapData;
-
+        StageID = SaveStageData.Instance.stageID;
+		StageDataClass stage = SaveStageData.Instance.GetSelectStageData;
+        Map = stage.ConvertStageData();
+		stage.SetParam ();
+		ParameterData param = stage.parameterData;
+		GameParameter.instance.SetParam(param);
         MapSizeX = Map.GetLength(0);
         MapSizeY = Map.GetLength(1);
-        StageID = editor_editManager.stageID;
 #if STANDALONE
         string path = "file://" + Application.streamingAssetsPath + "/AssetBundle/gameobject";
 #else 
@@ -64,14 +67,13 @@ public class Generate_map : AC_Common
         StartCoroutine(LoadAssetBundle(path, (s) =>
         {
             SetMap(s);
+            s.Unload(false);
+
         }));
 
-
-        GameParameter.DamageEffectID = editor_editManager.effectID[1, StageID];
-        GameParameter.AttackEffectID = editor_editManager.effectID[2, StageID];
         if (GameObject.Find("BGM"))
         {
-            GameObject.Find("BGM").GetComponent<AudioSource>().clip = GameParameter.BGM;
+            GameObject.Find("BGM").GetComponent<AudioSource>().clip = GameParameter.instance.BGM;
             GameObject.Find("BGM").GetComponent<AudioSource>().Play();
 
         }
@@ -86,11 +88,11 @@ public class Generate_map : AC_Common
         {
             for (int y = 0; y < MapSizeY; y++)
             {
-                if (Map[x, y, StageID] == 1)
+                if (Map[x, y] == 1)
                 {
                     if (y != 9)
                     {
-                        if (Map[x, y + 1, StageID] == 1 || Map[x, y + 1, StageID] == 2 || Map[x, y + 1, StageID] == 3)
+                        if (Map[x, y + 1] == 1 || Map[x, y + 1] == 2 || Map[x, y + 1] == 3)
                         {
 
                             GameObject Chip = Instantiate(Resources.Load<GameObject>("Prefabs/Tile"), new Vector2(x * TileSize, y * TileSize), Quaternion.identity) as GameObject;
@@ -109,64 +111,62 @@ public class Generate_map : AC_Common
                     }
 
                 }
-                if (Map[x, y, StageID] == 2)
+                if (Map[x, y] == 2)
                 {
                     GameObject Chip = Instantiate(Resources.Load<GameObject>("Toge"), new Vector2(x * TileSize, y * TileSize), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Object").transform;
                 }
-                if (Map[x, y, StageID] == 3)
+                if (Map[x, y] == 3)
                 {
                     GameObject Chip = Instantiate(Resources.Load<GameObject>("Spring"), new Vector2(x * TileSize, y * TileSize), Quaternion.Euler(0, -90, 0)) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Object").transform;
                 }
-                if (Map[x, y, StageID] == 4)//goal
+                if (Map[x, y] == 4)//goal
                 {
                     GameObject Chip = Instantiate(Resources.Load<GameObject>("Goal"), new Vector2(x * TileSize, y * TileSize), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Goal").transform;
-                    GameParameter.goalEffectID = editor_editManager.effectID[0, StageID];
-
                 }
-                if (Map[x, y, StageID] == 5)//chara
+                if (Map[x, y] == 5)//chara
                 {
                     GameObject Chip = Instantiate(Resources.Load<GameObject>("player"), new Vector2(x * TileSize, y * TileSize - 30), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Chara").transform;
                 }
-                if (Map[x, y, StageID] == 6)//monster
+                if (Map[x, y] == 6)//monster
                 {
                     GameObject Chip = Instantiate(Resources.Load<GameObject>("Monster"), new Vector2(x * TileSize, y * TileSize - 20), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Chara").transform;
                 }
-                if (Map[x, y, StageID] == 8)//???
+                if (Map[x, y] == 8)//???
                 {
                     GameObject Chip = Instantiate(Resources.Load<GameObject>("MonsterB_0"), new Vector2(x * TileSize, y * TileSize), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Chara").transform;
                 }
-                if (Map[x, y, StageID] == 7)//???
+                if (Map[x, y] == 7)//???
                 {
                     GameObject Chip = Instantiate(Resources.Load<GameObject>("MonsterB_1"), new Vector2(x * TileSize, y * TileSize), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Chara").transform;
                 }
-                if (Map[x, y, StageID] == 9)//???
+                if (Map[x, y] == 9)//???
                 {
                     GameObject Chip = Instantiate(Resources.Load<GameObject>("Flower"), new Vector2(x * TileSize, y * TileSize - 20), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Object").transform;
                 }
-                if (Map[x, y, StageID] == 10)//???
+                if (Map[x, y] == 10)//???
                 {
                     GameObject Chip = Instantiate(Resources.Load<GameObject>("Monster"), new Vector2(x * TileSize, y * TileSize - 20), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Chara").transform;
                 }
-                if (Map[x, y, StageID] == 11)//???
+                if (Map[x, y] == 11)//???
                 {
                     GameObject Chip = Instantiate(Resources.Load<GameObject>("Monster"), new Vector2(x * TileSize, y * TileSize - 20), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Chara").transform;
                 }
-                if (Map[x, y, StageID] == 12)//???
+                if (Map[x, y] == 12)//???
                 {
                     GameObject Chip = Instantiate(Resources.Load<GameObject>("Monster"), new Vector2(x * TileSize, y * TileSize - 20), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Chara").transform;
                 }
-                if (Map[x, y, StageID] == 13)//???
+                if (Map[x, y] == 13)//???
                 {
                     GameObject Chip = Instantiate(Resources.Load<GameObject>("Monster"), new Vector2(x * TileSize, y * TileSize - 20), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Chara").transform;
@@ -184,11 +184,11 @@ public class Generate_map : AC_Common
         {
             for (int y = 0; y < MapSizeY; y++)
             {
-                if (Map[x, y, StageID] == 1)
+                if (Map[x, y] == 1)
                 {
                     if (y != 9)
                     {
-                        if (Map[x, y + 1, StageID] == 1 || Map[x, y + 1, StageID] == 2 || Map[x, y + 1, StageID] == 3)
+                        if (Map[x, y + 1] == 1 || Map[x, y + 1] == 2 || Map[x, y + 1] == 3)
                         {
                             GameObject Chip = Instantiate(in_chipBundle.LoadAsset<GameObject>("Tile"), new Vector2(x * TileSize, y * TileSize), Quaternion.identity) as GameObject;
                             Chip.transform.parent = GameObject.Find("_Object").transform;
@@ -207,64 +207,63 @@ public class Generate_map : AC_Common
                     }
 
                 }
-                if (Map[x, y, StageID] == 2)
+                if (Map[x, y] == 2)
                 {
                     GameObject Chip = Instantiate(in_chipBundle.LoadAsset<GameObject>("Toge"), new Vector2(x * TileSize, y * TileSize), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Object").transform;
                 }
-                if (Map[x, y, StageID] == 3)
+                if (Map[x, y] == 3)
                 {
                     GameObject Chip = Instantiate(in_chipBundle.LoadAsset<GameObject>("Spring"), new Vector2(x * TileSize, y * TileSize), Quaternion.Euler(0, -90, 0)) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Object").transform;
                 }
-                if (Map[x, y, StageID] == 4)//goal
+                if (Map[x, y] == 4)//goal
                 {
                     GameObject Chip = Instantiate(in_chipBundle.LoadAsset<GameObject>("Goal"), new Vector2(x * TileSize, y * TileSize), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Goal").transform;
-                    GameParameter.goalEffectID = editor_editManager.effectID[0, StageID];
 
                 }
-                if (Map[x, y, StageID] == 5)//chara
+                if (Map[x, y] == 5)//chara
                 {
                     GameObject Chip = Instantiate(in_chipBundle.LoadAsset<GameObject>("player"), new Vector2(x * TileSize, y * TileSize - 30), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Chara").transform;
                 }
-                if (Map[x, y, StageID] == 6)//monster
+                if (Map[x, y] == 6)//monster
                 {
                     GameObject Chip = Instantiate(in_chipBundle.LoadAsset<GameObject>("Monster"), new Vector2(x * TileSize, y * TileSize - 20), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Chara").transform;
                 }
-                if (Map[x, y, StageID] == 8)//???
+                if (Map[x, y] == 8)//???
                 {
                     GameObject Chip = Instantiate(in_chipBundle.LoadAsset<GameObject>("MonsterB_0"), new Vector2(x * TileSize, y * TileSize), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Chara").transform;
                 }
-                if (Map[x, y, StageID] == 7)//???
+                if (Map[x, y] == 7)//???
                 {
                     GameObject Chip = Instantiate(in_chipBundle.LoadAsset<GameObject>("MonsterB_1"), new Vector2(x * TileSize, y * TileSize), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Chara").transform;
                 }
-                if (Map[x, y, StageID] == 9)//???
+                if (Map[x, y] == 9)//???
                 {
                     GameObject Chip = Instantiate(in_chipBundle.LoadAsset<GameObject>("Flower"), new Vector2(x * TileSize, y * TileSize - 20), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Object").transform;
                 }
-                if (Map[x, y, StageID] == 10)//???
+                if (Map[x, y] == 10)//???
                 {
                     GameObject Chip = Instantiate(in_chipBundle.LoadAsset<GameObject>("Monster"), new Vector2(x * TileSize, y * TileSize - 20), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Chara").transform;
                 }
-                if (Map[x, y, StageID] == 11)//???
+                if (Map[x, y] == 11)//???
                 {
                     GameObject Chip = Instantiate(in_chipBundle.LoadAsset<GameObject>("Monster"), new Vector2(x * TileSize, y * TileSize - 20), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Chara").transform;
                 }
-                if (Map[x, y, StageID] == 12)//???
+                if (Map[x, y] == 12)//???
                 {
                     GameObject Chip = Instantiate(in_chipBundle.LoadAsset<GameObject>("Monster"), new Vector2(x * TileSize, y * TileSize - 20), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Chara").transform;
                 }
-                if (Map[x, y, StageID] == 13)//???
+                if (Map[x, y] == 13)//???
                 {
                     GameObject Chip = Instantiate(in_chipBundle.LoadAsset<GameObject>("Monster"), new Vector2(x * TileSize, y * TileSize - 20), Quaternion.identity) as GameObject;
                     Chip.transform.parent = GameObject.Find("_Chara").transform;
@@ -273,6 +272,7 @@ public class Generate_map : AC_Common
 
             }
         }
+
 
     }
 
@@ -286,13 +286,13 @@ public class Generate_map : AC_Common
             startFlag = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            Chara_Move cm = GameObject.Find("player(Clone)").GetComponent<Chara_Move>();
-            if (cm.GetisClear() || cm.GetisGameOver()) return;
-            if (!GameParameter.isMenu) GameParameter.isMenu = true;
-            else GameParameter.isMenu = false;
-        }
+//        if (Input.GetKeyDown(KeyCode.Return))
+//        {
+//            Chara_Move cm = GameObject.Find("player(Clone)").GetComponent<Chara_Move>();
+//            if (cm.GetisClear() || cm.GetisGameOver()) return;
+//            if (!GameParameter.isMenu) GameParameter.isMenu = true;
+//            else GameParameter.isMenu = false;
+//        }
 
 
     }

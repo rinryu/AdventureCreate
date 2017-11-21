@@ -41,40 +41,41 @@ public class editor_mapChip : MonoBehaviour {
 
     void PushPoint()
     {
+		int[,] map = SaveStageData.Instance.GetSelectStageData.ConvertStageData();
         //プレイヤをふたつもおかせねーぜ！
-        if (manager.setMapChipID == 5 && editor_editManager.editMapData[mapX, mapY, editor_editManager.stageID] != 4)
+        if (manager.setMapChipID == 5 && map[mapX, mapY] != 4)
         {
-            for (int y = 0; y < editor_editManager.editMapData.GetLength(1); y++)
+            for (int y = 0; y < map.GetLength(1); y++)
             {
-                for (int x = 0; x < editor_editManager.editMapData.GetLength(0); x++)
+                for (int x = 0; x < map.GetLength(0); x++)
                 {
-                    if (editor_editManager.editMapData[x,y,editor_editManager.stageID] == 5)
+                    if (map[x,y] == 5)
                     {
-                        editor_editManager.editMapData[x, y, editor_editManager.stageID] = 0;
+                        map[x, y] = 0;
                     }
                 }
             }
         }
         //ゴールをふたつもおかせねーぜ！
-        if (manager.setMapChipID == 4 && editor_editManager.editMapData[mapX, mapY, editor_editManager.stageID] != 5)
+        if (manager.setMapChipID == 4 && map[mapX, mapY] != 5)
         {
-            for (int y = 0; y < editor_editManager.editMapData.GetLength(1); y++)
+            for (int y = 0; y < map.GetLength(1); y++)
             {
-                for (int x = 0; x < editor_editManager.editMapData.GetLength(0); x++)
+                for (int x = 0; x < map.GetLength(0); x++)
                 {
-                    if (editor_editManager.editMapData[x, y, editor_editManager.stageID] == 4)
+                    if (map[x, y] == 4)
                     {
-                        editor_editManager.editMapData[x, y, editor_editManager.stageID] = 0;
+                        map[x, y] = 0;
                     }
                 }
             }
         }
-        if (editor_editManager.editMapData[mapX, mapY, editor_editManager.stageID] != 5 && 
-            editor_editManager.editMapData[mapX, mapY, editor_editManager.stageID] != 4)
+        if (map[mapX, mapY] != 5 && 
+            map[mapX, mapY] != 4)
         {
-            editor_editManager.editMapData[mapX, mapY, editor_editManager.stageID] = manager.setMapChipID;
-            Debug.Log("updateMap:Stage"+editor_editManager.stageID);
+            map[mapX, mapY] = manager.setMapChipID;
         }
+		SaveStageData.Instance.GetSelectStageData.ConvertStageDatatoString (map);
             
     }
 }

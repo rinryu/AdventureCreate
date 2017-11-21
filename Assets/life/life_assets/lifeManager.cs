@@ -19,7 +19,7 @@ public class lifeManager : MonoBehaviour {
     
 	// Use this for initialization
 	void Start () {
-        maxLife = editor_editManager.value[2,editor_editManager.stageID];
+		maxLife = SaveStageData.Instance.GetSelectStageData.Life;
         if(maxLife == 0)
         {
             maxLife = 1;

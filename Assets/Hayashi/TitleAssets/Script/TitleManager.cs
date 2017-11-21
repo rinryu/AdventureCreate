@@ -9,10 +9,12 @@ public class TitleManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         sceneChange.LoadScene();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        SaveStageData.Instance.GetStageCoroutine();
+
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }

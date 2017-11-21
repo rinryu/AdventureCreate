@@ -8,10 +8,37 @@ using UnityEngine.Networking;
 
 public class GetAllStageData : MonoBehaviour {
 
-    public static GetAllStageData instance;
+	private static GetAllStageData mInstance;
+	private GetAllStageData()
+	{
+		Debug.Log("Create Instance SaveStageData");
+	}
+	public static GetAllStageData Instance
+	{
+		get
+		{
+			if (mInstance == null)
+			{
+				GameObject obj = new GameObject("GetAllStageData");
+				mInstance = obj.AddComponent<GetAllStageData>();
+			}
+			return mInstance;
+		}
 
-    public static List<StageDataClass> Stage = new List<StageDataClass>();
+	}
+
+	public int stageID;
+    public List<StageDataClass> Stage = new List<StageDataClass>();
     bool LoadisDone;
+	public StageDataClass GetSelectStageData {
+		get {
+			return Stage [stageID];
+		}
+	}
+	public void Awake()
+	{
+		DontDestroyOnLoad(this);
+	}
 
 
     public void GetAllStage(Action<List<StageDataClass>> callback = null)
@@ -44,7 +71,11 @@ public class GetAllStageData : MonoBehaviour {
         Debug.Log(Stage.Count);
  
         Stage.Remove(Stage[Stage.Count - 1]);
-    
+
+		foreach (StageDataClass s in Stage) {
+			s.SetParam ();
+		}
+
         callback(Stage);
 
 

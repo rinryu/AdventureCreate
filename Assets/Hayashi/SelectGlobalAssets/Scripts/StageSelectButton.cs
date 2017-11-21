@@ -29,7 +29,7 @@ public class StageSelectButton : MonoBehaviour {
     {
         if (!isload)
         {
-            StartCoroutine(selectChipManager.streamingCreateMap(stage.CovnertStageData()));
+            StartCoroutine(selectChipManager.streamingCreateMap(stage.ConvertStageData()));
             isload = true;
         }
     }
