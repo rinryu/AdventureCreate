@@ -29,6 +29,46 @@ public class StageDataClass{
     public int missCount  = 0;
 	[NonSerialized]
 	public ParameterData parameterData = new ParameterData();
+	[NonSerialized]
+	public int ClearPercent;
+	public enum Difficulty{
+		VERY_EASY,
+		EASY,
+		NORMAL,
+		HARD,
+		VERY_HARD
+	}
+	[NonSerialized]
+	public Difficulty difficulty;
+	public void Initialize(){
+		SetParcent ();
+		SetDifficulty ();
+		SetParam ();
+	}
+
+	public void SetParcent(){
+		if (playCount != 0) {
+			float percent = ((float)clearCount / (float)playCount);
+			percent *= 100;
+			ClearPercent = (int)percent;
+		} else {
+			ClearPercent = 0;
+		}
+	}
+
+	public void SetDifficulty(){
+		if (ClearPercent <= 20)
+			difficulty = Difficulty.VERY_HARD;
+		else if (ClearPercent > 20 && ClearPercent <= 40)
+			difficulty = Difficulty.HARD;
+		else if (ClearPercent > 40 && ClearPercent <= 60)
+			difficulty = Difficulty.NORMAL;
+		else if (ClearPercent > 60 && ClearPercent <= 80)
+			difficulty = Difficulty.EASY;
+		else if (ClearPercent > 80)
+			difficulty = Difficulty.VERY_EASY;
+	}
+
 	public void SetParam(){
 		parameterData.Speed = Speed;
 		parameterData.Jump = Jump;
@@ -173,7 +213,15 @@ public class ParameterData
 [Serializable]
 public class StageState
 {
+	public string stageName;
     public int playCount;
     public int clearCount;
-    public int missCOunt;
+    public int missCount;
+
+	public StageState(string in_name,int in_playCount,int in_clearCount,int in_missCount){
+		stageName = in_name;
+		playCount = in_playCount;
+		clearCount = in_clearCount;
+		missCount = in_missCount;
+	}
 } 

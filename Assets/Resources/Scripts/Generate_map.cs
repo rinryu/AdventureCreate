@@ -54,7 +54,6 @@ public class Generate_map : AC_Common
         StageID = SaveStageData.Instance.stageID;
 		StageDataClass stage = SaveStageData.Instance.GetSelectStageData;
         Map = stage.ConvertStageData();
-		stage.SetParam ();
 		ParameterData param = stage.parameterData;
 		GameParameter.instance.SetParam(param);
         MapSizeX = Map.GetLength(0);

@@ -51,6 +51,7 @@ public class StageGlobalButton_Controller : AC_Common {
             GameObject obj = InstanciateObject(button, buttonparent);
             obj.name = "select_stageButton_" + stage.StageNumber;
             obj.GetComponent<StageSelectButton>().SetActive(stage,stage.StageNumber);
+			obj.GetComponent<StageButtonStatus> ().SetActive (stage);
             stageButton.Add(obj);
             firstPos.Add(obj.transform.position);
             firstScale.Add(obj.transform.localScale);
@@ -71,7 +72,6 @@ public class StageGlobalButton_Controller : AC_Common {
         int ID = in_obj.GetComponent<StageSelectButton>().StageID;
         Debug.Log(ID);
         stageButton[ID].GetComponent<LayoutElement>().ignoreLayout = true;
-		Debug.LogError (ID - 1);
         GetAllStageData.Instance.stageID = ID-1;
         SelectID = ID;
         isSelect = true;

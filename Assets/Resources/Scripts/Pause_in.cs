@@ -24,8 +24,11 @@ public class Pause_in : MonoBehaviour {
     public void Back_Click()
     {
         GameParameter.isMenu = false;
-        if (GameParameter.isGlobal) Application.LoadLevel("selectGlobalScene");
-        else if (GameParameter.isEdit)
+		if (GameParameter.instance.isGlobal) {
+			GetAllStageData.Instance.GetSelectStageData.missCount++;
+			GetAllStageData.Instance.SendCouneter (() => {Application.LoadLevel ("selectGlobalScene");});
+		}
+		else if (GameParameter.instance.isEdit)
         {
             Application.LoadLevel("editorScene");
         }
@@ -37,7 +40,10 @@ public class Pause_in : MonoBehaviour {
     public void Return_Click()
     {
         GameParameter.isMenu = false;
-        if (GameParameter.isGlobal) Application.LoadLevel("gameGlobalScene");
+		if (GameParameter.instance.isGlobal) {
+			GameParameter.instance.isGlobal = false;
+			Application.LoadLevel ("gameGlobalScene");
+		}
         else Application.LoadLevel("gameScene");
     }
 }

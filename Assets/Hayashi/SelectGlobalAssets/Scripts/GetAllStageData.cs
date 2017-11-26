@@ -68,18 +68,49 @@ public class GetAllStageData : MonoBehaviour {
         {
             Stage.Add(JsonUtility.FromJson<StageDataClass>(s));
         }
-        Debug.Log(Stage.Count);
  
         Stage.Remove(Stage[Stage.Count - 1]);
 
 		foreach (StageDataClass s in Stage) {
-			s.SetParam ();
+			s.Initialize ();
 		}
 
         callback(Stage);
 
 
     }
+
+	public void SendCouneter(Action callback){
+		StartCoroutine (SendCouneterCroutine (callback));
+	}
+
+	IEnumerator SendCouneterCroutine(Action callback){
+		WWWForm form = new WWWForm();
+		StageDataClass stage = GetSelectStageData;
+		StageState counter = new StageState (stage.StageName, stage.playCount, stage.clearCount, stage.missCount);
+		string json = JsonUtility.ToJson(counter);
+		Debug.Log(json);
+		form.AddField("Counter", json);
+		Dictionary<string, string> headers = form.headers;
+		headers["Authorization"] = "Basic " + System.Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes("adventurecreate:actest"));
+
+		byte[] data = form.data;
+
+		#if DEVELOP
+		WWW www = new WWW(ServerSetting.DEVURL + "SetCounter.php", data,headers);
+		#else
+		WWW www = new WWW(ServerSetting.MASTERURL + "SaveStage.php", data,headers);
+		#endif
+		yield return www;
+		if (!string.IsNullOrEmpty(www.error))
+		{
+			Debug.LogError(www.error);
+			yield break;
+
+		}
+		Debug.Log (www.text);
+		callback ();
+	}
 
     public void SetActive(List<StageDataClass> stage)
     {

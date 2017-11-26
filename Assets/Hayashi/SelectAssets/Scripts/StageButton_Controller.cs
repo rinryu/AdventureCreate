@@ -26,6 +26,12 @@ public class StageButton_Controller : MonoBehaviour {
             stageButton.Add(GameObject.Find("select_stageButton_" + count));
             count++;
         }
+		count = 0;
+		foreach (GameObject obj in stageButton) {
+			Debug.LogError (count);
+			obj.GetComponent<StageButtonStatus>().SetActive(SaveStageData.Instance.Stage[count],count+1);
+			count++;
+		}
         stageButton.Add(scrollbar);
         playButton = transform.FindChild("Play").gameObject;
         makeButton = transform.FindChild("Make").gameObject;

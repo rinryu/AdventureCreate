@@ -110,7 +110,8 @@ public class Chara_Move : MonoBehaviour
 
         if (isGameOver && !GOeff)
         {
-            if (GameParameter.isEdit)
+			if (GameParameter.instance.isGlobal) GetAllStageData.Instance.GetSelectStageData.missCount++;
+            if (GameParameter.instance.isEdit)
             {
                 GameObject obj = Instantiate(Resources.Load<GameObject>("Prefabs/missEffect"));
                 GOeff = true;
@@ -118,7 +119,7 @@ public class Chara_Move : MonoBehaviour
             else
             {
                 GameObject obj = Instantiate(Resources.Load<GameObject>("Prefabs/missEffect_retry"));
-                obj.GetComponent<missEffect>().backSceneName = GameParameter.isGlobal ? "gameGlobalScene" : "gameScene";
+                obj.GetComponent<missEffect>().backSceneName = GameParameter.instance.isGlobal ? "gameGlobalScene" : "gameScene";
                 GOeff = true;
             }
         }
@@ -126,7 +127,7 @@ public class Chara_Move : MonoBehaviour
         {
             Instantiate(Resources.Load<GameObject>("Prefabs/goalEffect"));
             CLeff = true;
-
+			if (GameParameter.instance.isGlobal) GetAllStageData.Instance.GetSelectStageData.clearCount++;
             if (!goaleffectflag)
             {
                 if (GameParameter.instance.goalEffectID != -1)
@@ -135,7 +136,7 @@ public class Chara_Move : MonoBehaviour
                 }
                     goaleffectflag = true;
             }
-            Invoke("Clear_Trans",5.0f);
+            Invoke("Clear_Trans",3.0f);
         }
 
         if (isdamage)
@@ -487,8 +488,11 @@ public class Chara_Move : MonoBehaviour
 
   void Clear_Trans()
     {
-        if (GameParameter.isGlobal) Application.LoadLevel("selectGlobalScene");
-        else if (GameParameter.isEdit)
+		if (GameParameter.instance.isGlobal) {
+			GameParameter.instance.isGlobal = false;
+			GetAllStageData.Instance.SendCouneter (() => {Application.LoadLevel ("selectGlobalScene");});
+		}
+		else if (GameParameter.instance.isEdit)
         {
             Application.LoadLevel("editorScene");
         }

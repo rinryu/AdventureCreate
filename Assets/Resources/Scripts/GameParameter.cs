@@ -17,8 +17,8 @@ public class GameParameter : MonoBehaviour {
 		}
 	}
 
-    public static bool isEdit = false;
-    public static bool isGlobal = false;
+    public bool isEdit = false;
+    public bool isGlobal = false;
 
 
     enum Parameter
@@ -183,15 +183,15 @@ public class GameParameter : MonoBehaviour {
 
         if(Application.loadedLevelName == "selectScene")
         {
-            GameParameter.isEdit = false;
-            GameParameter.isGlobal = false;
+            isEdit = false;
+            isGlobal = false;
         }else if (Application.loadedLevelName == "editorScene")
         {
-            GameParameter.isEdit = true;
-            GameParameter.isGlobal = false;
+            isEdit = true;
+            isGlobal = false;
         }else if (Application.loadedLevelName == "selectGlobalScene")
         {
-            GameParameter.isGlobal = true;
+            isGlobal = true;
         }else if (Application.loadedLevelName == "gameScene" || Application.loadedLevelName == "gameGlobalScene")
         {
             if (Input.GetKeyDown(KeyCode.Return))

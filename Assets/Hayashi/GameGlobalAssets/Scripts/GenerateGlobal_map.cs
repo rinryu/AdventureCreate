@@ -51,6 +51,7 @@ public class GenerateGlobal_map : AC_Common
     // Use this for initialization
     void Start()
     {
+		GetAllStageData.Instance.GetSelectStageData.playCount++;
 		stage = GetAllStageData.Instance.GetSelectStageData;
         Map =stage.ConvertStageData();
 		ParameterData param = stage.parameterData;
@@ -73,7 +74,8 @@ public class GenerateGlobal_map : AC_Common
 
         StartCoroutine(LoadAssetBundle(path, (s) =>
          {
-             SetMap(s);
+            SetMap(s);
+			s.Unload(false);
          }));
         changeManager.LoadScene();
     }

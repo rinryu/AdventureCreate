@@ -49,8 +49,8 @@ public class SaveStageData : MonoBehaviour {
 
 	public GameParameter gameparameter;
 
-    public void GetStageCoroutine()
-    {
+	public void GetStageCoroutine()
+	{
         StartCoroutine(GetStage());
     }
 
@@ -63,10 +63,10 @@ public class SaveStageData : MonoBehaviour {
     public void Save()
     {
         Debug.Log("Save Start");
-        StartCoroutine(SaveData());
+		StartCoroutine(SaveData());
     }
 
-    IEnumerator SaveData()
+	IEnumerator SaveData()
     {
 //        Debug.Log(editor_editManager.stageID);
         WWWForm form = new WWWForm();
@@ -97,8 +97,8 @@ public class SaveStageData : MonoBehaviour {
         Debug.Log(www.text);
     }
 
-    IEnumerator GetStage()
-    {
+	IEnumerator GetStage()
+	{
         Debug.Log("downloadbegin");
         WWWForm form = new WWWForm();
         form.AddField("userID", UserData.Instanse.ID);
@@ -122,9 +122,6 @@ public class SaveStageData : MonoBehaviour {
 		if (www.text != string.Empty) {
 			string[] result = www.text.Split (';');
 			foreach (string str in result) {
-#if DEVELOP
-				Debug.Log (str);
-#endif
 				Stage.Add (JsonUtility.FromJson<StageDataClass> (str));
 			}
 			Stage.Remove (Stage [Stage.Count - 1]);
@@ -133,8 +130,9 @@ public class SaveStageData : MonoBehaviour {
         Debug.Log("downloadEnd");
 
 		foreach (StageDataClass s in Stage) {
-			s.SetParam ();
+			s.Initialize ();
 		}
+			
         //AutoLoad();
     }
 

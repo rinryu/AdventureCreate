@@ -14,6 +14,7 @@ public class stageButtonSset : MonoBehaviour {
 	    for (int i = 0; i < 5; i++)
         {
             stageButton[i] = transform.FindChild("select_stageButton_" + i).gameObject;
+			stageButton [i].GetComponent<StageButtonStatus> ().SetActive (SaveStageData.Instance.Stage[i],i);
         }
         playButton = transform.FindChild("Play").gameObject;
         makeButton = transform.FindChild("Make").gameObject;
