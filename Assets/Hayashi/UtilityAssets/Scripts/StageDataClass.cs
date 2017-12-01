@@ -224,4 +224,14 @@ public class StageState
 		clearCount = in_clearCount;
 		missCount = in_missCount;
 	}
-} 
+}
+
+[SerializeField]
+public class DeathPoint{
+	public int num;
+	public int stageNumber;
+	public float posX;
+	public float posY;
+
+
+}
