@@ -22,7 +22,7 @@ public class AC_Common : MonoBehaviour {
         return obj;
     }
 
-    public GameObject InstantiateObject(string in_path,string in_name,Transform in_parent)
+    public GameObject InstanciateObject(string in_path,string in_name,Transform in_parent)
     {
         string path = in_path + "/" + in_name;
         GameObject obj = Resources.Load(path) as GameObject;

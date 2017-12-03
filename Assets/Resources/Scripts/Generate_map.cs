@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Generate_map : AC_Common
 { 
@@ -70,6 +71,11 @@ public class Generate_map : AC_Common
 
         }));
 
+        SaveStageData.Instance.GetDeathPoint((d)=>
+        {
+            SetDeathPoint(d);
+        });
+
         if (GameObject.Find("BGM"))
         {
             GameObject.Find("BGM").GetComponent<AudioSource>().clip = GameParameter.instance.BGM;
@@ -79,6 +85,17 @@ public class Generate_map : AC_Common
 
         changeManager.LoadScene();
 
+    }
+
+    private void SetDeathPoint(List<DeathPoint> deathPoints)
+    {
+        foreach(DeathPoint dp in deathPoints)
+        {
+            GameObject obj = Instantiate(Resources.Load("Prefabs/DeathPointMarker") as GameObject);
+//            GameObject obj = InstanciateObject("Prefabs", "DeathPointMarker", transform);
+            obj.transform.position = new Vector2(dp.posX, dp.posY);
+        }
+        
     }
 
     private void SetMap()

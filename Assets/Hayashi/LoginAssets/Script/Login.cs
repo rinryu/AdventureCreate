@@ -13,8 +13,14 @@ public class Login : MonoBehaviour {
     private GameObject text;
     [SerializeField]
     private sceneChangeManager sceneManager;
-	// Use this for initialization
-	void Start () {
+
+#if DEVELOP
+    [SerializeField]
+    bool autoLogin = true;
+#endif
+
+    // Use this for initialization
+    void Start () {
         sceneManager.LoadScene();
         //for (int id = 0; id < editor_editManager.editMapData.GetLength(2); id++)
         //{
@@ -50,7 +56,7 @@ public class Login : MonoBehaviour {
         //}
 
 #if UNITY_EDITOR && DEVELOP
-        StartCoroutine(LoginConnect("tester1", "tester1"));
+        if(autoLogin) StartCoroutine(LoginConnect("tester1", "tester1"));
 #endif
 
 

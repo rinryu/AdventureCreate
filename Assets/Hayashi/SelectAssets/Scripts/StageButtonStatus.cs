@@ -21,22 +21,25 @@ public class StageButtonStatus : MonoBehaviour {
 	public void SetActive(StageDataClass in_stage){
 		Debug.LogError (numSprite [0].name);
 		int stagenum = in_stage.StageNumber;
-		secondNum.sprite = numSprite [stagenum / 10];
-		firstNum.sprite = numSprite [stagenum % 10];
+        SetFont(stagenum);
 		difficulty.text = in_stage.difficulty.ToString ();
 		clearPercent.text = in_stage.ClearPercent.ToString ();
 	}
 	public void SetActive(StageDataClass in_stage,int id){
-		int stagenum = in_stage.StageNumber;
-		secondNum.sprite = numSprite [0];
-		Debug.LogError (numSprite [0].name);
-		firstNum.sprite = numSprite [id];
+		int stagenum = id;
+        SetFont(stagenum);
 		difficulty.text = in_stage.difficulty.ToString ();
 		clearPercent.text = in_stage.ClearPercent.ToString ();
 	}
 
-	// Update is called once per frame
-	void Update () {
+    public void SetFont(int num)
+    {
+        secondNum.sprite = numSprite[num < 10 ? 0 : num/10];
+        firstNum.sprite = numSprite[num % 10];
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }

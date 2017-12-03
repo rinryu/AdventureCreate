@@ -44,10 +44,11 @@ public class SaveStageData : MonoBehaviour {
     sceneChangeManager sceneschange;
     [SerializeField]
     public List<StageDataClass> Stage = new List<StageDataClass>();
+    public List<DeathPoint> deathPoints = new List<DeathPoint>();
     public int stageID;
     bool LoadisDone = false;
 
-	public GameParameter gameparameter;
+    public GameParameter gameparameter;
 
 	public void GetStageCoroutine()
 	{
@@ -135,6 +136,40 @@ public class SaveStageData : MonoBehaviour {
 			
         //AutoLoad();
     }
+
+    public void GetDeathPoint(Action<List<DeathPoint>> callback)
+    {
+        StartCoroutine(GetDeathPointCorountine(callback));
+    }
+
+    IEnumerator GetDeathPointCorountine(Action<List<DeathPoint>> callback)
+    {
+
+        Debug.Log("DownLoad ALLDeathPoint");
+        WWWForm form = new WWWForm();
+        form.AddField("stageNumber",GetSelectStageData.StageNumber);
+        Dictionary<string, string> headers = form.headers;
+        headers["Authorization"] = "Basic " + System.Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes("adventurecreate:actest"));
+        byte[] data = form.data;
+        WWW www = new WWW(ServerSetting.DEVURL + "GetDeathPoint.php", data, headers);
+        while (!www.isDone)
+        {
+            yield return null;
+        }
+        yield return www;
+        Debug.Log("Download AllDeathPoint end");
+        Debug.Log(www.text);
+        string[] str = www.text.Split(';');
+        foreach (string s in str)
+        {
+            deathPoints.Add(JsonUtility.FromJson<DeathPoint>(s));
+        }
+
+        deathPoints.Remove(deathPoints[deathPoints.Count - 1]);
+
+        callback(deathPoints);
+    }
+
 
 
 }

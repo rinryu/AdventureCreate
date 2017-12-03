@@ -51,9 +51,11 @@ public class GetAllStageData : MonoBehaviour {
         
         Debug.Log("DownLoad ALLSTAGE");
         WWWForm form = new WWWForm();
+        form.AddField("userID", UserData.Instanse.ID);
         Dictionary<string, string> headers = form.headers;
         headers["Authorization"] = "Basic " + System.Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes("adventurecreate:actest"));
-        WWW www = new WWW(ServerSetting.DEVURL + "GetAllStage.php", null, headers);
+        byte[] data = form.data;
+        WWW www = new WWW(ServerSetting.DEVURL + "GetAllStage.php", data, headers);
         while (!www.isDone)
         {
             yield return null;
@@ -112,10 +114,42 @@ public class GetAllStageData : MonoBehaviour {
 		callback ();
 	}
 
+    public void SendDeathPoint(Vector2 in_pos)
+    {
+        StartCoroutine(SendDeathPointCoroutine(in_pos));
+    }
+
+    IEnumerator SendDeathPointCoroutine(Vector2 in_pos)
+    {
+        WWWForm form = new WWWForm();
+        StageDataClass stage = GetSelectStageData;
+        DeathPoint deathPoint = new DeathPoint(stage.StageNumber, in_pos.x, in_pos.y);
+        string json = JsonUtility.ToJson(deathPoint);
+        Debug.Log(json);
+        form.AddField("DeathPoint", json);
+        Dictionary<string, string> headers = form.headers;
+        headers["Authorization"] = "Basic " + System.Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes("adventurecreate:actest"));
+        byte[] data = form.data;
+#if DEVELOP
+        WWW www = new WWW(ServerSetting.DEVURL + "AddDeathPoint.php", data, headers);
+#else
+		WWW www = new WWW(ServerSetting.MASTERURL + "SaveStage.php", data,headers);
+#endif
+        yield return www;
+        if (!string.IsNullOrEmpty(www.error))
+        {
+            Debug.LogError(www.error);
+            yield break;
+
+        }
+        Debug.Log(www.text);
+    }
+
     public void SetActive(List<StageDataClass> stage)
     {
 
     }
+
 
 
     // Use this for initialization

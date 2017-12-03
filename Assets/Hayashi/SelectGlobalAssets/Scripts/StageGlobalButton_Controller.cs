@@ -20,6 +20,7 @@ public class StageGlobalButton_Controller : AC_Common {
     void Start()
     {
         stageButton.Add(scrollbar);
+
         firstPos.Add(scrollbar.transform.position);
         firstScale.Add(scrollbar.transform.localScale);
         GetAllStageData.Instance.GetAllStage(Callback);
@@ -46,15 +47,18 @@ public class StageGlobalButton_Controller : AC_Common {
 
     public void Callback(List<StageDataClass> in_stageDataList)
     {
+        int count = 1;
         foreach(StageDataClass stage in in_stageDataList)
         {
             GameObject obj = InstanciateObject(button, buttonparent);
             obj.name = "select_stageButton_" + stage.StageNumber;
-            obj.GetComponent<StageSelectButton>().SetActive(stage,stage.StageNumber);
-			obj.GetComponent<StageButtonStatus> ().SetActive (stage);
+            obj.GetComponent<StageSelectButton>().SetActive(stage,count);
+            Debug.LogError(count);
+			obj.GetComponent<StageButtonStatus> ().SetActive (stage,count);
             stageButton.Add(obj);
             firstPos.Add(obj.transform.position);
             firstScale.Add(obj.transform.localScale);
+            count++;
         }
         button.SetActive(false);
         changeManager.LoadScene();

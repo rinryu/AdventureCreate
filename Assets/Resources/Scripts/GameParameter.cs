@@ -163,11 +163,9 @@ public class GameParameter : MonoBehaviour {
 	private static bool _isMenu;
 	public static bool isMenu{
 		set{
-			Debug.LogError ("SET");
 			_isMenu = value;
 		}
 		get{
-			Debug.LogError ("GET");
 			return _isMenu;
 		}
 	}
@@ -207,7 +205,7 @@ public class GameParameter : MonoBehaviour {
     public void SetParam(ParameterData in_param)
     {
         Debug.Log("SetParam");
-        Debug.Log(in_param.BGMID);
+
 		spd = (Parameter)in_param.Speed;
 		jmp = (Parameter)in_param.Jump;
 		life = (Life)in_param.Life;

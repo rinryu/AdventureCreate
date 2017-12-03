@@ -228,10 +228,15 @@ public class StageState
 
 [SerializeField]
 public class DeathPoint{
-	public int num;
+	public int num = 0;
 	public int stageNumber;
 	public float posX;
 	public float posY;
 
-
+    public DeathPoint(int in_stageNumber,float in_posX,float in_posY)
+    {
+        stageNumber = in_stageNumber;
+        posX = in_posX;
+        posY = in_posY;
+    }
 }

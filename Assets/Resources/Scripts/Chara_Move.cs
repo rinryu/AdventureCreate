@@ -110,7 +110,11 @@ public class Chara_Move : MonoBehaviour
 
         if (isGameOver && !GOeff)
         {
-			if (GameParameter.instance.isGlobal) GetAllStageData.Instance.GetSelectStageData.missCount++;
+            if (GameParameter.instance.isGlobal)
+            {
+                GetAllStageData.Instance.GetSelectStageData.missCount++;
+                GetAllStageData.Instance.SendDeathPoint(transform.position);
+            }
             if (GameParameter.instance.isEdit)
             {
                 GameObject obj = Instantiate(Resources.Load<GameObject>("Prefabs/missEffect"));
