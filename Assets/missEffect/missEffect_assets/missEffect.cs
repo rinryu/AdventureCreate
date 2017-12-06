@@ -21,7 +21,7 @@ public class missEffect : MonoBehaviour {
 
     IEnumerator missIE()
     {
-		if (GameParameter.instance.isGlobal) GameParameter.instance.isGlobal = false;
+		//if (GameParameter.instance.isGlobal) GameParameter.instance.isGlobal = false;
         yield return new WaitForSeconds(2.5f);
         GameObject.Find("sceneChangeManager").GetComponent<sceneChangeManager>().ChangeScene(backSceneName);
     }

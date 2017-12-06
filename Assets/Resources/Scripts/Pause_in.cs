@@ -41,7 +41,7 @@ public class Pause_in : MonoBehaviour {
     {
         GameParameter.isMenu = false;
 		if (GameParameter.instance.isGlobal) {
-			GameParameter.instance.isGlobal = false;
+//			GameParameter.instance.isGlobal = false;
 			Application.LoadLevel ("gameGlobalScene");
 		}
         else Application.LoadLevel("gameScene");

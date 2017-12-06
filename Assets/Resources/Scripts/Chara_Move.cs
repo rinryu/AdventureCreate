@@ -493,7 +493,7 @@ public class Chara_Move : MonoBehaviour
   void Clear_Trans()
     {
 		if (GameParameter.instance.isGlobal) {
-			GameParameter.instance.isGlobal = false;
+			//GameParameter.instance.isGlobal = false;
 			GetAllStageData.Instance.SendCouneter (() => {Application.LoadLevel ("selectGlobalScene");});
 		}
 		else if (GameParameter.instance.isEdit)

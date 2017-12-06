@@ -50,7 +50,7 @@ public class Generate_map : AC_Common
 
     [SerializeField] sceneChangeManager changeManager;
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         StageID = SaveStageData.Instance.stageID;
 		StageDataClass stage = SaveStageData.Instance.GetSelectStageData;
@@ -92,8 +92,10 @@ public class Generate_map : AC_Common
         foreach(DeathPoint dp in deathPoints)
         {
             GameObject obj = Instantiate(Resources.Load("Prefabs/DeathPointMarker") as GameObject);
-//            GameObject obj = InstanciateObject("Prefabs", "DeathPointMarker", transform);
-            obj.transform.position = new Vector2(dp.posX, dp.posY);
+            //            GameObject obj = InstanciateObject("Prefabs", "DeathPointMarker", transform);
+            Vector2 pos = new Vector2(dp.posX, dp.posY);
+            if (pos.y <= 0) pos.y = 0;
+            obj.transform.position = pos;
         }
         
     }

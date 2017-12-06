@@ -49,13 +49,13 @@ public class GenerateGlobal_map : AC_Common
     [SerializeField] private sceneChangeManager changeManager;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
 		GetAllStageData.Instance.GetSelectStageData.playCount++;
 		stage = GetAllStageData.Instance.GetSelectStageData;
         Map =stage.ConvertStageData();
 		ParameterData param = stage.parameterData;
-        GameObject.Find("GameParamater").GetComponent<GameParameter>().SetParam(param);
+        GameParameter.instance.SetParam(param);
         if (GameObject.Find("BGM"))
         {
             GameObject.Find("BGM").GetComponent<AudioSource>().clip = GameParameter.instance.BGM;
