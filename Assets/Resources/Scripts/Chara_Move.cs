@@ -494,7 +494,10 @@ public class Chara_Move : MonoBehaviour
     {
 		if (GameParameter.instance.isGlobal) {
 			//GameParameter.instance.isGlobal = false;
-			GetAllStageData.Instance.SendCouneter (() => {Application.LoadLevel ("selectGlobalScene");});
+			GetAllStageData.Instance.SendCouneter (() => {
+                if (GetAllStageData.Instance.stageID % 5 == 0 && GetAllStageData.Instance.stageID != 1) Application.LoadLevel("selectGlobalScene");
+                else LoadNext();
+            });
 		}
 		else if (GameParameter.instance.isEdit)
         {
@@ -504,6 +507,12 @@ public class Chara_Move : MonoBehaviour
         {
             Application.LoadLevel("selectScene");
         }
+    }
+
+    void LoadNext()
+    {
+        GetAllStageData.Instance.stageID++;
+        Application.LoadLevel(Application.loadedLevelName);
     }
 
     public bool GetisClear()

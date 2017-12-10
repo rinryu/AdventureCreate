@@ -9,7 +9,7 @@ public class GameParameter : MonoBehaviour {
 	}
 	public static GameParameter instance{
 		get{
-			if (_instance == null) {
+			if (_instance == null && GameObject.Find("GameParameter") == null) {
 				GameObject obj = new GameObject ("GameParameter");
 				_instance = obj.AddComponent<GameParameter> ();
 			}

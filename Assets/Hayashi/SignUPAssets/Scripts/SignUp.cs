@@ -13,7 +13,8 @@ public class SignUp : MonoBehaviour {
     private GameObject inputPassword;
     [SerializeField]
     private GameObject inputPasswordAgain;
-
+    [SerializeField]
+    private GameObject inputTag;
     [SerializeField]
     private GameObject message;
 
@@ -41,12 +42,15 @@ public class SignUp : MonoBehaviour {
         string username = inputUsername.GetComponent<InputField>().text;
         string password = inputPassword.GetComponent<InputField>().text;
         string again    = inputPasswordAgain.GetComponent<InputField>().text;
+        string tag = inputTag.GetComponent<InputField>().text;
+
+
         if (password == again)
         {
             WWWForm form = new WWWForm();
             form.AddField("username", username);
             form.AddField("password", password);
-            form.AddField("createtime", DateTime.Now.ToString());
+            form.AddField("Tag", tag);
             Dictionary<string, string> headers = form.headers;
             byte[] data = form.data;
             headers["Authorization"] = "Basic " + System.Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes("adventurecreate:actest"));
@@ -60,6 +64,10 @@ public class SignUp : MonoBehaviour {
             if (www.text == "success")
             {
                 sceneManager.ChangeScene("LoginScene");
+            }
+            else if(www.text == "failure")
+            {
+
             }
         }
         else

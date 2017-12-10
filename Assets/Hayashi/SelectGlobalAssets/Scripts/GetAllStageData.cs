@@ -32,7 +32,7 @@ public class GetAllStageData : MonoBehaviour {
     bool LoadisDone;
 	public StageDataClass GetSelectStageData {
 		get {
-			return Stage [stageID];
+			return Stage [stageID-1];
 		}
 	}
 	public void Awake()
@@ -43,7 +43,8 @@ public class GetAllStageData : MonoBehaviour {
 
     public void GetAllStage(Action<List<StageDataClass>> callback = null)
     {
-        StartCoroutine(GetAllStageCoroutine(callback));
+        if (Stage.Count == 0) StartCoroutine(GetAllStageCoroutine(callback));
+        else callback(Stage);
     }
 
     IEnumerator GetAllStageCoroutine(Action<List<StageDataClass>> callback = null)

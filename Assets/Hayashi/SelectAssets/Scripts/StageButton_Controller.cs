@@ -28,7 +28,6 @@ public class StageButton_Controller : MonoBehaviour {
         }
 		count = 0;
 		foreach (GameObject obj in stageButton) {
-			Debug.LogError (count);
 			obj.GetComponent<StageButtonStatus>().SetActive(SaveStageData.Instance.Stage[count],count+1);
 			count++;
 		}

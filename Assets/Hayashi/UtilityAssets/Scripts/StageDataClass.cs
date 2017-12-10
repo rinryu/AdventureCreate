@@ -32,11 +32,11 @@ public class StageDataClass{
 	[NonSerialized]
 	public int ClearPercent;
 	public enum Difficulty{
-		VERY_EASY,
-		EASY,
-		NORMAL,
-		HARD,
-		VERY_HARD
+		VERY_EASY = 0,
+		EASY = 1,
+		NORMAL = 2,
+		HARD = 3,
+		VERY_HARD = 4
 	}
 	[NonSerialized]
 	public Difficulty difficulty;
