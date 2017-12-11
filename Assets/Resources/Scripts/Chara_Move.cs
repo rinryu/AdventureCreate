@@ -94,7 +94,7 @@ public class Chara_Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameParameter.isMenu) return;
+        if (GameParameter.instance.isMenu) return;
         hitcheck();
 
         // Debug.Log(istoge);

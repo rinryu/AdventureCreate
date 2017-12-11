@@ -160,15 +160,7 @@ public class GameParameter : MonoBehaviour {
 
     bool gameScene_set = false;
 
-	private static bool _isMenu;
-	public static bool isMenu{
-		set{
-			_isMenu = value;
-		}
-		get{
-			return _isMenu;
-		}
-	}
+	public  bool isMenu;
 
     // Use this for initialization
     void Start() {
@@ -194,6 +186,7 @@ public class GameParameter : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
+                Debug.Log("menu");
                 Chara_Move cm = GameObject.Find("player(Clone)").GetComponent<Chara_Move>();
                 if (cm.GetisClear() || cm.GetisGameOver()) return;
 				isMenu = !isMenu;

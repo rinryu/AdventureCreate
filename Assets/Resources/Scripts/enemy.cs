@@ -33,7 +33,7 @@ public class enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (GameParameter.isMenu) return;
+        if (GameParameter.instance.isMenu) return;
 
         switch (command)
         {

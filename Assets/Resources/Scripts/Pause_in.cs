@@ -12,7 +12,7 @@ public class Pause_in : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (GameParameter.isMenu) {
+        if (GameParameter.instance.isMenu) {
             gameObject.transform.position = new Vector2(Screen.width/2,Screen.height/2);
         }
         else
@@ -23,7 +23,7 @@ public class Pause_in : MonoBehaviour {
 
     public void Back_Click()
     {
-        GameParameter.isMenu = false;
+        GameParameter.instance.isMenu = false;
 		if (GameParameter.instance.isGlobal) {
 			GetAllStageData.Instance.GetSelectStageData.missCount++;
 			GetAllStageData.Instance.SendCouneter (() => {Application.LoadLevel ("selectGlobalScene");});
@@ -39,7 +39,7 @@ public class Pause_in : MonoBehaviour {
     }
     public void Return_Click()
     {
-        GameParameter.isMenu = false;
+        GameParameter.instance.isMenu = false;
 		if (GameParameter.instance.isGlobal) {
 //			GameParameter.instance.isGlobal = false;
 			Application.LoadLevel ("gameGlobalScene");
