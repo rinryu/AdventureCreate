@@ -188,13 +188,13 @@ public class GenerateGlobal_map : AC_Common
             Instantiate(Resources.Load<GameObject>("Prefabs/startEffect"));
             startFlag = true;
         }
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            Chara_Move cm = GameObject.Find("player(Clone)").GetComponent<Chara_Move>();
-            if (cm.GetisClear() || cm.GetisGameOver()) return;
-            if (!GameParameter.isMenu) GameParameter.isMenu = true;
-            else GameParameter.isMenu = false;
-        }
+        //if (Input.GetKeyDown(KeyCode.Return))
+        //{
+        //    Chara_Move cm = GameObject.Find("player(Clone)").GetComponent<Chara_Move>();
+        //    if (cm.GetisClear() || cm.GetisGameOver()) return;
+        //    if (!GameParameter.instance.isMenu) GameParameter.instance.isMenu = true;
+        //    else GameParameter.instance.isMenu = false;
+        //}
 
     }
 
