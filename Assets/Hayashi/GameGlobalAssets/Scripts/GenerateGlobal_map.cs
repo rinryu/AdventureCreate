@@ -28,7 +28,7 @@ public class GenerateGlobal_map : AC_Common
     int StageID;
     public int MapSizeX;
     public int MapSizeY;
-    int TileSize = 50;
+    public const int TileSize = 50;
 
     /// <summary>
     /// Resource_Set

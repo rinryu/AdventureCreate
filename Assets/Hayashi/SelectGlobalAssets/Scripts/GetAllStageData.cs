@@ -123,8 +123,9 @@ public class GetAllStageData : MonoBehaviour {
     IEnumerator SendDeathPointCoroutine(Vector2 in_pos)
     {
         WWWForm form = new WWWForm();
-        StageDataClass stage = GetSelectStageData;
-        DeathPoint deathPoint = new DeathPoint(stage.StageNumber, in_pos.x, in_pos.y);
+        int x = (int)(Math.Round(in_pos.x / GenerateGlobal_map.TileSize));
+        int y = (int)(Math.Round(in_pos.y / GenerateGlobal_map.TileSize));
+        DeathPoint deathPoint = new DeathPoint(GetSelectStageData.StageNumber, x, y);
         string json = JsonUtility.ToJson(deathPoint);
         Debug.Log(json);
         form.AddField("DeathPoint", json);

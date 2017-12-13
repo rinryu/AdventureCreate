@@ -114,20 +114,18 @@ public class Chara_Move : MonoBehaviour
             {
                 GetAllStageData.Instance.GetSelectStageData.missCount++;
                 GetAllStageData.Instance.SendDeathPoint(transform.position);
-            }
-            if (GameParameter.instance.isEdit)
+            }else if (GameParameter.instance.isEdit)
             {
                 GameObject obj = Instantiate(Resources.Load<GameObject>("Prefabs/missEffect"));
-                GOeff = true;
             }
             else
             {
                 GameObject obj = Instantiate(Resources.Load<GameObject>("Prefabs/missEffect_retry"));
                 obj.GetComponent<missEffect>().backSceneName = GameParameter.instance.isGlobal ? "gameGlobalScene" : "gameScene";
-                GOeff = true;
             }
+            GOeff = true;
         }
-        if (isClear && !CLeff)
+        else if (isClear && !CLeff)
         {
             Instantiate(Resources.Load<GameObject>("Prefabs/goalEffect"));
             CLeff = true;
