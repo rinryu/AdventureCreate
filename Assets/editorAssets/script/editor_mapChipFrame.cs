@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class editor_mapChipFrame : MonoBehaviour {
@@ -21,13 +22,17 @@ public class editor_mapChipFrame : MonoBehaviour {
 
     GameObject[] mapChip = new GameObject[50 * 10];
     Image[] mapChip_image = new Image[50 * 10];
+	[SerializeField]
+	List<DeathPoint> deathPointList;
     // Use this for initialization
     void Start()
     {
         stageSlider = GameObject.Find("stageSlider").GetComponent<Slider>();
-
-        SetChipObject();
-        UpDateMap();
+		SaveStageData.Instance.GetDeathPoint ((dp) => {
+			deathPointList = DeathPoint.SetMass(dp);
+			SetChipObject();
+			UpDateMap();
+		});
     }
 
     void SetChipObject()

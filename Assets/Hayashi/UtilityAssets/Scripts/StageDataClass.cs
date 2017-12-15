@@ -230,13 +230,39 @@ public class StageState
 public class DeathPoint{
 	public int num = 0;
 	public int stageNumber;
-	public float posX;
-	public float posY;
+	public int posX;
+	public int posY;
+	[NonSerialized]
+	public bool isAlereadyCheck;
+	[NonSerialized]
+	public int mass = 1;
 
-    public DeathPoint(int in_stageNumber,float in_posX,float in_posY)
+    public DeathPoint(int in_stageNumber,int in_posX,int in_posY)
     {
         stageNumber = in_stageNumber;
         posX = in_posX;
         posY = in_posY;
     }
+
+	public static List<DeathPoint> SetMass(List<DeathPoint> argDeathPoint){
+		List<DeathPoint> dp = argDeathPoint;
+		foreach (DeathPoint a in dp) {
+			foreach (DeathPoint b in argDeathPoint) {
+				if (CheckEqual (a, b)) {
+					a.mass++;
+					dp.Remove (b);
+				}
+			}
+		}
+		return dp;
+
+	}
+
+	private static bool CheckEqual(DeathPoint a,DeathPoint b){
+		if (a.posX == b.posX && a.posY == b.posY) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
