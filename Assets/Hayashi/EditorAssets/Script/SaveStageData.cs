@@ -144,8 +144,8 @@ public class SaveStageData : MonoBehaviour {
 
     IEnumerator GetDeathPointCorountine(Action<List<DeathPoint>> callback)
     {
-
-        Debug.Log("DownLoad ALLDeathPoint");
+		deathPoints.Clear ();
+		Debug.Log(string.Format("Downloading Get{0}Stage DeathPoint",GetSelectStageData.StageNumber));
         WWWForm form = new WWWForm();
         form.AddField("stageNumber",GetSelectStageData.StageNumber);
         Dictionary<string, string> headers = form.headers;

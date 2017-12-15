@@ -226,16 +226,24 @@ public class StageState
 	}
 }
 
-[SerializeField]
+[Serializable]
 public class DeathPoint{
+	[NonSerialized]
+	public const int MAX_MASS = 10;
 	public int num = 0;
 	public int stageNumber;
 	public int posX;
 	public int posY;
 	[NonSerialized]
-	public bool isAlereadyCheck;
-	[NonSerialized]
 	public int mass = 1;
+
+	public DeathPoint(DeathPoint argDeathPoint){
+		this.num = argDeathPoint.num;
+		this.stageNumber = argDeathPoint.stageNumber;
+		this.posX = argDeathPoint.posX;
+		this.posY = argDeathPoint.posY;
+		this.mass = 1;
+	}
 
     public DeathPoint(int in_stageNumber,int in_posX,int in_posY)
     {
@@ -246,11 +254,13 @@ public class DeathPoint{
 
 	public static List<DeathPoint> SetMass(List<DeathPoint> argDeathPoint){
 		List<DeathPoint> dp = argDeathPoint;
-		foreach (DeathPoint a in dp) {
-			foreach (DeathPoint b in argDeathPoint) {
-				if (CheckEqual (a, b)) {
-					a.mass++;
-					dp.Remove (b);
+		for (int i = 0; i < argDeathPoint.Count; i++) {
+			for (int j = 0; j < argDeathPoint.Count; j++) {
+				if (i == j) continue;
+				dp [i].mass++;
+				if(DeathPoint.CheckEqual(argDeathPoint[i],argDeathPoint[j])){
+					dp [i].mass++;
+					dp.RemoveAt (j);
 				}
 			}
 		}

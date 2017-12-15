@@ -124,7 +124,9 @@ public class GetAllStageData : MonoBehaviour {
     {
         WWWForm form = new WWWForm();
         int x = (int)(Math.Round(in_pos.x / GenerateGlobal_map.TileSize));
-        int y = (int)(Math.Round(in_pos.y / GenerateGlobal_map.TileSize));
+		int y;
+		if (in_pos.y < 0) y = 0; 
+        else y = (int)(Math.Round(in_pos.y / GenerateGlobal_map.TileSize));
         DeathPoint deathPoint = new DeathPoint(GetSelectStageData.StageNumber, x, y);
         string json = JsonUtility.ToJson(deathPoint);
         Debug.Log(json);

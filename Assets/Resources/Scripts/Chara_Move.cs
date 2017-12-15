@@ -114,7 +114,8 @@ public class Chara_Move : MonoBehaviour
             {
                 GetAllStageData.Instance.GetSelectStageData.missCount++;
                 GetAllStageData.Instance.SendDeathPoint(transform.position);
-            }else if (GameParameter.instance.isEdit)
+            }
+			if (GameParameter.instance.isEdit)
             {
                 GameObject obj = Instantiate(Resources.Load<GameObject>("Prefabs/missEffect"));
             }
