@@ -494,8 +494,7 @@ public class Chara_Move : MonoBehaviour
 		if (GameParameter.instance.isGlobal) {
 			//GameParameter.instance.isGlobal = false;
 			GetAllStageData.Instance.SendCouneter (() => {
-                if (GetAllStageData.Instance.stageID % 5 == 0 && GetAllStageData.Instance.stageID != 1) Application.LoadLevel("selectGlobalScene");
-                else LoadNext();
+                Application.LoadLevel("selectGlobalScene");
             });
 		}
 		else if (GameParameter.instance.isEdit)
