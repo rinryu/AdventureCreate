@@ -22,11 +22,15 @@ public class editor_mapChipFrame : MonoBehaviour {
 
     Slider stageSlider;
 
+    [SerializeField]
+    GameObject selectMapChipFrame;
 
     GameObject[] mapChip = new GameObject[50 * 10];
     Image[] mapChip_image = new Image[50 * 10];
 	[SerializeField]
 	public List<DeathPoint> deathPointList = new List<DeathPoint>();
+
+    bool ready = false;
     // Use this for initialization
     void Start()
     {
@@ -35,7 +39,7 @@ public class editor_mapChipFrame : MonoBehaviour {
 			deathPointList = DeathPoint.SetMass(dp);
 			SetChipObject();
 			SetHeatMap();
-			UpDateMap();
+			//UpDateMap();
 		});
     }
 
@@ -54,8 +58,10 @@ public class editor_mapChipFrame : MonoBehaviour {
                 mapChip[i].transform.localScale = Vector2.one;
                 mapChip[i].GetComponent<editor_mapChip>().mapX = ix;
                 mapChip[i].GetComponent<editor_mapChip>().mapY = iy;
+                mapChip[i].GetComponent<editor_mapChip>().selectChipFrame = selectMapChipFrame;
             }
         }
+        ready = true;
     }
 
 	private void SetHeatMap(){
@@ -88,7 +94,7 @@ public class editor_mapChipFrame : MonoBehaviour {
                     if (iy < mapSizeY - 1)
                     {
                         if (map[ix, iy + 1] == 1)
-                        {
+                        {                            
 							try{
                             	mapChip_image[ix + iy * mapSizeX].sprite = P_stageB;
 							}
@@ -153,7 +159,10 @@ public class editor_mapChipFrame : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        UpDateMap();
+        if (ready)
+        {
+            UpDateMap();
+        }
 		transform.localPosition = frame.localPosition = Vector2.zero - Vector2.right * stageSlider.value * 1730.0f;
     }
 }

@@ -7,11 +7,11 @@ public class editor_mapChip : MonoBehaviour {
     public int mapX,mapY;
     editor_editManager manager;
 
-    GameObject selectChipFrame;
+    public GameObject selectChipFrame;
 
 	// Use this for initialization
 	void Start () {
-        selectChipFrame = GameObject.Find("selectChipFrame");
+        //selectChipFrame = GameObject.Find("selectChipFrame");
         aniCon = GetComponent<Animator>();
         manager = GameObject.Find("EditManager").GetComponent<editor_editManager>();
 	}
