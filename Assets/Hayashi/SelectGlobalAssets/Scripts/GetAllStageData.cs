@@ -123,8 +123,10 @@ public class GetAllStageData : MonoBehaviour {
     IEnumerator SendDeathPointCoroutine(Vector2 in_pos)
     {
         WWWForm form = new WWWForm();
-        int x = (int)(Math.Round(in_pos.x / GenerateGlobal_map.TileSize));
-		int y;
+        int x, y;
+        if (in_pos.x < 0) x = 0;
+        else if (in_pos.x > 50) x = 50;
+        else x = (int)(Math.Round(in_pos.x / GenerateGlobal_map.TileSize));
 		if (in_pos.y < 0) y = 0; 
         else y = (int)(Math.Round(in_pos.y / GenerateGlobal_map.TileSize));
         DeathPoint deathPoint = new DeathPoint(GetSelectStageData.StageNumber, x, y);
