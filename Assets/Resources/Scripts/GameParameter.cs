@@ -184,7 +184,7 @@ public class GameParameter : MonoBehaviour {
             isGlobal = true;
         }else if (Application.loadedLevelName == "gameScene" || Application.loadedLevelName == "gameGlobalScene")
         {
-            if (Input.GetKeyDown(KeyCode.Return))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 Debug.Log("menu");
                 Chara_Move cm = GameObject.Find("player(Clone)").GetComponent<Chara_Move>();
