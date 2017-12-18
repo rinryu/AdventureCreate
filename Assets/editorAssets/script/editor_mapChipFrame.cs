@@ -66,8 +66,10 @@ public class editor_mapChipFrame : MonoBehaviour {
 
 	private void SetHeatMap(){
 		string colormes = string.Empty;
+        deathPointList.Sort((a, b) => b.mass - a.mass);
+
 		foreach (DeathPoint dp in deathPointList) {
-			Color color = new Color (1,1-((float)dp.mass) / DeathPoint.MAX_MASS, 1-((float)dp.mass) / DeathPoint.MAX_MASS);
+			Color color = new Color (1,1-((float)dp.mass) / deathPointList[0].mass, 1-((float)dp.mass) / deathPointList[0].mass);
 			colormes = colormes + string.Format ("[{0},{1}]:color={2};", dp.posX,dp.posY, dp.mass);
 			mapChip_image [dp.posX + dp.posY * 50].color = color; 
 		}
