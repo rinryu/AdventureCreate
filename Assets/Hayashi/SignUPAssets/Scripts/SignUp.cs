@@ -18,6 +18,7 @@ public class SignUp : MonoBehaviour {
     [SerializeField]
     private GameObject message;
 
+
     [SerializeField]
     private sceneChangeManager sceneManager;
     // Use this for initialization
@@ -63,7 +64,8 @@ public class SignUp : MonoBehaviour {
             message.GetComponent<Text>().text = www.text;
             if (www.text == "success")
             {
-                sceneManager.ChangeScene("LoginScene");
+
+                sceneManager.ChangeScene("titleScene");
             }
             else if(www.text == "failure")
             {
