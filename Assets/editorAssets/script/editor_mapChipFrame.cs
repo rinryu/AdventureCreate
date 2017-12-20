@@ -36,9 +36,12 @@ public class editor_mapChipFrame : MonoBehaviour {
     {
         stageSlider = GameObject.Find("stageSlider").GetComponent<Slider>();
 		SaveStageData.Instance.GetDeathPoint ((dp) => {
-			deathPointList = DeathPoint.SetMass(dp);
-			SetChipObject();
-			SetHeatMap();
+            SetChipObject();
+            if (dp != null)
+            {
+                deathPointList = DeathPoint.SetMass(dp);
+                SetHeatMap();
+            }
 			//UpDateMap();
 		});
     }

@@ -159,15 +159,22 @@ public class SaveStageData : MonoBehaviour {
         yield return www;
         Debug.Log("Download AllDeathPoint end");
         Debug.Log(www.text);
-        string[] str = www.text.Split(';');
-        foreach (string s in str)
+        if (www.text == "None")
         {
-            deathPoints.Add(JsonUtility.FromJson<DeathPoint>(s));
+            callback(null);
         }
+        else
+        {
+            string[] str = www.text.Split(';');
+            foreach (string s in str)
+            {
+                deathPoints.Add(JsonUtility.FromJson<DeathPoint>(s));
+            }
 
-        deathPoints.Remove(deathPoints[deathPoints.Count - 1]);
+            deathPoints.Remove(deathPoints[deathPoints.Count - 1]);
 
-        callback(deathPoints);
+            callback(deathPoints);
+        }
     }
 
 
