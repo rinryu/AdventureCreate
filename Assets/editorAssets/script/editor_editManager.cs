@@ -80,7 +80,6 @@ public class editor_editManager : MonoBehaviour {
     void Start () {
 
         setMapChipID = 1;
-        changeManager.LoadScene();
         
             
 	}

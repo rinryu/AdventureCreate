@@ -29,7 +29,7 @@ public class editor_mapChipFrame : MonoBehaviour {
     Image[] mapChip_image = new Image[50 * 10];
 	[SerializeField]
 	public List<DeathPoint> deathPointList = new List<DeathPoint>();
-
+    [SerializeField] sceneChangeManager changeManager;
     bool ready = false;
     // Use this for initialization
     void Start()
@@ -42,8 +42,9 @@ public class editor_mapChipFrame : MonoBehaviour {
                 deathPointList = DeathPoint.SetMass(dp);
                 SetHeatMap();
             }
-			//UpDateMap();
-		});
+            changeManager.LoadScene();
+            //UpDateMap();
+        });
     }
 
     void SetChipObject()
@@ -64,6 +65,7 @@ public class editor_mapChipFrame : MonoBehaviour {
                 mapChip[i].GetComponent<editor_mapChip>().selectChipFrame = selectMapChipFrame;
             }
         }
+        Debug.Log("SetMap");
         ready = true;
     }
 
