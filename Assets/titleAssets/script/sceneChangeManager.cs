@@ -16,6 +16,13 @@ public class sceneChangeManager : MonoBehaviour {
         aniCon.Play("sceneGate_open");
     }
 
+    public void CloseScene()
+    {
+        transform.SetAsLastSibling();
+        aniCon = GetComponent<Animator>();
+        aniCon.Play("sceneGate_close");
+    }
+
     public void ChangeScene(string sceneName)
     {
         

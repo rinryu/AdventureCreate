@@ -9,7 +9,7 @@ public class TitleManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         sceneChange.LoadScene();
-        SaveStageData.Instance.GetStageCoroutine();
+        SaveStageData.Instance.GetAllStageCoroutine();
 
     }
 

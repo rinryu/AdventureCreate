@@ -31,19 +31,41 @@ public class editor_mapChipFrame : MonoBehaviour {
 	public List<DeathPoint> deathPointList = new List<DeathPoint>();
 
     bool ready = false;
+
+    [SerializeField]
+    sceneChangeManager scenemanager;
     // Use this for initialization
     void Start()
     {
         stageSlider = GameObject.Find("stageSlider").GetComponent<Slider>();
-		SaveStageData.Instance.GetDeathPoint ((dp) => {
+        InitMap(false);
+    }
+
+    public void InitMap(bool isAlready,int num = 0)
+    {
+        if (isAlready)
+        {
+            ClearMap();
+        }
+        SaveStageData.Instance.GetDeathPoint((dp) => {
             SetChipObject();
             if (dp != null)
             {
                 deathPointList = DeathPoint.SetMass(dp);
                 SetHeatMap();
             }
-			//UpDateMap();
-		});
+            scenemanager.LoadScene();
+            //UpDateMap();
+        },num);
+
+    }
+
+    public void ClearMap()
+    {
+        foreach(GameObject map in mapChip)
+        {
+            Destroy(map);
+        }
     }
 
     void SetChipObject()
@@ -110,14 +132,30 @@ public class editor_mapChipFrame : MonoBehaviour {
                         }
                         else
                         {
-                            mapChip_image[ix + iy * mapSizeX].sprite = P_stageA;
+                            try
+                            {
+                                mapChip_image[ix + iy * mapSizeX].sprite = P_stageA;
+                            }
+                            catch (NullReferenceException e)
+                            {
+                                string chipnum = string.Format("map[{0},{1}]:", ix, iy);
+                                Debug.LogError(chipnum + e.Message);
+                            }
                         }
                     }
                     else
                     {
-                        mapChip_image[ix + iy * mapSizeX].sprite = P_stageA;
+                        try
+                        {
+                            mapChip_image[ix + iy * mapSizeX].sprite = P_stageA;
+                        }
+                        catch (NullReferenceException e)
+                        {
+                            string chipnum = string.Format("map[{0},{1}]:", ix, iy);
+                            Debug.LogError(chipnum + e.Message);
+                        }
                     }
-                    
+
                 }
                 if (map[ix, iy] == 2)
                 {

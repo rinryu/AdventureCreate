@@ -33,8 +33,12 @@ public class SaveStageData : MonoBehaviour {
 	}
 
 	public void SetSelectData(StageDataClass in_stage){
-		Stage [stageID] = in_stage;
+		Stage [stageID].StageData = in_stage.StageData;
 	}
+    public void SetSelectData(StageDataClass in_stage,int number)
+    {
+        Stage[number].StageData = in_stage.StageData;
+    }
 
     string Readdata;
     bool Load = false;
@@ -50,9 +54,9 @@ public class SaveStageData : MonoBehaviour {
 
     public GameParameter gameparameter;
 
-	public void GetStageCoroutine()
+	public void GetAllStageCoroutine()
 	{
-        StartCoroutine(GetStage());
+        StartCoroutine(GetAllStage());
     }
 
     public void Awake()
@@ -98,7 +102,7 @@ public class SaveStageData : MonoBehaviour {
         Debug.Log(www.text);
     }
 
-	IEnumerator GetStage()
+	IEnumerator GetAllStage()
 	{
         Debug.Log("downloadbegin");
         WWWForm form = new WWWForm();
@@ -137,17 +141,54 @@ public class SaveStageData : MonoBehaviour {
         //AutoLoad();
     }
 
-    public void GetDeathPoint(Action<List<DeathPoint>> callback)
+    public void OverrideStageCoroutine(int setNumber,int getNumber,Action callback)
     {
-        StartCoroutine(GetDeathPointCorountine(callback));
+        StartCoroutine(OverrideStage(setNumber,getNumber,callback));
     }
 
-    IEnumerator GetDeathPointCorountine(Action<List<DeathPoint>> callback)
+    IEnumerator OverrideStage(int setNumber,int getNumber,Action callback)
+    {
+        Debug.Log("GetReferenceStageBegin");
+        WWWForm form = new WWWForm();
+        form.AddField("stageNumber", getNumber);
+        Dictionary<string, string> headers = form.headers;
+        headers["Authorization"] = "Basic " + System.Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes("adventurecreate:actest"));
+        byte[] data = form.data;
+        WWW www = new WWW(ServerSetting.DEVURL + "GetReferenceStageData.php", data, headers);
+        while (!www.isDone)
+        {
+            yield return null;
+        }
+        yield return www;
+        Debug.Log("DownLoad GetReferenceStage end");
+        Debug.Log(www.text);
+        if(www.error != null)
+        {
+            Debug.LogError(www.error);
+        }
+        SetSelectData(JsonUtility.FromJson<StageDataClass>(www.text),setNumber);
+        callback();
+
+    }
+
+    public void GetDeathPoint(Action<List<DeathPoint>> callback)
+    {
+        StartCoroutine(GetDeathPointCorountine(callback, GetSelectStageData.StageNumber));
+    }
+
+    public void GetDeathPoint(Action<List<DeathPoint>> callback,int num)
+    {
+        if(num == 0) StartCoroutine(GetDeathPointCorountine(callback, GetSelectStageData.StageNumber));
+        else StartCoroutine(GetDeathPointCorountine(callback, num));
+    }
+
+
+    IEnumerator GetDeathPointCorountine(Action<List<DeathPoint>> callback,int num)
     {
 		deathPoints.Clear ();
-		Debug.Log(string.Format("Downloading Get{0}Stage DeathPoint",GetSelectStageData.StageNumber));
+		Debug.Log(string.Format("Downloading Get{0}Stage DeathPoint",num));
         WWWForm form = new WWWForm();
-        form.AddField("stageNumber",GetSelectStageData.StageNumber);
+        form.AddField("stageNumber",num);
         Dictionary<string, string> headers = form.headers;
         headers["Authorization"] = "Basic " + System.Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes("adventurecreate:actest"));
         byte[] data = form.data;
