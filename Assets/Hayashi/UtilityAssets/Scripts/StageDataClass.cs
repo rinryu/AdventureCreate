@@ -257,6 +257,7 @@ public class DeathPoint{
 		for (int i = 0; i < argDeathPoint.Count; i++) {
 			for (int j = 0; j < argDeathPoint.Count; j++) {
 				if (i == j) continue;
+                if (i >= dp.Count || j >= dp.Count) break;
 				dp [i].mass++;
 				if(DeathPoint.CheckEqual(argDeathPoint[i],argDeathPoint[j])){
 					dp [i].mass++;

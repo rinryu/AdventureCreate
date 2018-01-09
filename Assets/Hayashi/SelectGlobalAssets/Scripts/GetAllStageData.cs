@@ -43,20 +43,26 @@ public class GetAllStageData : MonoBehaviour {
 
     public void GetAllStage(Action<List<StageDataClass>> callback = null)
     {
-        if (Stage.Count == 0) StartCoroutine(GetAllStageCoroutine(callback));
+
+        if (Stage.Count == 0)
+        {
+            StartCoroutine(GetAllStageCoroutine(80));
+            StartCoroutine(GetAllStageCoroutine(104,callback));
+
+        }
         else callback(Stage);
     }
 
-    IEnumerator GetAllStageCoroutine(Action<List<StageDataClass>> callback = null)
+    IEnumerator GetAllStageCoroutine(int getNumber,Action<List<StageDataClass>> callback = null)
     {
-        
-        Debug.Log("DownLoad ALLSTAGE");
+
+        Debug.Log("GetReferenceStageBegin");
         WWWForm form = new WWWForm();
-        form.AddField("userID", UserData.Instanse.ID);
+        form.AddField("stageNumber", getNumber);
         Dictionary<string, string> headers = form.headers;
         headers["Authorization"] = "Basic " + System.Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes("adventurecreate:actest"));
         byte[] data = form.data;
-        WWW www = new WWW(ServerSetting.DEVURL + "GetAllStage.php", data, headers);
+        WWW www = new WWW(ServerSetting.DEVURL + "GetReferenceStageData.php", data, headers);
         while (!www.isDone)
         {
             yield return null;
@@ -64,21 +70,15 @@ public class GetAllStageData : MonoBehaviour {
         yield return www;
         Debug.Log("Download ALLSTAGE end");
         Debug.Log(www.text);
-        string[] str = www.text.Split(';');
-        Debug.Log(str.Length);
-        Debug.Log(str[str.Length - 2]);
-        foreach (string s in str)
-        {
-            Stage.Add(JsonUtility.FromJson<StageDataClass>(s));
-        }
+        Stage.Add(JsonUtility.FromJson<StageDataClass>(www.text));
  
-        Stage.Remove(Stage[Stage.Count - 1]);
-
 		foreach (StageDataClass s in Stage) {
 			s.Initialize ();
 		}
-
-        callback(Stage);
+        if (callback != null)
+        {
+            callback(Stage);
+        }
 
 
     }
@@ -119,6 +119,8 @@ public class GetAllStageData : MonoBehaviour {
     {
         StartCoroutine(SendDeathPointCoroutine(in_pos));
     }
+
+
 
     IEnumerator SendDeathPointCoroutine(Vector2 in_pos)
     {
