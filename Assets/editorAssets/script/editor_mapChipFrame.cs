@@ -32,6 +32,7 @@ public class editor_mapChipFrame : MonoBehaviour {
 
     bool ready = false;
 
+    public static int deplicateNumber = 0;
     [SerializeField]
     sceneChangeManager scenemanager;
     // Use this for initialization
@@ -45,6 +46,7 @@ public class editor_mapChipFrame : MonoBehaviour {
     {
         if (isAlready)
         {
+            deplicateNumber = num;
             ClearMap();
         }
         SaveStageData.Instance.GetDeathPoint((dp) => {
@@ -58,6 +60,12 @@ public class editor_mapChipFrame : MonoBehaviour {
             //UpDateMap();
         },num);
 
+    }
+
+    public void ShowDeathPoint()
+    {
+        scenemanager.CloseScene();
+        InitMap(true, deplicateNumber);
     }
 
     public void ClearMap()
