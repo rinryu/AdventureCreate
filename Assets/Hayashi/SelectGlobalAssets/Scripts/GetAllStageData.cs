@@ -49,7 +49,7 @@ public class GetAllStageData : MonoBehaviour {
 
     IEnumerator GetAllStageCoroutine(Action<List<StageDataClass>> callback = null)
     {
-        
+        Stage.Clear();
         Debug.Log("DownLoad ALLSTAGE");
         WWWForm form = new WWWForm();
         form.AddField("userID", UserData.Instanse.ID);
@@ -77,6 +77,8 @@ public class GetAllStageData : MonoBehaviour {
 		foreach (StageDataClass s in Stage) {
 			s.Initialize ();
 		}
+        Stage.Sort((a, b) => a.ClearPercent-b.ClearPercent);
+        Stage.Reverse();
 
         callback(Stage);
 
