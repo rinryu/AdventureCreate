@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_2;UNITY_5_5;UNITY_5;UNITY_64;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_STANDALONE_OSX;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_GAMECENTER;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_VIDEO;ENABLE_VR;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;UNITY_TEAM_LICENSE;DEVELOP</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_2;UNITY_5_5;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_WEBGL;UNITY_WEBGL_API;UNITY_DISABLE_WEB_VERIFICATION;UNITY_GFX_USE_PLATFORM_VSYNC;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_VR;ENABLE_IL2CPP;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;DEBUG_MODE;DEVELOP;PLAYONLY</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -39,17 +39,19 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>/Applications/Unity/Unity5.5.2/Unity.app/Contents/Managed/UnityEngine.dll</HintPath>
+      <HintPath>C:/Program Files/unity/Unity5.5.0f3/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>/Applications/Unity/Unity5.5.2/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
+      <HintPath>C:/Program Files/unity/Unity5.5.0f3/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Hayashi\EditorAssets\Script\DeplicatePanelManager.cs" />
      <Compile Include="Assets\Hayashi\EditorAssets\Script\SaveStageData.cs" />
      <Compile Include="Assets\Hayashi\GameGlobalAssets\Scripts\GenerateGlobal_map.cs" />
      <Compile Include="Assets\Hayashi\LoginAssets\Script\Login.cs" />
      <Compile Include="Assets\Hayashi\SelectAssets\Scripts\BackButtonCLick.cs" />
+     <Compile Include="Assets\Hayashi\SelectAssets\Scripts\StageButtonStatus.cs" />
      <Compile Include="Assets\Hayashi\SelectAssets\Scripts\StageButton_Controller.cs" />
      <Compile Include="Assets\Hayashi\SelectGlobalAssets\Scripts\BackButtonCLickGlobal.cs" />
      <Compile Include="Assets\Hayashi\SelectGlobalAssets\Scripts\GetAllStageData.cs" />
@@ -77,11 +79,11 @@
      <Compile Include="Assets\Resources\Scripts\Generate_map.cs" />
      <Compile Include="Assets\Resources\Scripts\Goal.cs" />
      <Compile Include="Assets\Resources\Scripts\Pause_in.cs" />
-     <Compile Include="Assets\Resources\Scripts\Save_txt.cs" />
      <Compile Include="Assets\Resources\Scripts\Title_to_edit.cs" />
      <Compile Include="Assets\Resources\Scripts\enemy.cs" />
      <Compile Include="Assets\Resources\Scripts\enemy_attachment.cs" />
      <Compile Include="Assets\Resources\Scripts\sc.cs" />
+     <Compile Include="Assets\Setting\SceneData.cs" />
      <Compile Include="Assets\Utility\Scripts\SceneChangeManager.cs" />
      <Compile Include="Assets\Utility\Scripts\Screenshot.cs" />
      <Compile Include="Assets\Utility\Scripts\delayExecute.cs" />
@@ -132,23 +134,23 @@
      <None Include="Assets\StreamingAssets\ParameterData3.txt" />
      <None Include="Assets\StreamingAssets\ParameterData4.txt" />
      <None Include="Assets\StreamingAssets\ParameterData2.txt" />
- <Reference Include="UnityEngine.Analytics">
- <HintPath>/Applications/Unity/Unity5.5.2/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.PlaymodeTestsRunner">
- <HintPath>/Applications/Unity/Unity5.5.2/Unity.app/Contents/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll</HintPath>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/unity/Unity5.5.0f3/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>/Applications/Unity/Unity5.5.2/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>C:/Program Files/unity/Unity5.5.0f3/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
- <Reference Include="UnityEngine.UI">
- <HintPath>/Applications/Unity/Unity5.5.2/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <Reference Include="UnityEngine.PlaymodeTestsRunner">
+ <HintPath>C:/Program Files/unity/Unity5.5.0f3/Editor/Data/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/unity/Unity5.5.0f3/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
- <HintPath>/Applications/Unity/Unity5.5.2/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ <HintPath>C:/Program Files/unity/Unity5.5.0f3/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.VR">
- <HintPath>/Applications/Unity/Unity5.5.2/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ <HintPath>C:/Program Files/unity/Unity5.5.0f3/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
